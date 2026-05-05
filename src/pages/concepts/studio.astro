@@ -1,0 +1,34 @@
+---
+import ConceptLayout from '../../layouts/ConceptLayout.astro';
+import ConceptChat from '../../components/ConceptChat.astro';
+import ConceptMotion from '../../components/ConceptMotion.astro';
+import { shortChat } from '../../data/conceptChat';
+---
+
+<ConceptLayout title="Look 2 Studio">
+  <section class="look-studio">
+    <div class="look-studio-copy">
+      <p class="concept-kicker">Look 2: Brand studio wall</p>
+      <h1>
+        <span class="concept-word"><span data-gsap="word">Small</span></span>
+        <span class="concept-word"><span data-gsap="word">team.</span></span>
+        <span class="concept-word"><span data-gsap="word">Serious</span></span>
+        <span class="concept-word"><span data-gsap="word">proof.</span></span>
+      </h1>
+      <p>The current floating proof wall becomes a composed studio surface: selected work, a live chat proof moment, and clearer visual hierarchy.</p>
+      <div class="concept-actions">
+        <a class="btn primary" href="/contact/">Book a call</a>
+        <a class="btn secondary" href="/services/">Explore services</a>
+      </div>
+    </div>
+    <div class="studio-stage">
+      <img class="studio-card" data-gsap="float-card" src="/assets/projects/alpha-01.webp" alt="Alpha project visual" />
+      <img class="studio-card" data-gsap="float-card" src="/assets/projects/pallet-plus-01.webp" alt="Pallet Plus project visual" />
+      <img class="studio-card" data-gsap="float-card" src="/assets/projects/lolly-01.webp" alt="Lolly project visual" />
+      <div class="studio-chat" data-gsap="chat">
+        <ConceptChat messages={shortChat} compact />
+      </div>
+    </div>
+  </section>
+  <ConceptMotion />
+</ConceptLayout>

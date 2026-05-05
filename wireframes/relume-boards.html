@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F8 - Relume Style Wireframe Boards</title>
+  <style>
+    :root {
+      --bg: #dddddd;
+      --page: #f6f6f6;
+      --line: #dfdfdf;
+      --text: #1e1e1e;
+      --muted: #666;
+      --blk1: #e7e7e7;
+      --blk2: #d8d8d8;
+      --blk3: #cbcbcb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    .boards {
+      display: grid;
+      grid-template-columns: repeat(5, 280px);
+      gap: 18px;
+      padding: 18px;
+      min-height: 100vh;
+      align-items: start;
+      overflow-x: auto;
+    }
+    .page {
+      background: var(--page);
+      border: 1px solid #cfcfcf;
+      min-height: 2000px;
+      padding: 10px 12px 14px;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid var(--line);
+      padding: 7px 8px;
+      background: #fafafa;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 16px;
+    }
+    .logo { font-weight: 700; text-transform: none; letter-spacing: 0; font-size: 11px; }
+    .nav { color: #777; }
+    .cta { background: #111; color: #fff; padding: 4px 7px; border-radius: 2px; }
+
+    h1 {
+      font-size: 33px;
+      line-height: 1.06;
+      margin: 8px 0 10px;
+      text-align: center;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 22px;
+      line-height: 1.15;
+      margin: 8px 0;
+      letter-spacing: -0.01em;
+      text-align: center;
+    }
+    h3 {
+      font-size: 15px;
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    p {
+      margin: 0;
+      font-size: 10px;
+      line-height: 1.45;
+      color: #565656;
+    }
+    .center { text-align: center; }
+    .sub { max-width: 220px; margin: 0 auto; }
+    .btns { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+    .btn {
+      border: 1px solid #cbcbcb;
+      background: #fefefe;
+      font-size: 9px;
+      padding: 4px 7px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    .btn.primary { background: #111; color: #fff; border-color: #111; }
+
+    .hero-img, .img {
+      margin: 14px 0;
+      border: 1px solid #cfcfcf;
+      background: var(--blk2);
+      height: 142px;
+      position: relative;
+    }
+    .hero-img::before, .img::before {
+      content: "";
+      position: absolute;
+      width: 28px;
+      height: 22px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid #b2b2b2;
+      border-radius: 3px;
+    }
+    .kicker {
+      text-align: center;
+      margin: 4px 0;
+      font-size: 8px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #7d7d7d;
+    }
+    .split3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 10px 0; }
+    .card { border-top: 1px solid var(--line); padding-top: 8px; }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      margin: 10px 0;
+    }
+    .num { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+    .num-sm { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+
+    .section {
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      margin-top: 12px;
+    }
+
+    .cards3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 10px; }
+    .mini { border: 1px solid var(--line); padding: 6px; background: #f9f9f9; }
+    .mini .img { margin: 0 0 7px; height: 48px; }
+
+    .quote { text-align: center; font-size: 10px; color: #4f4f4f; padding: 12px 10px; }
+
+    .footer {
+      margin-top: 16px;
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      font-size: 8px;
+      color: #777;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 10px;
+      align-items: center;
+      margin-top: 8px;
+    }
+
+    .metric-strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 10px 0;
+      padding: 8px 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .faq {
+      border-top: 1px solid var(--line);
+      margin-top: 8px;
+      padding-top: 8px;
+      font-size: 10px;
+      color: #4f4f4f;
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+  <div class="boards">
+    <article class="page">
+      <div class="top"><span class="logo">F8 Group</span><span class="nav">Services  Case Studies  About  Contact</span><span class="cta">Send us your project</span></div>
+      <h1>Building performance and MEP certainty from concept to operation</h1>
+      <p class="center sub">F8 Group is a consultancy-first partner joining up building physics, MEP, BIM and in-use verification to reduce cost, programme and performance surprises.</p>
+      <div class="btns"><button class="btn primary">Send us your project</button><button class="btn">Book review meeting</button></div>
+      <div class="hero-img"></div>
+
+      <div class="section center">
+        <div class="kicker">Why this matters</div>
+        <h2>Projects do not fail because people do not care. They fail because reality arrives late.</h2>
+      </div>
+
+      <div class="split3">
+        <div class="card"><h3>Building physics expertise</h3><p>Performance and comfort clarity early.</p></div>
+        <div class="card"><h3>MEP + cost alignment</h3><p>Scope and cost defined before tender stress.</p></div>
+        <div class="card"><h3>In-use verification</h3><p>Measured outcomes, not handover assumptions.</p></div>
+      </div>
+
+      <div class="section">
+        <div class="kicker">Key metrics</div>
+        <h3 class="center" style="font-size:18px">The numbers behind our approach</h3>
+        <div class="stats">
+          <div><div class="num-sm">87%</div><p>Cost variance reduced</p></div>
+          <div><div class="num-sm">6 weeks</div><p>Programme acceleration</p></div>
+          <div><div class="num-sm">100%</div><p>Performance verified</p></div>
+        </div>
+        <div class="btns"><button class="btn">View services</button><button class="btn">Case studies</button></div>
+      </div>
+
+      <div class="section">
+        <div class="kicker">Projects</div>
+        <h3 class="center" style="font-size:18px">Recent projects we completed</h3>
+        <div class="cards3">
+          <div class="mini"><div class="img"></div><p>Mixed-use scheme cost certainty from day one.</p></div>
+          <div class="mini"><div class="img"></div><p>Office retrofit with performance guarantees.</p></div>
+          <div class="mini"><div class="img"></div><p>MEP coordination that eliminated site surprises.</p></div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="kicker">Insights</div>
+        <h3 class="center" style="font-size:18px">Latest thinking on building performance</h3>
+        <div class="cards3">
+          <div class="mini"><div class="img"></div><p>When MEP scope gaps cause tender drift.</p></div>
+          <div class="mini"><div class="img"></div><p>BIM coordination beyond clash detection.</p></div>
+          <div class="mini"><div class="img"></div><p>The gap between design intent and outcomes.</p></div>
+        </div>
+      </div>
+
+      <div class="quote">"F8 brought clarity to every stage and removed guesswork where it mattered most."</div>
+      <div class="footer"><div>F8 Group</div><div>Privacy  Terms  LinkedIn</div></div>
+    </article>
+
+    <article class="page">
+      <div class="top"><span class="logo">F8 Group</span><span class="nav">Who we help  Services  Process</span><span class="cta">Send us your project</span></div>
+      <h2>Built for builders</h2>
+      <p class="center sub">For developers, asset owners, architects and contractors who need decisions grounded in evidence.</p>
+
+      <div class="section center">
+        <div class="kicker">Audience</div>
+        <h2 style="font-size:30px">Built for those who build</h2>
+      </div>
+
+      <div class="split3">
+        <div class="card"><h3>Architects</h3><p>Protect intent and resolve constraints early.</p></div>
+        <div class="card"><h3>Asset managers</h3><p>Prioritise operational improvements with proof.</p></div>
+        <div class="card"><h3>Developers</h3><p>De-risk viability before major commitments.</p></div>
+      </div>
+
+      <div class="hero-img"></div>
+
+      <div class="section">
+        <div class="kicker">Trust</div>
+        <h3 style="font-size:22px">Trusted by construction professionals worldwide</h3>
+        <div class="stats">
+          <div><div class="num">500+</div><p>Active projects managed</p></div>
+          <div><div class="num">2M+</div><p>Square metres influenced</p></div>
+          <div><div class="num">95%</div><p>Client retention rate</p></div>
+        </div>
+        <div class="quote">"F8 transformed our risk planning into practical decisions with measurable outcomes."</div>
+      </div>
+
+      <div class="section center">
+        <h3 style="font-size:24px">Ready to get started?</h3>
+        <p>Tell us role, stage and risk priorities. We will propose the best next step.</p>
+        <div class="btns"><button class="btn primary">Contact</button><button class="btn">Learn more</button></div>
+      </div>
+
+      <div class="hero-img"></div>
+      <div class="footer"><div>Stay informed</div><div>Email field  Subscribe</div></div>
+      <div class="footer"><div>F8 Group</div><div>Terms  Privacy  Contact</div></div>
+    </article>
+
+    <article class="page">
+      <div class="top"><span class="logo">F8 Group</span><span class="nav">How it works  Services  FAQ</span><span class="cta">Book review</span></div>
+      <h2>Design with clarity</h2>
+      <p class="center sub">Resolve risk earlier, reduce redesign loops, and move to tender with confidence.</p>
+
+      <div class="section feature-row">
+        <div>
+          <div class="kicker" style="text-align:left">01  Concept</div>
+          <h3 style="font-size:30px">Tools that speak your language</h3>
+          <p>Parametric options testing and MEP scope definition give early certainty on cost, programme and performance.</p>
+          <div class="btns" style="justify-content:flex-start"><button class="btn">Explore</button><button class="btn">Learn</button></div>
+        </div>
+        <div class="img" style="height:138px"></div>
+      </div>
+
+      <div class="section center">
+        <div class="kicker">02  Coordination</div>
+        <h2>What architects actually need to work</h2>
+      </div>
+
+      <div class="split3">
+        <div class="card"><h3>See every detail in one place</h3><p>Live BIM context for faster decisions.</p></div>
+        <div class="card"><h3>Stop problems before cost spikes</h3><p>Constraint visibility before site stage.</p></div>
+        <div class="card"><h3>Keep teams moving</h3><p>Shared evidence for aligned decisions.</p></div>
+      </div>
+
+      <div class="quote">If you can track the same evidence through concept, tender and delivery, you reduce risk faster.</div>
+
+      <div class="section center">
+        <h2 style="font-size:32px">Start building smarter</h2>
+        <p>See how F8 can support the next stage of your project.</p>
+        <div class="btns"><button class="btn primary">Send project</button><button class="btn">Book meeting</button></div>
+      </div>
+
+      <div class="hero-img" style="height:160px"></div>
+      <div class="footer"><div>Stay informed</div><div>Email  Subscribe</div></div>
+      <div class="footer"><div>F8 Group</div><div>Privacy  Terms  LinkedIn</div></div>
+    </article>
+
+    <article class="page">
+      <div class="top"><span class="logo">F8 Group</span><span class="nav">Asset owners  In-use  Contact</span><span class="cta">Request review</span></div>
+      <h2>Protect your assets</h2>
+      <p class="center sub">Know how your portfolio is performing and what to fix first.</p>
+
+      <div class="section feature-row">
+        <div>
+          <div class="kicker" style="text-align:left">01  In-use</div>
+          <h3 style="font-size:30px">Keep your portfolio running at peak performance</h3>
+          <p>Baseline, prioritisation, and verification in use with measurable outcomes.</p>
+          <div class="btns" style="justify-content:flex-start"><button class="btn">Learn</button><button class="btn">Book</button></div>
+        </div>
+        <div class="img" style="height:138px"></div>
+      </div>
+
+      <div class="section center">
+        <h2>What asset managers need to succeed</h2>
+      </div>
+
+      <div class="cards3">
+        <div class="mini"><div class="img"></div><p>Compliance and regulatory tracking</p></div>
+        <div class="mini"><div class="img"></div><p>Asset lifecycle optimisation</p></div>
+        <div class="mini"><div class="img"></div><p>Financial performance visibility</p></div>
+      </div>
+
+      <div class="quote">If you can see portfolio performance in real time, decision making becomes practical.</div>
+
+      <div class="section center">
+        <h2 style="font-size:32px">Ready to see the difference</h2>
+        <p>Let us help make your building performance strategy clear.</p>
+        <div class="btns"><button class="btn primary">Start</button><button class="btn">Learn</button></div>
+      </div>
+
+      <div class="hero-img" style="height:160px"></div>
+      <div class="footer"><div>Stay informed</div><div>Email  Subscribe</div></div>
+      <div class="footer"><div>F8 Group</div><div>Terms  Privacy  LinkedIn</div></div>
+    </article>
+
+    <article class="page">
+      <div class="top"><span class="logo">F8 Group</span><span class="nav">Main contractors  Services  FAQ</span><span class="cta">Invite to tender</span></div>
+      <h2>Build with confidence</h2>
+      <p class="center sub">Tighten scope, reduce disputes, and protect margin through delivery.</p>
+
+      <div class="section feature-row">
+        <div>
+          <div class="kicker" style="text-align:left">01  Tender readiness</div>
+          <h3 style="font-size:28px">Get stakeholder sign-off in days, not weeks</h3>
+          <p>Structured MEP scope and BIM-led validation make tender returns more comparable.</p>
+          <div class="btns" style="justify-content:flex-start"><button class="btn">Explore</button><button class="btn">Book</button></div>
+        </div>
+        <div class="img" style="height:138px"></div>
+      </div>
+
+      <div class="section feature-row">
+        <div>
+          <div class="kicker" style="text-align:left">02  Buildability</div>
+          <h3 style="font-size:28px">Catch issues before they become expensive problems</h3>
+          <p>4D sequencing and model validation reduce RFIs and late change.</p>
+          <div class="btns" style="justify-content:flex-start"><button class="btn">Explore</button><button class="btn">Book</button></div>
+        </div>
+        <div class="img" style="height:138px"></div>
+      </div>
+
+      <div class="section feature-row">
+        <div>
+          <div class="kicker" style="text-align:left">03  Margin protection</div>
+          <h3 style="font-size:28px">Maximize profitability on every project</h3>
+          <p>Evidence-backed valuation and change conversations reduce margin bleed.</p>
+          <div class="btns" style="justify-content:flex-start"><button class="btn">Explore</button><button class="btn">Book</button></div>
+        </div>
+        <div class="img" style="height:138px"></div>
+      </div>
+
+      <div class="section feature-row">
+        <div>
+          <div class="kicker" style="text-align:left">04  Feasibility</div>
+          <h3 style="font-size:28px">Know your project's true feasibility</h3>
+          <p>Early constraint visibility aligns technical, commercial and programme decisions.</p>
+          <div class="btns" style="justify-content:flex-start"><button class="btn">Learn</button><button class="btn">Book</button></div>
+        </div>
+        <div class="img" style="height:138px"></div>
+      </div>
+
+      <div class="quote">"F8 reduced our approval cycle and gave us clearer evidence to keep projects on track."</div>
+
+      <div class="section center">
+        <h2 style="font-size:30px">Ready to build smarter</h2>
+        <div class="btns"><button class="btn primary">Start</button><button class="btn">Learn</button></div>
+      </div>
+
+      <div class="hero-img" style="height:150px"></div>
+      <div class="footer"><div>Stay informed</div><div>Email  Subscribe</div></div>
+      <div class="footer"><div>F8 Group</div><div>Terms  Privacy  Contact</div></div>
+    </article>
+  </div>
+</body>
+</html>

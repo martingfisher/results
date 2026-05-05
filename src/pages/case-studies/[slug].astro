@@ -1,0 +1,134 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export async function getStaticPaths() {
+  const caseStudies = (await getCollection('caseStudies')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+  return caseStudies.map((study) => ({ params: { slug: study.data.pageSlug }, props: { study } }));
+}
+
+const { study } = Astro.props;
+const { Content } = await render(study);
+const caseStudies = (await getCollection('caseStudies')).sort((a, b) => a.data.title.localeCompare(b.data.title));
+const currentIndex = caseStudies.findIndex((caseStudy) => caseStudy.id === study.id);
+const previousStudy = caseStudies[(currentIndex - 1 + caseStudies.length) % caseStudies.length];
+const nextStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
+---
+
+<BaseLayout title={study.data.title} description={study.data.summary}>
+  <section class="case-hero case-hero-image" style={`--case-image: url('${study.data.heroImage}')`}>
+    <div class="case-hero-content">
+      <p class="eyebrow">{study.data.sector}</p>
+      <h1>{study.data.title}</h1>
+      <p>{study.data.summary}</p>
+      <div class="tag-row hero-tags">
+        {study.data.services.map((service) => <span>{service}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Project summary</p>
+      {study.data.summaryHeading ? <h3 class="project-summary-heading">{study.data.summaryHeading}</h3> : <h2>{study.data.client}</h2>}
+      <div class="tag-row">
+        {study.data.services.map((service) => <span>{service}</span>)}
+      </div>
+    </div>
+    <div class="rich-copy">
+      <Content />
+      {
+        study.data.performanceNote && (
+          <div class="performance-proof">
+            <h5>{study.data.performanceNote}</h5>
+            {study.data.lighthouseScores && (
+              <div class="score-row" aria-label="Lighthouse scores">
+                {study.data.lighthouseScores.map((item) => {
+                  const r = 42;
+                  const circ = 2 * Math.PI * r;          // 263.9
+                  const track = circ * 0.75;              // 270° arc
+                  const filled = (item.score / 100) * track;
+                  const colour = item.score >= 90 ? '#0cce6b' : item.score >= 50 ? '#ffa400' : '#ff4e42';
+                  return (
+                    <div class="score-item">
+                      <svg class="score-gauge" viewBox="0 0 100 100" aria-hidden="true">
+                        {/* Track */}
+                        <circle cx="50" cy="50" r={r} fill="none"
+                          stroke="#e0e0e0" stroke-width="6"
+                          stroke-dasharray={`${track} ${circ - track}`}
+                          stroke-linecap="round"
+                          transform="rotate(135 50 50)" />
+                        {/* Score arc */}
+                        <circle cx="50" cy="50" r={r} fill="none"
+                          stroke={colour} stroke-width="6"
+                          stroke-dasharray={`${filled} ${circ - filled}`}
+                          stroke-linecap="round"
+                          transform="rotate(135 50 50)" />
+                        <text x="50" y="54" text-anchor="middle"
+                          class="score-gauge-num" fill={colour}>{item.score}</text>
+                      </svg>
+                      <p>{item.label}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  {
+    study.data.proofMoments ? (
+      <section class="case-story-reel" aria-label={`${study.data.title} project visuals`}>
+        {study.data.proofMoments.map((moment, index) => (
+          <article class="case-story-moment">
+            <img src={moment.image} alt={moment.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+            <div class="case-story-copy">
+              <p class="eyebrow">Project detail {String(index + 1).padStart(2, '0')}</p>
+              <p>{moment.text}</p>
+            </div>
+          </article>
+        ))}
+      </section>
+    ) : (
+      <section class="section proof-wall">
+        {study.data.images.map((image) => <img src={image} alt={`${study.data.title} supporting visual`} loading="lazy" />)}
+      </section>
+    )
+  }
+
+  {
+    !study.data.proofMoments && (
+      <>
+        <section class="section quote-section">
+          <blockquote>{study.data.quote}</blockquote>
+          <p>{study.data.quoteBy}</p>
+        </section>
+
+        <section class="section">
+          <div class="metric-grid">
+            {study.data.outcomes.map((outcome) => <div class="metric-card">{outcome}</div>)}
+          </div>
+        </section>
+      </>
+    )
+  }
+
+  <nav class="section case-study-nav" aria-label="Case study navigation">
+    <a class="case-study-nav-card previous" href={`/case-studies/${previousStudy.data.pageSlug}/`}>
+      <span class="eyebrow">Previous project</span>
+      <strong>{previousStudy.data.title}</strong>
+      <span>{previousStudy.data.summary}</span>
+    </a>
+    <a class="case-study-nav-card next" href={`/case-studies/${nextStudy.data.pageSlug}/`}>
+      <span class="eyebrow">Next project</span>
+      <strong>{nextStudy.data.title}</strong>
+      <span>{nextStudy.data.summary}</span>
+    </a>
+  </nav>
+
+  <CTASection title="Want this level of clarity around your offer?" text="Book a call and we will look at where your message, website or campaigns could be made easier to understand." />
+</BaseLayout>

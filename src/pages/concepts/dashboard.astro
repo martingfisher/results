@@ -1,0 +1,41 @@
+---
+import ConceptLayout from '../../layouts/ConceptLayout.astro';
+import ConceptChat from '../../components/ConceptChat.astro';
+import ConceptMotion from '../../components/ConceptMotion.astro';
+import { shortChat } from '../../data/conceptChat';
+---
+
+<ConceptLayout title="Look 3 Dashboard">
+  <section class="look-dashboard">
+    <div class="look-dashboard-copy">
+      <p class="concept-kicker">Look 3: Results dashboard</p>
+      <h1>
+        <span class="concept-word"><span data-gsap="word">Clearer</span></span>
+        <span class="concept-word"><span data-gsap="word">work.</span></span>
+        <span class="concept-word"><span data-gsap="word">Cleaner</span></span>
+        <span class="concept-word"><span data-gsap="word">numbers.</span></span>
+      </h1>
+      <p>This route turns the hero into a measurement surface: work, messages and example metrics all feel connected rather than floating separately.</p>
+      <div class="concept-actions">
+        <a class="btn primary" href="/contact/">Book a call</a>
+        <a class="btn secondary" href="/case-studies/">See case studies</a>
+      </div>
+    </div>
+    <div class="dashboard-panel">
+      <div class="dashboard-grid">
+        <div class="dash-tile large" data-gsap="float-card">
+          <img src="/assets/projects/presentation-spaces-website.webp" alt="Presentation Spaces website visual" />
+          <h2>Marketing you can understand at a glance.</h2>
+        </div>
+        <div class="dash-tile" data-gsap="float-card">
+          <span class="dash-metric">31%</span>
+          <strong>More qualified enquiries in an example 90-day plan.</strong>
+        </div>
+        <div class="dash-tile" data-gsap="chat">
+          <ConceptChat messages={shortChat} compact />
+        </div>
+      </div>
+    </div>
+  </section>
+  <ConceptMotion />
+</ConceptLayout>

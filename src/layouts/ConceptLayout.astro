@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+import '../styles/concepts.css';
+import { navItems } from '../data/navigation';
+import ConceptNav from '../components/ConceptNav.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | RYCM Homepage Concepts</title>
+    <link rel="icon" href="/assets/logos/rycm-isotype-red.svg" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand-link" href="/" aria-label="Results You Can Measure home">
+        <img src="/assets/logos/rycm-logotype-light.svg" alt="Results You Can Measure" />
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+      <a class="header-cta" href="/contact/">Book a call</a>
+    </header>
+    <main class="concept-main">
+      <slot />
+    </main>
+    <ConceptNav />
+  </body>
+</html>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+import TechMarquee from '../components/TechMarquee.astro';
+---
+
+<BaseLayout title="About">
+  <section class="page-hero compact">
+    <p class="eyebrow">About</p>
+    <h1>Big agency know-how, a small senior team, and independent talent when the job needs it.</h1>
+    <p>RYCM is founder-led, but not built around one pair of hands. The model is practical: senior judgement, direct access, and the right specialist support around the work.</p>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">How we got here</p>
+      <h2>Marketing, technology, psychology and hands-on design.</h2>
+    </div>
+    <div class="rich-copy">
+      <p>Martin started in agency media before moving through creative, direct marketing, web development, ecommerce and analytics. The tools have changed, but a lot of the early best-practice principles still hold true: do not talk at people, start a conversation.</p>
+      <p>Over the years he has grown agencies, devised strategies and managed teams and projects for UK and international brands. These days RYCM works independently with a trusted network of strong specialists.</p>
+    </div>
+  </section>
+
+  <section class="section package-section">
+    <img src="/assets/projects/packaged-martin.png" alt="Martin Marketing Bloke concept packaging" loading="lazy" />
+    <div>
+      <p class="eyebrow">Founder-led, not precious</p>
+      <h2>Useful marketing thinking should feel accessible.</h2>
+      <p>The site has a serious job, but the brand can still have wit. RYCM should feel senior, human and direct, not inflated.</p>
+    </div>
+  </section>
+
+  <TechMarquee />
+
+  <CTASection />
+</BaseLayout>

@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+---
+
+<BaseLayout title="Blog">
+  <section class="page-hero compact">
+    <p class="eyebrow">Blog</p>
+    <h1>Notes on making marketing easier to understand and measure.</h1>
+    <p>Practical articles for business owners who want clearer decisions, better leads and more accountability from their marketing.</p>
+  </section>
+
+  <section class="section">
+    <div class="blog-grid">
+      {posts.map((post) => (
+        <article class="blog-card">
+          <p class="eyebrow">{post.data.category}</p>
+          <h2><a href={`/blog/${post.data.pageSlug}/`}>{post.data.title}</a></h2>
+          <p class="blog-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+          <p>{post.data.summary}</p>
+          <a class="text-link" href={`/blog/${post.data.pageSlug}/`}>Read article</a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTASection title="Got an article idea worth turning into a lead magnet?" text="Bring the rough notes. We can shape them into something clearer, more useful and easier to act on." />
+</BaseLayout>

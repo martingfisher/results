@@ -1,0 +1,54 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.data.pageSlug }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+const candidatePosts = allPosts.filter((candidate) => candidate.id !== post.id);
+const relatedPosts = [
+  ...candidatePosts.filter((candidate) => candidate.data.category === post.data.category),
+  ...candidatePosts.filter((candidate) => candidate.data.category !== post.data.category),
+].slice(0, 4);
+---
+
+<BaseLayout title={post.data.title} description={post.data.summary}>
+  <section class="page-hero compact">
+    <p class="eyebrow">{post.data.category}</p>
+    <h1>{post.data.title}</h1>
+    <p>{post.data.summary}</p>
+    <p class="blog-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+  </section>
+
+  <article class="section article-body">
+    <Content />
+  </article>
+
+  {relatedPosts.length > 0 && (
+    <section class="section related-articles" aria-labelledby="related-articles-title">
+      <div class="section-heading compact-heading">
+        <p class="eyebrow">Keep reading</p>
+        <h2 id="related-articles-title">More useful thinking for clearer marketing.</h2>
+      </div>
+      <div class="related-track" aria-label="Related blog articles">
+        {relatedPosts.map((related, index) => (
+          <article class="related-card">
+            <span class="related-number">{String(index + 1).padStart(2, '0')}</span>
+            <p class="eyebrow">{related.data.category}</p>
+            <h3><a href={`/blog/${related.data.pageSlug}/`}>{related.data.title}</a></h3>
+            <p>{related.data.summary}</p>
+            <a class="text-link" href={`/blog/${related.data.pageSlug}/`}>Read next</a>
+          </article>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <CTASection title="Want clearer marketing thinking?" text="Book a call and we will look at what your current activity is really telling you." />
+</BaseLayout>

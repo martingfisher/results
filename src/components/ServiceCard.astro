@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  summary: string;
+  eyebrow?: string;
+}
+
+const { title, href, summary, eyebrow = 'Service' } = Astro.props;
+---
+
+<article class="service-card" data-momentum-card>
+  <p class="eyebrow">{eyebrow}</p>
+  <h3><a href={href}>{title}</a></h3>
+  <p>{summary}</p>
+  <a class="text-link" href={href}>See how it works</a>
+</article>

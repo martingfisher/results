@@ -1,0 +1,50 @@
+---
+const tools: Array<{ name: string; logo: string; shape?: 'square' | 'wide'; slug: string }> = [
+  { name: 'WordPress', logo: '/assets/brand-logos/wordpress.svg', shape: 'square', slug: 'wordpress' },
+  { name: 'Shopify', logo: '/assets/brand-logos/shopify.svg', shape: 'wide', slug: 'shopify' },
+  { name: 'Laravel', logo: '/assets/brand-logos/laravel.svg', shape: 'wide', slug: 'laravel' },
+  { name: 'Webflow', logo: '/assets/brand-logos/webflow.svg', shape: 'wide', slug: 'webflow' },
+  { name: 'Adobe Creative Cloud', logo: '/assets/brand-logos/adobe-creative-cloud.svg', shape: 'wide', slug: 'adobe' },
+  { name: 'OpenAI', logo: '/assets/brand-logos/openai.svg', shape: 'wide', slug: 'openai' },
+  { name: 'Claude', logo: '/assets/brand-logos/claude.svg', shape: 'wide', slug: 'claude' },
+  { name: 'Google Ads', logo: '/assets/brand-logos/google-ads.svg', shape: 'wide', slug: 'google-ads' },
+  { name: 'Google Analytics', logo: '/assets/brand-logos/google-analytics.svg', shape: 'wide', slug: 'google-analytics' },
+  { name: 'Google Cloud', logo: '/assets/brand-logos/google-cloud.svg', shape: 'wide', slug: 'google-cloud' },
+  { name: 'Cloudflare', logo: '/assets/brand-logos/cloudflare.svg', shape: 'wide', slug: 'cloudflare' },
+  { name: 'AWS', logo: '/assets/brand-logos/aws.svg', shape: 'wide', slug: 'aws' },
+  { name: 'Figma', logo: '/assets/brand-logos/figma.svg', shape: 'square', slug: 'figma' },
+  { name: 'Stripe', logo: '/assets/brand-logos/stripe.svg', shape: 'wide', slug: 'stripe' },
+];
+
+const loop = [...tools, ...tools];
+---
+
+<section class="tech-marquee" aria-labelledby="tech-marquee-title">
+  <div class="tech-marquee-copy">
+    <p class="eyebrow">The working stack</p>
+    <div>
+      <h2 id="tech-marquee-title">Comfortable where modern marketing actually happens.</h2>
+      <p>
+        From websites and ecommerce to paid media, analytics, hosting and AI-assisted content workflows,
+        we work in the tools your marketing already depends on.
+      </p>
+    </div>
+  </div>
+  <div class="tech-marquee-stage" aria-label="Common platforms and tools we work with">
+    <svg class="tech-chomper" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <mask id="tech-chomper-mask">
+        <rect width="100" height="100" fill="white" />
+        <polygon class="tech-chomper-mouth" points="50,50 100,34 100,66" fill="black" />
+      </mask>
+      <circle cx="50" cy="50" r="50" fill="#F83739" mask="url(#tech-chomper-mask)" />
+    </svg>
+    <div class="tech-track">
+      {loop.map((tool) => (
+        <span class:list={['tech-pill', tool.shape === 'square' && 'is-square', `is-${tool.slug}`]} aria-label={tool.name}>
+          <img src={tool.logo} alt="" loading="lazy" />
+          <span>{tool.name}</span>
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

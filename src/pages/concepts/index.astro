@@ -1,0 +1,34 @@
+---
+import ConceptLayout from '../../layouts/ConceptLayout.astro';
+import ConceptMotion from '../../components/ConceptMotion.astro';
+---
+
+<ConceptLayout title="Homepage Concepts">
+  <section class="look-overview">
+    <p class="concept-kicker">Three homepage directions</p>
+    <h1>
+      <span class="concept-word"><span data-gsap="word">Choose</span></span>
+      <span class="concept-word"><span data-gsap="word">the</span></span>
+      <span class="concept-word"><span data-gsap="word">opening</span></span>
+      <span class="concept-word"><span data-gsap="word">move.</span></span>
+    </h1>
+    <div class="look-overview-grid">
+      <a class="look-overview-card" data-gsap="float-card" href="/concepts/overlay/" style="background-image:url('/assets/projects/insurance-for-01.webp')">
+        <p class="concept-kicker">Look 1</p>
+        <h2>Full-bleed proof film</h2>
+        <p>H1 over media, chat protected in its own right-hand rail.</p>
+      </a>
+      <a class="look-overview-card" data-gsap="float-card" href="/concepts/studio/" style="background-image:url('/assets/projects/presentation-spaces-website.webp')">
+        <p class="concept-kicker">Look 2</p>
+        <h2>Brand studio wall</h2>
+        <p>More crafted, physical and portfolio-led. The proof wall becomes intentional.</p>
+      </a>
+      <a class="look-overview-card" data-gsap="float-card" href="/concepts/dashboard/" style="background-image:url('/assets/projects/pallet-plus-01.webp')">
+        <p class="concept-kicker">Look 3</p>
+        <h2>Results dashboard</h2>
+        <p>More data-led, with metrics, chat and proof tiles all in one surface.</p>
+      </a>
+    </div>
+  </section>
+  <ConceptMotion />
+</ConceptLayout>

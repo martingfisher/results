@@ -1,0 +1,97 @@
+<script is:inline>
+  (() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(pointer: fine)');
+
+    if (prefersReducedMotion.matches || !finePointer.matches) return;
+
+    const cards = document.querySelectorAll('[data-momentum-card]');
+
+    cards.forEach((card) => {
+      const group = card.closest('[data-momentum-group]');
+      const strength = 24;
+      const rotation = 10;
+      const ease = 0.12;
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+      let rafId = 0;
+
+      const render = () => {
+        currentX += (targetX - currentX) * ease;
+        currentY += (targetY - currentY) * ease;
+
+        const rotateX = (-currentY / strength) * rotation;
+        const rotateY = (currentX / strength) * rotation;
+
+        card.style.setProperty('--tx', `${currentX.toFixed(2)}px`);
+        card.style.setProperty('--ty', `${currentY.toFixed(2)}px`);
+        card.style.setProperty('--rx', `${rotateX.toFixed(2)}deg`);
+        card.style.setProperty('--ry', `${rotateY.toFixed(2)}deg`);
+
+        if (Math.abs(targetX - currentX) > 0.03 || Math.abs(targetY - currentY) > 0.03) {
+          rafId = window.requestAnimationFrame(render);
+        } else {
+          currentX = targetX;
+          currentY = targetY;
+          rafId = 0;
+        }
+      };
+
+      const update = (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        targetX = ((x / rect.width) - 0.5) * strength;
+        targetY = ((y / rect.height) - 0.5) * strength;
+
+        card.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
+        card.style.setProperty('--my', `${(y / rect.height) * 100}%`);
+
+        if (group) {
+          group.querySelectorAll('[data-momentum-card]').forEach((sibling) => {
+            if (sibling === card) return;
+            const siblingRect = sibling.getBoundingClientRect();
+            const siblingX = siblingRect.left + siblingRect.width / 2;
+            const siblingY = siblingRect.top + siblingRect.height / 2;
+            const dx = siblingX - event.clientX;
+            const dy = siblingY - event.clientY;
+            const distance = Math.max(1, Math.hypot(dx, dy));
+            const range = Math.max(rect.width, rect.height) * 1.15;
+            const force = Math.max(0, 1 - distance / range) * 7;
+
+            sibling.style.setProperty('--gx', `${((dx / distance) * force).toFixed(2)}px`);
+            sibling.style.setProperty('--gy', `${((dy / distance) * force).toFixed(2)}px`);
+          });
+        }
+
+        if (!rafId) rafId = window.requestAnimationFrame(render);
+      };
+
+      const release = () => {
+        targetX = 0;
+        targetY = 0;
+        card.style.setProperty('--mx', '50%');
+        card.style.setProperty('--my', '50%');
+        card.style.setProperty('--gx', '0px');
+        card.style.setProperty('--gy', '0px');
+
+        if (group) {
+          group.querySelectorAll('[data-momentum-card]').forEach((sibling) => {
+            sibling.style.setProperty('--gx', '0px');
+            sibling.style.setProperty('--gy', '0px');
+          });
+        }
+
+        if (!rafId) rafId = window.requestAnimationFrame(render);
+      };
+
+      release();
+      card.addEventListener('pointermove', update, { passive: true });
+      card.addEventListener('pointerleave', release, { passive: true });
+      card.addEventListener('blur', release, true);
+    });
+  })();
+</script>

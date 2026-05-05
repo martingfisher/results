@@ -1,0 +1,34 @@
+---
+import ConceptLayout from '../../layouts/ConceptLayout.astro';
+import ConceptChat from '../../components/ConceptChat.astro';
+import ConceptMotion from '../../components/ConceptMotion.astro';
+import { homeChat } from '../../data/conceptChat';
+---
+
+<ConceptLayout title="Look 1 Overlay">
+  <section class="look-overlay">
+    <video muted autoplay loop playsinline poster="/assets/projects/insurance-for-01.webp">
+      <source src="/assets/video/agency-intro.mov" />
+    </video>
+    <img class="overlay-poster" src="/assets/projects/insurance-for-01.webp" alt="" />
+    <div class="look-overlay-copy">
+      <p class="concept-kicker">Look 1: Full-bleed proof film</p>
+      <h1>
+        <span class="concept-word"><span data-gsap="word">More</span></span>
+        <span class="concept-word"><span data-gsap="word">accountability</span></span>
+        <span class="concept-word"><span data-gsap="word">from</span></span>
+        <span class="concept-word"><span data-gsap="word">your</span></span>
+        <span class="concept-word"><span data-gsap="word">marketing.</span></span>
+      </h1>
+      <p>The H1 lives over the image, but the message thread has a protected rail so the conversation never fights the type.</p>
+      <div class="concept-actions">
+        <a class="btn primary" href="/contact/">Book a call</a>
+        <a class="btn secondary" href="/case-studies/">See the work</a>
+      </div>
+    </div>
+    <aside class="message-rail" data-gsap="chat">
+      <ConceptChat messages={homeChat} />
+    </aside>
+  </section>
+  <ConceptMotion />
+</ConceptLayout>

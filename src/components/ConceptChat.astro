@@ -1,0 +1,29 @@
+---
+interface Message {
+  from: 'client' | 'agency';
+  text: string;
+}
+
+interface Props {
+  messages: Message[];
+  compact?: boolean;
+}
+
+const { messages, compact = false } = Astro.props;
+---
+
+<ol class:list={['concept-chat', compact && 'compact']} aria-label="Example RYCM client conversation">
+  {messages.map((message, index) => (
+    <li class:list={['chat-turn', message.from]} style={`--i:${index}`}>
+      <div class:list={['typing-note', message.from]} aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class:list={['concept-msg', message.from]}>
+        <span>{message.from === 'agency' ? 'RYCM team' : 'Client'}</span>
+        {message.text}
+      </div>
+    </li>
+  ))}
+</ol>

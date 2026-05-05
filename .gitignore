@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+npm-debug.log*
+
+# Large local video source files. Commit compressed web-ready replacements instead.
+public/assets/video/client-good-news.mp4
+public/assets/video/copy-review.mov
+public/assets/video/ppc-review.mov
+public/assets/video/seo-review.mov
+public/assets/video/service-review.mov
+public/assets/video/web-review.mov

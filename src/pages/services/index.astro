@@ -1,0 +1,28 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import MomentumCards from '../../components/MomentumCards.astro';
+
+const services = await getCollection('services');
+const serviceOrder = ['branding', 'marketing-consultancy', 'web-development', 'hosting-maintenance', 'seo', 'ppc', 'copywriting'];
+const orderedServices = services.sort((a, b) => serviceOrder.indexOf(a.data.pageSlug) - serviceOrder.indexOf(b.data.pageSlug));
+---
+
+<BaseLayout title="Services">
+  <section class="page-hero compact">
+    <p class="eyebrow">Services</p>
+    <h1>Marketing services for business owners who want reassurance before detail.</h1>
+    <p>Each service is designed to answer the same question: what changed, how do we know, and what should happen next?</p>
+  </section>
+  <section class="section">
+    <div class="card-grid services-grid" data-momentum-group>
+      {orderedServices.map((service) => (
+        <ServiceCard title={service.data.title} href={`/services/${service.data.pageSlug}/`} summary={service.data.summary} eyebrow={service.data.eyebrow} />
+      ))}
+    </div>
+  </section>
+  <MomentumCards />
+  <CTASection title="Not sure which service you need?" text="Book a short call. We will tell you what looks useful, what can wait, and what we would measure first." />
+</BaseLayout>

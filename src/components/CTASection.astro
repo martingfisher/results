@@ -1,0 +1,21 @@
+---
+interface Props {
+  title?: string;
+  text?: string;
+}
+
+const {
+  title = 'Let’s start something useful.',
+  text = 'Looking to develop your brand, generate high-converting leads, or get a clearer view of what your marketing is doing? We should talk.',
+} = Astro.props;
+---
+
+<section class="cta-band">
+  <p class="eyebrow">Next step</p>
+  <h2>{title}</h2>
+  <p>{text}</p>
+  <div class="actions">
+    <a class="btn primary" href="/contact/">Book a call</a>
+    <a class="btn secondary" href="mailto:hello@resultsyoucanmeasure.com">Send an enquiry</a>
+  </div>
+</section>

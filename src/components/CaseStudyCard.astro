@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  summary: string;
+  image: string;
+  sector?: string;
+  client?: string;
+  services?: string[];
+  outcome?: string;
+  variant?: 'compact' | 'editorial';
+}
+
+const { title, href, summary, image, sector = 'Case study', client = title, services = [], outcome, variant = 'compact' } = Astro.props;
+const serviceLabel = services.slice(0, 2).join(' + ') || sector;
+const hoverText = outcome || summary;
+---
+
+<article class:list={['case-card', variant === 'editorial' && 'case-card--editorial']} data-momentum-card={variant === 'editorial' ? true : undefined}>
+  {variant === 'editorial' ? (
+    <a href={href} aria-label={`Read ${title} case study`} class="case-card-link">
+      <img src={image} alt={`${title} project visual`} loading="lazy" />
+      <span class="case-card-meta top">
+        <span>{client}</span>
+        <span>{sector}</span>
+      </span>
+      <span class="case-card-hover">
+        <span>{hoverText}</span>
+      </span>
+      <span class="case-card-meta bottom">
+        <span>
+          <strong>{title}</strong>
+          <small>{serviceLabel}</small>
+        </span>
+        <span class="case-card-action">View project</span>
+      </span>
+    </a>
+  ) : (
+    <>
+      <a href={href} aria-label={`Read ${title} case study`}>
+        <img src={image} alt={`${title} project visual`} loading="lazy" />
+      </a>
+      <div>
+        <p class="eyebrow">{sector}</p>
+        <h3><a href={href}>{title}</a></h3>
+        <p>{summary}</p>
+      </div>
+    </>
+  )}
+</article>

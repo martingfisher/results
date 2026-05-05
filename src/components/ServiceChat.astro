@@ -1,0 +1,32 @@
+---
+interface Message {
+  from: 'client' | 'agency';
+  text: string;
+}
+
+interface Props {
+  video: string;
+  poster: string;
+  messages: Message[];
+  label?: string;
+}
+
+const { video, poster, messages, label = 'Example client conversation' } = Astro.props;
+---
+
+<section class="chat-proof" aria-label={label}>
+  <div class="video-shell">
+    <video muted autoplay loop playsinline preload="metadata" poster={poster}>
+      <source src={video} />
+    </video>
+    <div class="video-fallback" style={`background-image:url('${poster}')`}></div>
+    <ol class="chat-stack">
+      {messages.map((message, index) => (
+        <li class:list={['chat-bubble', message.from]} style={`--i:${index}`}>
+          <span class="chat-name">{message.from === 'agency' ? 'RYCM team' : 'Client'}</span>
+          <span>{message.text}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

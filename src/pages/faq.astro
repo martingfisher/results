@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const faqs = await getCollection('faqs');
+---
+
+<BaseLayout title="FAQ">
+  <section class="page-hero compact">
+    <p class="eyebrow">FAQ</p>
+    <h1>Straight answers before we start.</h1>
+    <p>Common questions about working with RYCM, reporting, pricing and the first conversation.</p>
+  </section>
+  <section class="section faq-list">
+    {faqs.map((faq) => (
+      <details>
+        <summary>{faq.data.question}</summary>
+        <p>{faq.data.answer}</p>
+      </details>
+    ))}
+  </section>
+  <CTASection title="Still not sure what you need?" text="That is exactly what the first call is for. We will help you make sense of the options." />
+</BaseLayout>

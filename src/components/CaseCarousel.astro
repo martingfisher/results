@@ -1,0 +1,234 @@
+---
+import CaseStudyCard from './CaseStudyCard.astro';
+
+interface Study {
+  data: {
+    title: string;
+    pageSlug: string;
+    summary: string;
+    heroImage: string;
+    sector: string;
+  };
+}
+
+interface Props {
+  studies: Study[];
+}
+
+const { studies } = Astro.props;
+---
+
+<div class="case-carousel-wrap">
+  <div class="case-carousel" id="caseCarousel" role="region" aria-label="Case study carousel">
+    {studies.map((study, i) => (
+      <div class="case-carousel-slide" data-index={i}>
+        <CaseStudyCard
+          variant="editorial"
+          title={study.data.title}
+          href={`/case-studies/${study.data.pageSlug}/`}
+          summary={study.data.summary}
+          image={study.data.heroImage}
+          sector={study.data.sector}
+        />
+      </div>
+    ))}
+  </div>
+
+  <div class="case-carousel-controls">
+    <button class="carousel-btn carousel-prev" id="carouselPrev" aria-label="Previous projects">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+
+    <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel navigation">
+      {studies.map((study, i) => (
+        <button
+          class:list={['dot', i === 0 && 'active']}
+          data-index={i}
+          role="tab"
+          aria-label={`${study.data.title}`}
+          aria-selected={i === 0 ? 'true' : 'false'}
+        ></button>
+      ))}
+    </div>
+
+    <button class="carousel-btn carousel-next" id="carouselNext" aria-label="Next projects">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+  .case-carousel-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-carousel {
+    display: flex;
+    gap: clamp(18px, 2vw, 28px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 4px; /* prevent clip on box-shadow */
+  }
+
+  .case-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .case-carousel-slide {
+    flex: 0 0 calc(50% - clamp(9px, 1vw, 14px));
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  /* Make the card fill the slide */
+  .case-carousel-slide :global(.case-card--editorial) {
+    height: 100%;
+  }
+
+  .case-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 28px;
+  }
+
+  .carousel-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1.5px solid var(--line);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    flex-shrink: 0;
+  }
+
+  .carousel-btn:hover {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+
+  .carousel-btn:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: var(--line);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .dot.active {
+    background: var(--navy);
+    transform: scale(1.35);
+  }
+
+  @media (max-width: 680px) {
+    .case-carousel-slide {
+      flex: 0 0 88%;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const carousel = document.getElementById('caseCarousel');
+    const prevBtn = document.getElementById('carouselPrev') as HTMLButtonElement | null;
+    const nextBtn = document.getElementById('carouselNext') as HTMLButtonElement | null;
+    const dotsContainer = document.getElementById('carouselDots');
+
+    if (!carousel || !prevBtn || !nextBtn || !dotsContainer) return;
+
+    const carouselEl = carousel;
+    const slides = Array.from(carouselEl.querySelectorAll<HTMLElement>('.case-carousel-slide'));
+    const dots = Array.from(dotsContainer.querySelectorAll<HTMLButtonElement>('.dot'));
+
+    // On desktop, show 2; snap by 2. On mobile, snap by 1.
+    function slidesPerView(): number {
+      return window.innerWidth > 680 ? 2 : 1;
+    }
+
+    function currentGroup(): number {
+      const perView = slidesPerView();
+      const slideWidth = slides[0]?.offsetWidth || 1;
+      const gap = parseInt(getComputedStyle(carouselEl).gap) || 0;
+      const scrollLeft = carouselEl.scrollLeft;
+      return Math.round(scrollLeft / (slideWidth + gap));
+    }
+
+    function scrollToSlide(index: number) {
+      const slideWidth = slides[0]?.offsetWidth || 1;
+      const gap = parseInt(getComputedStyle(carouselEl).gap) || 0;
+      carouselEl.scrollTo({ left: index * (slideWidth + gap), behavior: 'smooth' });
+    }
+
+    function updateDots(activeIndex: number) {
+      dots.forEach((dot, i) => {
+        const isActive = i === activeIndex;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      prevBtn!.disabled = activeIndex === 0;
+      nextBtn!.disabled = activeIndex >= slides.length - slidesPerView();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      const idx = Math.max(0, currentGroup() - slidesPerView());
+      scrollToSlide(idx);
+      updateDots(idx);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const perView = slidesPerView();
+      const idx = Math.min(slides.length - perView, currentGroup() + perView);
+      scrollToSlide(idx);
+      updateDots(idx);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        scrollToSlide(i);
+        updateDots(i);
+      });
+    });
+
+    // Update on scroll (for touch/trackpad swipe)
+    let scrollTimer: ReturnType<typeof setTimeout>;
+    carousel.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        updateDots(currentGroup());
+      }, 80);
+    });
+
+    // Initialise button states
+    updateDots(0);
+  })();
+</script>

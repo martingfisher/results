@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConceptChat from '../components/ConceptChat.astro';
+import ConceptMotion from '../components/ConceptMotion.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseStudyCard from '../components/CaseStudyCard.astro';
+import CaseCarousel from '../components/CaseCarousel.astro';
+import CTASection from '../components/CTASection.astro';
+import TechMarquee from '../components/TechMarquee.astro';
+import '../styles/concepts.css';
+
+const services = await getCollection('services');
+const caseStudies = await getCollection('caseStudies');
+const serviceOrder = ['branding', 'marketing-consultancy', 'web-development', 'hosting-maintenance', 'seo', 'ppc', 'copywriting'];
+const orderedServices = services.sort((a, b) => serviceOrder.indexOf(a.data.pageSlug) - serviceOrder.indexOf(b.data.pageSlug));
+
+const portfolioItems = [
+  {
+    title: 'Insurance For Group',
+    eyebrow: 'Brand, copy and web',
+    summary: 'A specialist insurance offer made sharper, clearer and easier for journalists, media professionals and high-risk teams to act on.',
+    image: '/assets/projects/insurance-for-01.webp',
+    href: '/case-studies/insurance-for-group/',
+  },
+  {
+    title: 'Presentation Spaces',
+    eyebrow: 'Brand, ecommerce and consultancy',
+    summary: 'Turning a founder-led commercial vision into a more confident identity, product story and practical marketing toolkit.',
+    image: '/assets/projects/presentation-spaces-website.webp',
+    href: '/case-studies/presentation-spaces/',
+  },
+  {
+    title: 'Alpha Moisture Systems',
+    eyebrow: 'Technical website clarity',
+    summary: 'A technical product site shaped around confidence, specification-led browsing and clearer routes to enquiry.',
+    image: '/assets/projects/alpha-01.webp',
+    href: '/case-studies/alpha-moisture-systems/',
+  },
+  {
+    title: 'More project proof',
+    eyebrow: 'Breadth of work',
+    summary: 'From logistics and hospitality technology to adaptive cycling and FMCG packaging, the work changes shape but the point stays the same: make the offer easier to choose.',
+    image: '/assets/projects/lolly-01.webp',
+    href: '/case-studies/',
+  },
+];
+
+const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
+  { from: 'client', text: 'We are doing SEO, ads, copy and website updates.' },
+  { from: 'client', text: 'But I am not sure what is actually working.' },
+  { from: 'agency', text: 'That is exactly where we help.' },
+  { from: 'agency', text: 'We join the work up, track the numbers, and make the next step clear.' },
+  { from: 'client', text: 'So less noise, more accountability?' },
+  { from: 'agency', text: 'Better leads, clearer feedback, stronger decisions.' },
+  { from: 'client', text: 'Yes I get it, results you can measure!' },
+];
+---
+
+<BaseLayout title="Accountable creative marketing agency">
+  <section class="look-overlay">
+    <video muted autoplay loop playsinline poster="/assets/video/rycm-hero-client-review-poster.jpg">
+      <source src="/assets/video/rycm-hero-client-review.mp4" type="video/mp4" />
+      <source src="/assets/video/rycm-hero-client-review.mov" type="video/quicktime" />
+    </video>
+    <img class="overlay-poster" src="/assets/video/rycm-hero-client-review-poster.jpg" alt="" />
+    <div class="look-overlay-copy">
+      <p class="concept-kicker">Small. Independent. Strong.</p>
+      <h1>
+        <span class="concept-word"><span data-gsap="word">More</span></span>
+        <span class="concept-word"><span data-gsap="word">accountability</span></span>
+        <span class="concept-word"><span data-gsap="word">from</span></span>
+        <span class="concept-word"><span data-gsap="word">your</span></span>
+        <span class="concept-word"><span data-gsap="word">marketing.</span></span>
+      </h1>
+      <p>Results You Can Measure joins the dots between SEO, PPC, copy, branding and websites so business owners get straight answers, useful work and clearer numbers.</p>
+      <div class="concept-actions" data-gsap="hero-cta">
+        <a class="btn primary" href="/contact/">Book a call</a>
+        <a class="btn secondary" href="/case-studies/">See the work</a>
+      </div>
+    </div>
+    <aside class="message-rail" data-gsap="hero-panel" data-chat-loop>
+      <ConceptChat messages={introChat} />
+    </aside>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">The promise</p>
+      <h2>We think our name says it all.</h2>
+    </div>
+    <div class="rich-copy">
+      <p>We deliver tangible results that you can see, measure and celebrate. Always accountable, always transparent, and always looking for the next opportunity for your business.</p>
+      <p>We are a battle-tested and pragmatic team of creatives, working on your behalf. You speak to the people doing the work, get clear pricing and straight answers, and we only recommend what we can track in leads, sales or better clients.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2>The useful bits of an agency, joined up.</h2>
+      <p>Enough detail to feel reassured. Enough measurement to know what is happening. No hard sell on things you do not need.</p>
+    </div>
+    <div class="card-grid services-grid">
+      {orderedServices.map((service) => (
+        <ServiceCard
+          title={service.data.title}
+          href={`/services/${service.data.pageSlug}/`}
+          summary={service.data.summary}
+          eyebrow={service.data.eyebrow}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="section proof-section">
+    <div class="section-head">
+      <p class="eyebrow">Proof</p>
+      <h2>Complex offers, made easier to understand and act on.</h2>
+    </div>
+    <CaseCarousel studies={caseStudies} />
+  </section>
+
+  <section class="section portfolio-showcase" aria-label="Selected project proof">
+    <div class="section-head">
+      <p class="eyebrow">Portfolio</p>
+      <h2>Work with enough presence to make the offer feel real.</h2>
+      <p>Selected projects shown at a scale that reflects the role they play: reassurance, credibility and proof that the details have been thought through.</p>
+    </div>
+    <div class="portfolio-stack">
+      {portfolioItems.map((item) => (
+        <article class="portfolio-panel" data-gsap="portfolio-panel">
+          <img src={item.image} alt={`${item.title} project visual`} loading="lazy" />
+          <div class="portfolio-copy">
+            <p class="eyebrow">{item.eyebrow}</p>
+            <h3>{item.title}</h3>
+            <p>{item.summary}</p>
+            <a class="btn secondary" href={item.href}>View project</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <TechMarquee />
+
+  <section class="section do-dont">
+    <article>
+      <p class="eyebrow">Here is what we do</p>
+      <ul>
+        <li>Craft highly original creative solutions with real commercial credibility.</li>
+        <li>Understand your business needs and find the most appropriate solution.</li>
+        <li>Challenge your thinking honestly, directly and constructively.</li>
+        <li>Fit around your schedule and stay easy to reach.</li>
+      </ul>
+    </article>
+    <article>
+      <p class="eyebrow">And what we do not</p>
+      <ul>
+        <li>Give you the hard sell on products or services you do not need.</li>
+        <li>Take on projects where we do not believe we can add value.</li>
+        <li>Blind you with science, quoting stats instead of offering insights.</li>
+      </ul>
+    </article>
+  </section>
+
+  <CTASection />
+  <ConceptMotion />
+</BaseLayout>

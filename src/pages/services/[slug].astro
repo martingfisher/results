@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceChat from '../../components/ServiceChat.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import CTASection from '../../components/CTASection.astro';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((service) => ({ params: { slug: service.data.pageSlug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const caseStudies = await getCollection('caseStudies');
+const related = caseStudies.filter((study) => service.data.relatedCaseStudies.includes(study.data.pageSlug));
+---
+
+<BaseLayout title={service.data.title} description={service.data.summary}>
+  <section class="page-hero service-hero">
+    <div>
+      <p class="eyebrow">{service.data.eyebrow}</p>
+      <h1>{service.data.title}</h1>
+      <p>{service.data.summary}</p>
+      <a class="btn primary" href="/contact/">{service.data.cta}</a>
+    </div>
+    <ServiceChat video={service.data.video} poster={service.data.poster} messages={service.data.chat} label={`${service.data.title} example conversation`} />
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">How we help</p>
+      <h2>Enough strategy to be useful. Enough action to move.</h2>
+    </div>
+    <div class="rich-copy"><Content /></div>
+  </section>
+
+  <section class="section">
+    <div class="metric-grid">
+      {service.data.benefits.map((benefit) => <div class="metric-card">{benefit}</div>)}
+    </div>
+  </section>
+
+  <section class="section faq-list">
+    <p class="eyebrow">Questions</p>
+    <h2>What clients usually want to know.</h2>
+    {service.data.faqs.map((faq) => (
+      <details>
+        <summary>{faq.question}</summary>
+        <p>{faq.answer}</p>
+      </details>
+    ))}
+  </section>
+
+  {related.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">Related proof</p>
+        <h2>Work with similar thinking behind it.</h2>
+      </div>
+      <div class="case-feature-grid">
+        {related.map((study) => (
+          <CaseStudyCard title={study.data.title} href={`/case-studies/${study.data.pageSlug}/`} summary={study.data.summary} image={study.data.heroImage} sector={study.data.sector} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <CTASection title={`Want clearer ${service.data.title.toLowerCase()}?`} text="Book a call and we will talk through what is working, what is wasting attention, and what to measure first." />
+</BaseLayout>

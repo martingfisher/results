@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import CTASection from '../../components/CTASection.astro';
+import MomentumCards from '../../components/MomentumCards.astro';
+
+const caseStudies = await getCollection('caseStudies');
+---
+
+<BaseLayout title="Case Studies">
+  <section class="page-hero compact case-index-hero">
+    <p class="eyebrow">Selected Projects</p>
+    <h1>Selected Projects</h1>
+    <p class="case-index-kicker">We solve business challenges through strategic design and development.</p>
+    <p class="case-index-lede">
+      Every project here started with a challenge and ended with measurable success.
+      We make complex offers easier to understand. See how we tackle complex problems with clear solutions.
+    </p>
+  </section>
+  <section class="section case-index-section">
+    <div class="case-feature-grid">
+      {caseStudies.map((study) => (
+        <CaseStudyCard
+          title={study.data.title}
+          href={`/case-studies/${study.data.pageSlug}/`}
+          summary={study.data.summary}
+          image={study.data.heroImage}
+          sector={study.data.sector}
+          client={study.data.client}
+          services={study.data.services}
+          outcome={study.data.outcomes[0]}
+          variant="editorial"
+        />
+      ))}
+    </div>
+  </section>
+  <MomentumCards />
+  <CTASection title="Could your offer be easier to understand?" text="Bring the messy version. We will help you find the simple route through it." />
+</BaseLayout>
