@@ -487,6 +487,36 @@ video {
   border-color: var(--white);
 }
 
+/* ── Intro section (first body section, large heading) ─── */
+.intro-inner {
+  max-width: 820px;
+}
+
+.intro-inner h2 {
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.intro-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.intro-body p {
+  margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.intro-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(22px, 3vw, 34px);
+}
+
 /* ── Service areas grid ─────────────────────────────────── */
 .service-area-grid {
   display: grid;

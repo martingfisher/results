@@ -1,16 +1,18 @@
 ---
-title: "Clear thinking for businesses that need direction, not more noise."
+title: "Marketing Consultancy"
 pageSlug: "marketing-consultancy"
 eyebrow: "Service 02"
-summary: "When marketing starts feeling reactive, fragmented or difficult to measure, most businesses do not need more activity. They need clearer thinking."
-cta: "Book a strategy call"
-secondaryCta: "Send an enquiry"
+summary: "A senior marketing brain beside the business, turning scattered activity into a practical plan."
+cta: "Plan the next 90 days"
 video: "/assets/video/consultancy-review.mp4"
 poster: "/assets/projects/presentation-spaces-website.webp"
 streamId: "86be625829267af8102b00082fd9a5e4"
-bodyEyebrow: "Senior marketing consultancy"
-bodyHeading: "An experienced outside perspective built around measurable outcomes."
 relatedCaseStudies: ["presentation-spaces"]
+introSection:
+  heading: "Clear thinking for businesses that need direction, not more noise."
+  body: "When marketing starts feeling reactive, fragmented or difficult to measure, most businesses do not need more activity. They need clearer thinking.\n\nResults You Can Measure provides senior-level marketing consultancy focused on helping businesses understand where they are now, where the opportunities really are and what should happen next.\n\nWhether you are entering a new market, repositioning a service, improving enquiries or trying to make better commercial decisions, we bring an experienced outside perspective built around measurable outcomes."
+  primary: "Book a strategy call"
+  secondary: "Send an enquiry"
 benefits:
   - "Honest conversations without agency theatre."
   - "Faster decisions and clearer accountability."
@@ -78,7 +80,3 @@ chat:
   - from: "client"
     text: "Now that <u>IS</u> Results You Can Measure!"
 ---
-
-Results You Can Measure provides senior-level marketing consultancy focused on helping businesses understand where they are now, where the opportunities really are and what should happen next.
-
-Whether you are entering a new market, repositioning a service, improving enquiries or trying to make better commercial decisions, we bring an experienced outside perspective built around measurable outcomes.

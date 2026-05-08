@@ -26,7 +26,6 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
       title={service.data.title}
       summary={service.data.summary}
       cta={service.data.cta}
-      secondaryCta={service.data.secondaryCta}
       messages={service.data.chat}
     />
   ) : (
@@ -41,13 +40,28 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
     </section>
   )}
 
-  <section class="section split">
-    <div>
-      <p class="eyebrow">{service.data.bodyEyebrow ?? 'How we help'}</p>
-      <h2>{service.data.bodyHeading ?? 'Enough strategy to be useful. Enough action to move.'}</h2>
-    </div>
-    <div class="rich-copy"><Content /></div>
-  </section>
+  {service.data.introSection ? (
+    <section class="section intro-section">
+      <div class="intro-inner">
+        <h2>{service.data.introSection.heading}</h2>
+        <div class="intro-body">
+          {service.data.introSection.body.split('\n\n').map((para) => <p>{para}</p>)}
+        </div>
+        <div class="intro-ctas">
+          <a class="btn primary" href="/contact/">{service.data.introSection.primary}</a>
+          {service.data.introSection.secondary && <a class="btn secondary" href="/contact/">{service.data.introSection.secondary}</a>}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="section split">
+      <div>
+        <p class="eyebrow">{service.data.bodyEyebrow ?? 'How we help'}</p>
+        <h2>{service.data.bodyHeading ?? 'Enough strategy to be useful. Enough action to move.'}</h2>
+      </div>
+      <div class="rich-copy"><Content /></div>
+    </section>
+  )}
 
   {service.data.serviceAreas && (
     <section class="section service-areas">

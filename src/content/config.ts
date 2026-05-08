@@ -16,7 +16,12 @@ const services = defineCollection({
     poster: z.string(),
     streamId: z.string().optional(),
     cta: z.string(),
-    secondaryCta: z.string().optional(),
+    introSection: z.object({
+      heading: z.string(),
+      body: z.string(),
+      primary: z.string(),
+      secondary: z.string().optional(),
+    }).optional(),
     bodyEyebrow: z.string().optional(),
     bodyHeading: z.string().optional(),
     relatedCaseStudies: z.array(z.string()),
