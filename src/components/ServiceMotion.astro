@@ -1,0 +1,126 @@
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduce) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Intro heading + paragraphs
+    const introH2 = document.querySelector('.intro-inner h2');
+    if (introH2) {
+      gsap.from(introH2, {
+        y: 32,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: introH2, start: 'top 88%', once: true },
+      });
+    }
+
+    gsap.utils.toArray<HTMLElement>('.intro-body p').forEach((p, i) => {
+      gsap.from(p, {
+        y: 22,
+        opacity: 0,
+        duration: 0.65,
+        delay: i * 0.08,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: p, start: 'top 90%', once: true },
+      });
+    });
+
+    const introCtas = document.querySelector('.intro-ctas');
+    if (introCtas) {
+      gsap.from(introCtas, {
+        y: 18,
+        opacity: 0,
+        duration: 0.55,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: introCtas, start: 'top 92%', once: true },
+      });
+    }
+
+    // Service area cards — staggered grid entrance
+    const cards = gsap.utils.toArray<HTMLElement>('.service-area-card');
+    if (cards.length) {
+      gsap.from(cards, {
+        y: 40,
+        opacity: 0,
+        duration: 0.7,
+        stagger: { amount: 0.55, from: 'start' },
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.service-area-grid',
+          start: 'top 80%',
+          once: true,
+        },
+      });
+    }
+
+    // Approach section heading
+    const approachH2 = document.querySelector('.approach-intro h2');
+    if (approachH2) {
+      gsap.from(approachH2, {
+        x: -40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: approachH2, start: 'top 82%', once: true },
+      });
+    }
+
+    gsap.utils.toArray<HTMLElement>('.approach-body p').forEach((p, i) => {
+      gsap.from(p, {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: p, start: 'top 88%', once: true },
+      });
+    });
+
+    // Approach metric cards
+    const metricCards = gsap.utils.toArray<HTMLElement>('.approach-section .metric-card');
+    if (metricCards.length) {
+      gsap.from(metricCards, {
+        scale: 0.94,
+        y: 28,
+        opacity: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'back.out(1.4)',
+        scrollTrigger: {
+          trigger: '.approach-section .metric-grid',
+          start: 'top 82%',
+          once: true,
+        },
+      });
+    }
+
+    // Process steps — slide in left to right
+    gsap.utils.toArray<HTMLElement>('.process-step').forEach((step, i) => {
+      gsap.from(step, {
+        x: -28,
+        opacity: 0,
+        duration: 0.65,
+        delay: i * 0.1,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: step, start: 'top 84%', once: true },
+      });
+    });
+
+    // Closing CTA
+    const closingCta = document.querySelector('.closing-cta');
+    if (closingCta) {
+      gsap.from(closingCta, {
+        y: 36,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: closingCta, start: 'top 82%', once: true },
+      });
+    }
+  }
+</script>

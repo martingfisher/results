@@ -5,6 +5,7 @@ import ServiceChat from '../../components/ServiceChat.astro';
 import StreamHero from '../../components/StreamHero.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import CTASection from '../../components/CTASection.astro';
+import ServiceMotion from '../../components/ServiceMotion.astro';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -172,4 +173,5 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
   ) : (
     <CTASection title={`Want clearer ${service.data.title.toLowerCase()}?`} text="Book a call and we will talk through what is working, what is wasting attention, and what to measure first." />
   )}
+  <ServiceMotion />
 </BaseLayout>

@@ -35,11 +35,6 @@ serviceAreas:
 approach:
   heading: "Senior-level thinking without agency theatre."
   intro: "RYCM is intentionally structured differently from a traditional agency model.\n\nYou work directly with experienced people. Not layers of account management.\n\nWe are comfortable challenging assumptions when needed. Often the most valuable consultancy comes from identifying what should stop happening, not just what should happen next."
-editorialSections:
-  - heading: "A fresh perspective often changes more than a bigger budget."
-    body: "One of the biggest problems in marketing is proximity.\n\nBusinesses become so close to their products, services and sector norms that opportunities become difficult to spot. Messaging becomes repetitive. Marketing activity grows while clarity disappears.\n\nThat is usually where we come in.\n\nWe help businesses step back, reassess what is working, challenge assumptions and identify practical opportunities for growth.\n\nSometimes that means refining positioning. Sometimes it means simplifying communication. Sometimes it means identifying entirely different ways to reach the right audience.\n\nThe goal is not marketing for the sake of it. The goal is commercial progress you can actually measure."
-  - heading: "Usually, clients already know something is not working."
-    body: "Sometimes enquiries have slowed down. Sometimes the business has outgrown its positioning. Sometimes the marketing feels busy but disconnected. And sometimes the company simply needs an experienced external perspective to help make sense of the next stage of growth.\n\nThat outside perspective matters. A business that sees the same challenges every day rarely sees them objectively.\n\nFresh thinking changes that."
 process:
   - step: "01"
     title: "Understand the business"
