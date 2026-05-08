@@ -5,7 +5,7 @@ pageSlug: "presentation-spaces"
 sector: "Display, presentation and acoustic solutions"
 summary: "Turning a founder's commercial vision into a polished brand, ecommerce direction and practical marketing toolkit."
 summaryHeading: "A founder's vision, turned into a brand that could hold its own in a competitive commercial market."
-services: ["Brand development", "Creative and messaging", "Website design", "Marketing collateral", "Consultancy"]
+services: ["Branding", "Marketing Consultancy", "Web Development", "Copywriting"]
 heroImage: "/assets/projects/presentation-spaces-website.webp"
 images:
   - "/assets/projects/presentation-spaces-website.webp"

@@ -8,7 +8,7 @@ secondaryCta: "Start the conversation"
 video: ""
 poster: "/assets/projects/presentation-spaces-branding.webp"
 streamId: "882e18b4d53d3645d3d89fa0d467ab1b"
-relatedCaseStudies: ["presentation-spaces", "insurance-for-group"]
+relatedCaseStudies: ["presentation-spaces", "goodees"]
 introSection:
   heading: "Branding built around clarity, consistency and commercial trust."
   body: "Branding is not just about how a business looks.\n\nIt is about how clearly the business communicates, how consistently it presents itself and how easily customers understand why they should choose it.\n\nMany businesses struggle because their brand has become fragmented over time. Different messaging. Different visual styles. Different promises depending on where the customer encounters the business.\n\nResults You Can Measure helps businesses build brands that feel clearer, more credible and more commercially effective across every customer touchpoint.\n\nThe goal is not branding for the sake of appearance. The goal is making the business easier to recognise, trust and remember."

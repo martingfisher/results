@@ -8,7 +8,7 @@ secondaryCta: "Send an enquiry"
 video: ""
 poster: "/assets/projects/pallet-plus-01.webp"
 streamId: "cedfe1657939126e94d5ac1a33f27a59"
-relatedCaseStudies: ["insurance-for-group"]
+relatedCaseStudies: ["insurance-for-group", "pallet-plus"]
 introSection:
   heading: "PPC campaigns built around commercial results."
   body: "Most PPC campaigns do not fail because the platform is wrong.\n\nThey fail because the strategy behind them is unclear.\n\nBusinesses often end up paying for traffic that lands on weak pages, unclear offers or messaging that does not properly match what the customer was searching for in the first place.\n\nWe take a broader view.\n\nResults You Can Measure helps businesses improve PPC performance by aligning campaigns, landing pages, messaging and conversion strategy around measurable commercial outcomes.\n\nThe goal is not simply more clicks. The goal is better enquiries, lower wasted spend and clearer return on investment."

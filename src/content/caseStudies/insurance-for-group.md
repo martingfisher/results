@@ -5,7 +5,7 @@ pageSlug: "insurance-for-group"
 sector: "Specialist insurance"
 summary: "Developing a suite of sector-specific brands and websites to simplify a complex insurance offer."
 summaryHeading: "Bringing clarity to a specialist insurance portfolio without losing what made each brand valuable."
-services: ["Brand consultancy", "Creative and messaging", "Website design", "Webflow", "WordPress"]
+services: ["Branding", "Web Development", "Copywriting", "Marketing Consultancy"]
 heroImage: "/assets/projects/insurance-for-03.webp"
 images:
   - "/assets/projects/insurance-for-03.webp"

@@ -8,7 +8,7 @@ secondaryCta: "Start the conversation"
 video: ""
 poster: "/assets/projects/lolly-01.webp"
 streamId: "3cc83b03826b1055371a8f36a9327d6b"
-relatedCaseStudies: ["insurance-for-group", "presentation-spaces"]
+relatedCaseStudies: ["lolly", "alpha-moisture-systems"]
 introSection:
   heading: "Websites built around clarity, performance and measurable outcomes."
   body: "A website should do more than look good.\n\nIt should explain the business clearly, guide visitors towards action and support measurable commercial goals.\n\nMany websites fail because they are built around internal assumptions rather than customer behaviour. Too much complexity. Unclear messaging. Slow performance. No clear next step.\n\nResults You Can Measure designs and develops websites that help businesses communicate more clearly, perform better and generate stronger enquiries.\n\nThe goal is not simply a fresh design. The goal is a website that works harder for the business behind it."

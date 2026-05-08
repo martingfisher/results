@@ -5,7 +5,7 @@ pageSlug: "goodees"
 sector: "FMCG packaging"
 summary: "Packaging and visual direction for a baby-care product range that needed shelf impact, clarity and trust."
 summaryHeading: "A packaging system built to earn trust and stand out at the moment of choice."
-services: ["Packaging design", "Brand messaging", "Visual identity"]
+services: ["Branding", "Visual Identity", "Brand Messaging"]
 heroImage: "/assets/projects/goodees-01.webp"
 images:
   - "/assets/projects/goodees-01.webp"

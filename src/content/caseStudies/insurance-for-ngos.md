@@ -5,7 +5,7 @@ pageSlug: "insurance-for-ngos"
 sector: "Specialist insurance"
 summary: "A specialist insurance brand built for NGO and humanitarian workers operating in conflict zones and high-risk regions worldwide."
 summaryHeading: "Turning a genuinely specialist insurance offer into a web presence that the people who need it can actually find and trust."
-services: ["Brand consultancy", "Creative and messaging", "Website design", "WordPress"]
+services: ["Branding", "Web Development", "Copywriting"]
 heroImage: "/assets/projects/insurance-for-ngos-01.webp"
 images:
   - "/assets/projects/insurance-for-ngos-01.webp"

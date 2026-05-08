@@ -8,7 +8,7 @@ secondaryCta: "Send an enquiry"
 video: ""
 poster: "/assets/projects/alpha-01.webp"
 streamId: "f874f00f17b13e834729be125e72604f"
-relatedCaseStudies: []
+relatedCaseStudies: ["alpha-moisture-systems", "lolly"]
 introSection:
   heading: "Hosting built around reliability, speed and security."
   body: "Most businesses only think about hosting when something breaks.\n\nSlow websites, failed updates and security problems are often caused by cheap infrastructure and neglected maintenance.\n\nWe take a different approach.\n\nOur managed hosting includes enterprise-level cloud hosting, global CDN acceleration, proactive security management, plugin and platform updates, automated backups, performance optimisation and direct technical support.\n\nHosting starts from £30 per month and includes ongoing maintenance and security updates multiple times each week."

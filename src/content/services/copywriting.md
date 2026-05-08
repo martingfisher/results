@@ -8,7 +8,7 @@ secondaryCta: "Start the conversation"
 video: ""
 poster: "/assets/projects/insurance-for-01.webp"
 streamId: "1be64aadf989e269c5ce877f20d8848f"
-relatedCaseStudies: ["insurance-for-group"]
+relatedCaseStudies: ["lolly", "insurance-for-ngos"]
 introSection:
   heading: "Copywriting built around clarity, positioning and measurable response."
   body: "Good copy does more than fill space on a page.\n\nIt helps people quickly understand what the business does, why it matters, why they should trust it and what they should do next.\n\nMany businesses struggle because their messaging has become too internal, too technical or too focused on themselves rather than the customer.\n\nResults You Can Measure writes clear, commercially focused copy designed to improve understanding, strengthen positioning and support measurable business outcomes.\n\nThe goal is not clever wording. The goal is communication that works."

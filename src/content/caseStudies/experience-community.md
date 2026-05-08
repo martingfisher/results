@@ -5,7 +5,7 @@ pageSlug: "experience-community"
 sector: "Adaptive cycling and inclusive outdoor experiences"
 summary: "A warmer, clearer web presence for an organisation helping people access outdoor activities with confidence."
 summaryHeading: "Making an inclusive outdoor offer feel welcoming, practical and easy to act on."
-services: ["Website design", "Content structure", "Community messaging"]
+services: ["Web Development", "Copywriting", "Branding"]
 heroImage: "/assets/projects/experience-community-01.webp"
 images:
   - "/assets/projects/experience-community-01.webp"

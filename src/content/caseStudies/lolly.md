@@ -5,7 +5,7 @@ pageSlug: "lolly"
 sector: "Hospitality technology"
 summary: "A high-impact Webflow website for one of the UK's leading hospitality technology platforms, serving over 225,000 customers."
 summaryHeading: "Making a complex multi-product technology platform feel clear, credible and easy to explore."
-services: ["Website design", "Webflow build", "Copywriting", "Content structure"]
+services: ["Web Development", "Copywriting", "Webflow"]
 heroImage: "/assets/projects/lolly-01.webp"
 images:
   - "/assets/projects/lolly-01.webp"

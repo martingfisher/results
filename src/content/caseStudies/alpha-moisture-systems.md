@@ -15,7 +15,7 @@ lighthouseScores:
     score: 96
   - label: "SEO"
     score: 92
-services: ["Website design", "Content structure", "Technical messaging"]
+services: ["Web Development", "Technical SEO", "Copywriting"]
 heroImage: "/assets/projects/alpha-01.webp"
 images:
   - "/assets/projects/alpha-01.webp"

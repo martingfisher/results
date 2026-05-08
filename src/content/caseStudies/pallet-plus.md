@@ -5,7 +5,7 @@ pageSlug: "pallet-plus"
 sector: "Logistics and pallet distribution"
 summary: "A bold logistics web presence designed to communicate national reach, local care and practical service clarity."
 summaryHeading: "Giving a national logistics business the digital confidence to match its operational strength."
-services: ["Website design", "Content structure", "Customer portal messaging"]
+services: ["Web Development", "Copywriting", "UX Messaging"]
 heroImage: "/assets/projects/pallet-plus-01.webp"
 images:
   - "/assets/projects/pallet-plus-01.webp"

@@ -7,7 +7,7 @@ cta: "Plan the next 90 days"
 video: "/assets/video/consultancy-review.mp4"
 poster: "/assets/projects/presentation-spaces-website.webp"
 streamId: "86be625829267af8102b00082fd9a5e4"
-relatedCaseStudies: ["presentation-spaces"]
+relatedCaseStudies: ["presentation-spaces", "insurance-for-group"]
 introSection:
   heading: "Clear thinking for businesses that need direction, not more noise."
   body: "When marketing starts feeling reactive, fragmented or difficult to measure, most businesses do not need more activity. They need clearer thinking.\n\nResults You Can Measure provides senior-level marketing consultancy focused on helping businesses understand where they are now, where the opportunities really are and what should happen next.\n\nWhether you are entering a new market, repositioning a service, improving enquiries or trying to make better commercial decisions, we bring an experienced outside perspective built around measurable outcomes."
