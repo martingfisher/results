@@ -469,6 +469,217 @@ video {
   }
 }
 
+/* ── Stream hero secondary CTA ─────────────────────────── */
+.stream-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.stream-ctas .btn.secondary {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.stream-ctas .btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
+}
+
+/* ── Service areas grid ─────────────────────────────────── */
+.service-area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+  margin-top: clamp(28px, 4vw, 48px);
+}
+
+.service-area-card {
+  padding: clamp(22px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.service-area-card h3 {
+  margin: 0 0 10px;
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
+  color: var(--navy);
+}
+
+.service-area-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ── Approach section ───────────────────────────────────── */
+.approach-section {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.approach-intro {
+  max-width: 820px;
+  margin-bottom: clamp(36px, 5vw, 60px);
+}
+
+.approach-intro h2 {
+  color: var(--white);
+}
+
+.approach-intro .eyebrow {
+  color: var(--red);
+}
+
+.approach-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.approach-body p {
+  margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.approach-section .metric-grid {
+  margin-top: 0;
+}
+
+.approach-section .metric-card {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+/* ── Editorial sections ─────────────────────────────────── */
+.editorial-section {
+  background: var(--light);
+}
+
+.editorial-inner {
+  max-width: 760px;
+}
+
+.editorial-inner h2 {
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.editorial-body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.editorial-body p {
+  margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* ── Process section ────────────────────────────────────── */
+.process-list {
+  list-style: none;
+  margin: clamp(28px, 4vw, 48px) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.process-step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.process-num {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.process-step h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  color: var(--navy);
+}
+
+.process-step p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* ── Closing CTA section ────────────────────────────────── */
+.closing-cta-section {
+  background: var(--navy);
+  text-align: center;
+}
+
+.closing-cta {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.closing-cta h2 {
+  color: var(--white);
+  margin: 0;
+}
+
+.closing-sub {
+  margin: 0;
+  font-size: clamp(1.1rem, 1.6vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.closing-cta > p:not(.closing-sub) {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.closing-cta-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: var(--white);
+}
+
+.btn.outline:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .case-hero-image {
   position: relative;
   min-height: min(760px, calc(100vh - 83px));

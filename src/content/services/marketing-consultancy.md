@@ -1,17 +1,62 @@
 ---
-title: "Marketing Consultancy"
+title: "Clear thinking for businesses that need direction, not more noise."
 pageSlug: "marketing-consultancy"
 eyebrow: "Service 02"
-summary: "A senior marketing brain beside the business, turning scattered activity into a practical plan."
+summary: "When marketing starts feeling reactive, fragmented or difficult to measure, most businesses do not need more activity. They need clearer thinking."
+cta: "Book a strategy call"
+secondaryCta: "Send an enquiry"
 video: "/assets/video/consultancy-review.mp4"
 poster: "/assets/projects/presentation-spaces-website.webp"
 streamId: "86be625829267af8102b00082fd9a5e4"
-cta: "Plan the next 90 days"
+bodyEyebrow: "Senior marketing consultancy"
+bodyHeading: "An experienced outside perspective built around measurable outcomes."
 relatedCaseStudies: ["presentation-spaces"]
 benefits:
-  - "Audits that separate useful activity from noise."
-  - "90-day plans with clear priorities and owners."
-  - "Joined-up campaigns matched to your capacity."
+  - "Honest conversations without agency theatre."
+  - "Faster decisions and clearer accountability."
+  - "Practical advice grounded in real commercial experience."
+serviceAreas:
+  - title: "Positioning and messaging"
+    description: "Helping businesses explain what makes them different in a way customers immediately understand."
+  - title: "Marketing direction and planning"
+    description: "Turning disconnected activity into a clearer, prioritised marketing plan."
+  - title: "New market opportunities"
+    description: "Identifying overlooked audiences, sectors or commercial angles that competitors may be missing."
+  - title: "Website and conversion strategy"
+    description: "Improving how websites communicate value, guide visitors and generate enquiries."
+  - title: "Brand clarity"
+    description: "Refining identity, messaging and presentation so the business feels more credible, consistent and easier to trust."
+  - title: "Digital marketing performance"
+    description: "Reviewing SEO, PPC, content and campaign activity to identify what is working, what is wasting budget and where opportunities exist."
+  - title: "AI and modern workflows"
+    description: "Helping businesses understand where AI, automation and modern tools can genuinely improve efficiency and communication without unnecessary complexity."
+approach:
+  heading: "Senior-level thinking without agency theatre."
+  intro: "RYCM is intentionally structured differently from a traditional agency model.\n\nYou work directly with experienced people. Not layers of account management.\n\nWe are comfortable challenging assumptions when needed. Often the most valuable consultancy comes from identifying what should stop happening, not just what should happen next."
+editorialSections:
+  - heading: "A fresh perspective often changes more than a bigger budget."
+    body: "One of the biggest problems in marketing is proximity.\n\nBusinesses become so close to their products, services and sector norms that opportunities become difficult to spot. Messaging becomes repetitive. Marketing activity grows while clarity disappears.\n\nThat is usually where we come in.\n\nWe help businesses step back, reassess what is working, challenge assumptions and identify practical opportunities for growth.\n\nSometimes that means refining positioning. Sometimes it means simplifying communication. Sometimes it means identifying entirely different ways to reach the right audience.\n\nThe goal is not marketing for the sake of it. The goal is commercial progress you can actually measure."
+  - heading: "Usually, clients already know something is not working."
+    body: "Sometimes enquiries have slowed down. Sometimes the business has outgrown its positioning. Sometimes the marketing feels busy but disconnected. And sometimes the company simply needs an experienced external perspective to help make sense of the next stage of growth.\n\nThat outside perspective matters. A business that sees the same challenges every day rarely sees them objectively.\n\nFresh thinking changes that."
+process:
+  - step: "01"
+    title: "Understand the business"
+    description: "We look at the business, market, audience, competitors and existing marketing activity."
+  - step: "02"
+    title: "Identify opportunities and friction"
+    description: "We assess what is working, what is underperforming and where clearer opportunities may exist."
+  - step: "03"
+    title: "Prioritise what matters"
+    description: "Not everything needs fixing immediately. We help prioritise the activity most likely to create measurable impact."
+  - step: "04"
+    title: "Support delivery"
+    description: "Where needed, we can also help implement strategy across branding, websites, SEO, PPC, content and digital marketing."
+closingCta:
+  heading: "Your marketing may not need more activity."
+  subheading: "It may need clearer direction."
+  body: "If you feel too close to the business to see the opportunities clearly, we should talk. A fresh perspective often changes more than businesses expect."
+  primary: "Book a strategy call"
+  secondary: "Start the conversation"
 faqs:
   - question: "Is this strategy or hands-on delivery?"
     answer: "It can be either. We can give direction, run delivery, or sit alongside your team as a senior sounding board."
@@ -34,4 +79,6 @@ chat:
     text: "Now that <u>IS</u> Results You Can Measure!"
 ---
 
-Consultancy gives you structure, judgement and momentum. It is where scattered marketing becomes a joined-up commercial plan.
+Results You Can Measure provides senior-level marketing consultancy focused on helping businesses understand where they are now, where the opportunities really are and what should happen next.
+
+Whether you are entering a new market, repositioning a service, improving enquiries or trying to make better commercial decisions, we bring an experienced outside perspective built around measurable outcomes.

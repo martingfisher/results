@@ -26,6 +26,7 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
       title={service.data.title}
       summary={service.data.summary}
       cta={service.data.cta}
+      secondaryCta={service.data.secondaryCta}
       messages={service.data.chat}
     />
   ) : (
@@ -42,17 +43,80 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
 
   <section class="section split">
     <div>
-      <p class="eyebrow">How we help</p>
-      <h2>Enough strategy to be useful. Enough action to move.</h2>
+      <p class="eyebrow">{service.data.bodyEyebrow ?? 'How we help'}</p>
+      <h2>{service.data.bodyHeading ?? 'Enough strategy to be useful. Enough action to move.'}</h2>
     </div>
     <div class="rich-copy"><Content /></div>
   </section>
 
-  <section class="section">
-    <div class="metric-grid">
-      {service.data.benefits.map((benefit) => <div class="metric-card">{benefit}</div>)}
-    </div>
-  </section>
+  {service.data.serviceAreas && (
+    <section class="section service-areas">
+      <div class="section-head">
+        <p class="eyebrow">What we help with</p>
+        <h2>Practical strategic support across the areas that influence growth.</h2>
+      </div>
+      <div class="service-area-grid">
+        {service.data.serviceAreas.map((area) => (
+          <div class="service-area-card">
+            <h3>{area.title}</h3>
+            <p>{area.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  {service.data.approach ? (
+    <section class="section approach-section">
+      <div class="approach-intro">
+        <p class="eyebrow">Our approach</p>
+        <h2>{service.data.approach.heading}</h2>
+        <div class="approach-body">
+          {service.data.approach.intro.split('\n\n').map((para) => <p>{para}</p>)}
+        </div>
+      </div>
+      <div class="metric-grid">
+        {service.data.benefits.map((benefit) => <div class="metric-card">{benefit}</div>)}
+      </div>
+    </section>
+  ) : (
+    <section class="section">
+      <div class="metric-grid">
+        {service.data.benefits.map((benefit) => <div class="metric-card">{benefit}</div>)}
+      </div>
+    </section>
+  )}
+
+  {service.data.editorialSections && service.data.editorialSections.map((ed) => (
+    <section class="section editorial-section">
+      <div class="editorial-inner">
+        <h2>{ed.heading}</h2>
+        <div class="editorial-body">
+          {ed.body.split('\n\n').map((para) => <p>{para}</p>)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  {service.data.process && (
+    <section class="section process-section">
+      <div class="section-head">
+        <p class="eyebrow">How we work</p>
+        <h2>A practical process built around clarity.</h2>
+      </div>
+      <ol class="process-list">
+        {service.data.process.map((step) => (
+          <li class="process-step">
+            <span class="process-num">{step.step}</span>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+  )}
 
   <section class="section faq-list">
     <p class="eyebrow">Questions</p>
@@ -79,5 +143,19 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
     </section>
   )}
 
-  <CTASection title={`Want clearer ${service.data.title.toLowerCase()}?`} text="Book a call and we will talk through what is working, what is wasting attention, and what to measure first." />
+  {service.data.closingCta ? (
+    <section class="section closing-cta-section">
+      <div class="closing-cta">
+        <h2>{service.data.closingCta.heading}</h2>
+        {service.data.closingCta.subheading && <p class="closing-sub">{service.data.closingCta.subheading}</p>}
+        {service.data.closingCta.body && <p>{service.data.closingCta.body}</p>}
+        <div class="closing-cta-btns">
+          <a class="btn primary" href="/contact/">{service.data.closingCta.primary}</a>
+          {service.data.closingCta.secondary && <a class="btn outline" href="/contact/">{service.data.closingCta.secondary}</a>}
+        </div>
+      </div>
+    </section>
+  ) : (
+    <CTASection title={`Want clearer ${service.data.title.toLowerCase()}?`} text="Book a call and we will talk through what is working, what is wasting attention, and what to measure first." />
+  )}
 </BaseLayout>

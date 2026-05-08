@@ -11,10 +11,11 @@ interface Props {
   title: string;
   summary: string;
   cta: string;
+  secondaryCta?: string;
   messages: Message[];
 }
 
-const { streamId, poster, eyebrow, title, summary, cta, messages } = Astro.props;
+const { streamId, poster, eyebrow, title, summary, cta, secondaryCta, messages } = Astro.props;
 
 const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? '';
 const iframeSrc = CUSTOMER_CODE
@@ -78,7 +79,10 @@ const iframeSrc = CUSTOMER_CODE
     <p class="eyebrow">{eyebrow}</p>
     <h1>{title}</h1>
     <p>{summary}</p>
-    <a class="btn primary" href="/contact/">{cta}</a>
+    <div class="stream-ctas">
+      <a class="btn primary" href="/contact/">{cta}</a>
+      {secondaryCta && <a class="btn secondary" href="/contact/">{secondaryCta}</a>}
+    </div>
   </div>
 
   <!-- Chat rail -->
