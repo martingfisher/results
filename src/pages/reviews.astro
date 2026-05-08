@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Client Reviews | Results You Can Measure"
+  description="Genuine Google reviews from clients who have worked with Results You Can Measure. See what businesses say about our marketing, SEO, web development and consultancy."
+>
+  <section class="page-hero compact">
+    <p class="eyebrow">Reviews</p>
+    <h1>What clients say after the work starts working.</h1>
+    <p>Genuine Google reviews from businesses we have worked with. No curation, no cherry-picking — just the full feed.</p>
+  </section>
+
+  <section class="section reviews-section" aria-labelledby="reviews-page-heading">
+    <div class="reviews-embed">
+      <script is:inline src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-e0e579e9-5e90-4767-b6c6-aef9925c4d9d" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
+  <CTASection />
+</BaseLayout>

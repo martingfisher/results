@@ -11,3 +11,5 @@ public/assets/video/ppc-review.mov
 public/assets/video/seo-review.mov
 public/assets/video/service-review.mov
 public/assets/video/web-review.mov
+.env
+.env.local

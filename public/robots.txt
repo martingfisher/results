@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /concepts/
+
+Sitemap: https://resultsyoucanmeasure.com/sitemap-index.xml

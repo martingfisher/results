@@ -1,0 +1,95 @@
+---
+interface Message {
+  from: 'client' | 'agency';
+  text: string;
+}
+
+interface Props {
+  streamId: string;
+  poster: string;
+  eyebrow: string;
+  title: string;
+  summary: string;
+  cta: string;
+  messages: Message[];
+}
+
+const { streamId, poster, eyebrow, title, summary, cta, messages } = Astro.props;
+
+const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? '';
+const iframeSrc = CUSTOMER_CODE
+  ? `https://customer-${CUSTOMER_CODE}.cloudflarestream.com/${streamId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=auto`
+  : null;
+---
+
+<section class="stream-hero">
+  <!-- Full-width background video -->
+  <div class="stream-bg" aria-hidden="true">
+    {iframeSrc ? (
+      <iframe
+        src={iframeSrc}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title=""
+      ></iframe>
+    ) : (
+      <>
+        <!-- Fallback: Stream web component until customer code is set -->
+        <stream
+          src={streamId}
+          autoplay
+          muted
+          loop
+          controls="false"
+          preload="auto"
+          playsinline
+          poster={poster}
+          style="position:absolute;inset:0;width:100%;height:100%;"
+        ></stream>
+        <script is:inline src="https://embed.cloudflarestream.com/embed/sdk.latest.js"></script>
+        <script is:inline>
+          (function() {
+            function initStream() {
+              var el = document.querySelector('.stream-bg stream');
+              if (!el || typeof Stream === 'undefined') return;
+              var player = Stream(el);
+              player.muted = true;
+              player.loop = true;
+              player.play().catch(function() {});
+            }
+            if (document.readyState === 'loading') {
+              document.addEventListener('DOMContentLoaded', initStream);
+            } else {
+              initStream();
+            }
+          })();
+        </script>
+      </>
+    )}
+    <!-- Poster shown until video plays (and for prefers-reduced-motion) -->
+    <img class="stream-poster" src={poster} alt="" aria-hidden="true" />
+  </div>
+
+  <!-- Dark overlay -->
+  <div class="stream-overlay" aria-hidden="true"></div>
+
+  <!-- Copy -->
+  <div class="stream-copy">
+    <p class="eyebrow">{eyebrow}</p>
+    <h1>{title}</h1>
+    <p>{summary}</p>
+    <a class="btn primary" href="/contact/">{cta}</a>
+  </div>
+
+  <!-- Chat rail -->
+  <aside class="message-rail" aria-label="Example client conversation">
+    <ol class="chat-stack">
+      {messages.map((message, index) => (
+        <li class:list={['chat-bubble', message.from]} style={`--i:${index}`}>
+          <span class="chat-name">{message.from === 'agency' ? 'RYCM team' : 'Client'}</span>
+          <span set:html={message.text} />
+        </li>
+      ))}
+    </ol>
+  </aside>
+</section>

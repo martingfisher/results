@@ -1,7 +1,7 @@
 ---
 title: "15 Actionable Tips for Effective Social Media Posts That Drive Results"
 pageSlug: "social-media-posts-drive-results"
-summary: "An imported and refreshed checklist for making social posts clearer, more useful and more likely to support real business outcomes."
+summary: "A practical checklist for making social posts clearer, more useful and more likely to support real business outcomes."
 date: "2026-02-08"
 category: "Social Media"
 draft: false

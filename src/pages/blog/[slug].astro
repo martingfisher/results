@@ -16,9 +16,36 @@ const relatedPosts = [
   ...candidatePosts.filter((candidate) => candidate.data.category === post.data.category),
   ...candidatePosts.filter((candidate) => candidate.data.category !== post.data.category),
 ].slice(0, 4);
+
+const siteUrl = 'https://resultsyoucanmeasure.com';
+const articleSchema = {
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.summary,
+  datePublished: post.data.date,
+  dateModified: post.data.date,
+  url: `${siteUrl}/blog/${post.data.pageSlug}/`,
+  author: {
+    '@type': 'Person',
+    name: 'Martin Fisher',
+    url: `${siteUrl}/about/`,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Results You Can Measure',
+    url: siteUrl,
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/assets/logos/rycm-logotype-dark.svg` },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${siteUrl}/blog/${post.data.pageSlug}/` },
+};
 ---
 
-<BaseLayout title={post.data.title} description={post.data.summary}>
+<BaseLayout
+  title={post.data.title}
+  description={post.data.summary}
+  canonicalPath={`/blog/${post.data.pageSlug}/`}
+  schema={articleSchema}
+>
   <section class="page-hero compact">
     <p class="eyebrow">{post.data.category}</p>
     <h1>{post.data.title}</h1>

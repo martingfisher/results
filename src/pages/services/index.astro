@@ -10,11 +10,15 @@ const serviceOrder = ['branding', 'marketing-consultancy', 'web-development', 'h
 const orderedServices = services.sort((a, b) => serviceOrder.indexOf(a.data.pageSlug) - serviceOrder.indexOf(b.data.pageSlug));
 ---
 
-<BaseLayout title="Services">
+<BaseLayout
+  title="Marketing Services Bradford | Branding, SEO, PPC, Web Development"
+  description="Results You Can Measure offers branding, SEO, PPC, web development, copywriting and marketing consultancy from Bradford. Accountable marketing with clear pricing and measurable outcomes."
+>
   <section class="page-hero compact">
     <p class="eyebrow">Services</p>
-    <h1>Marketing services for business owners who want reassurance before detail.</h1>
-    <p>Each service is designed to answer the same question: what changed, how do we know, and what should happen next?</p>
+    <h1>The useful bits of an agency.<br />Joined up and accountable.</h1>
+    <p>Based in Bradford, Results You Can Measure works with growing businesses who want clear strategy, strong creative and marketing that justifies the spend. You speak to the people doing the work. You get straight answers, not layers.</p>
+    <p>Every service we offer connects to a measurable outcome. If we cannot track it in leads, sales or better enquiries, we will tell you.</p>
   </section>
   <section class="section">
     <div class="card-grid services-grid" data-momentum-group>
@@ -24,5 +28,5 @@ const orderedServices = services.sort((a, b) => serviceOrder.indexOf(a.data.page
     </div>
   </section>
   <MomentumCards />
-  <CTASection title="Not sure which service you need?" text="Book a short call. We will tell you what looks useful, what can wait, and what we would measure first." />
+  <CTASection title="Not sure what will actually move the needle?" text="Book a short call. We'll tell you what matters, what can wait, and what to measure first. No sales pitch. Just clear next steps." />
 </BaseLayout>

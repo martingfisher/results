@@ -20,15 +20,17 @@ chat:
   - from: "client"
     text: "We are spending a fortune on ads. Are they actually working?"
   - from: "agency"
-    text: "Before, your PPC was just clicks."
-  - from: "agency"
-    text: "We rebuilt it around a clear offer and matching landing pages."
+    text: "Before, your PPC was just clicks. We rebuilt it around a clear offer and matching landing pages."
   - from: "client"
     text: "So what changed apart from new ads?"
   - from: "agency"
-    text: "Right searches, right days, clear call to action."
+    text: "You now show up for the right searches, on the right days, with a clear call to action."
+  - from: "client"
+    text: "And in hard numbers?"
   - from: "agency"
-    text: "Example result: cost per lead down 36%, qualified enquiries up 27%."
+    text: "Cost per lead down 36 percent. Qualified enquiries up 27 percent."
+  - from: "client"
+    text: "Now that <u>IS</u> Results You Can Measure!"
 ---
 
 PPC should buy useful attention, not just traffic. We connect the campaign, message, landing page and reporting so every pound has a job.

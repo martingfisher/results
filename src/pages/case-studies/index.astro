@@ -5,17 +5,36 @@ import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import CTASection from '../../components/CTASection.astro';
 import MomentumCards from '../../components/MomentumCards.astro';
 
-const caseStudies = await getCollection('caseStudies');
+const caseStudyOrder = [
+  'alpha-moisture-systems',
+  'brightbird',
+  'experience-community',
+  'goodees',
+  'insurance-for-group',
+  'insurance-for-ngos',
+  'pallet-plus',
+  'presentation-spaces',
+  'lolly',
+];
+
+const caseStudies = (await getCollection('caseStudies')).sort((a, b) => {
+  const aIndex = caseStudyOrder.indexOf(a.data.pageSlug);
+  const bIndex = caseStudyOrder.indexOf(b.data.pageSlug);
+
+  return (aIndex === -1 ? 999 : aIndex) - (bIndex === -1 ? 999 : bIndex);
+});
 ---
 
-<BaseLayout title="Case Studies">
+<BaseLayout
+  title="Case Studies | Marketing, Branding and Web Work That Paid Off"
+  description="Real client projects from Results You Can Measure. Branding, web development, SEO and campaign work for UK businesses — with the outcomes to show for it."
+>
   <section class="page-hero compact case-index-hero">
-    <p class="eyebrow">Selected Projects</p>
-    <h1>Selected Projects</h1>
-    <p class="case-index-kicker">We solve business challenges through strategic design and development.</p>
+    <p class="eyebrow">Selected projects</p>
+    <h1>Work that made the offer easier to choose.</h1>
+    <p class="case-index-kicker">Every project here started with a real business challenge — unclear positioning, weak web presence, campaigns that were not converting.</p>
     <p class="case-index-lede">
-      Every project here started with a challenge and ended with measurable success.
-      We make complex offers easier to understand. See how we tackle complex problems with clear solutions.
+      What you see below is the result of joining the thinking up: branding that earns trust, websites that convert, marketing that tracks back to leads and sales.
     </p>
   </section>
   <section class="section case-index-section">

@@ -20,17 +20,17 @@ chat:
   - from: "client"
     text: "Our website sounds clever. But does anyone actually get what we do?"
   - from: "agency"
-    text: "Not really. It was all about you."
-  - from: "agency"
-    text: "We rewrote it so the customer is the hero and you are the guide."
+    text: "Not really. It was all about you. We rewrote it using StoryBrand so the customer is the hero and you are the guide."
   - from: "client"
     text: "So what changed apart from nicer words?"
   - from: "agency"
-    text: "Clear problem, simple plan, strong call to action."
+    text: "Clear problem, simple plan, strong call to action. People now say they finally understand what you do."
   - from: "client"
     text: "And in hard numbers?"
   - from: "agency"
-    text: "In this scenario, enquiries rise 31% after the copy goes live."
+    text: "Enquiries up 31% since the new copy went live."
+  - from: "client"
+    text: "Now that <u>IS</u> Results You Can Measure!"
 ---
 
 Good copy is not decoration. It removes confusion, gives the visitor confidence, and helps the right people take the next step.

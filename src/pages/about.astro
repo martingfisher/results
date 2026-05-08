@@ -2,13 +2,35 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 import TechMarquee from '../components/TechMarquee.astro';
+import ConceptChat from '../components/ConceptChat.astro';
+import ConceptMotion from '../components/ConceptMotion.astro';
+import '../styles/concepts.css';
+
+const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
+  { from: 'client', text: 'We do bits of marketing all over the place. Is any of it actually working?' },
+  { from: 'agency', text: 'We audited everything, kept what worked, stopped the waste, then built a simple plan.' },
+  { from: 'client', text: 'What did that actually change?' },
+  { from: 'agency', text: 'Clear priorities, one joined up message, campaigns that match your capacity.' },
+  { from: 'client', text: 'And the numbers?' },
+  { from: 'agency', text: 'Same budget, 31 percent more qualified enquiries in 90 days.' },
+  { from: 'client', text: 'Now that <u>IS</u> Results You Can Measure!' },
+];
 ---
 
-<BaseLayout title="About">
-  <section class="page-hero compact">
-    <p class="eyebrow">About</p>
-    <h1>Big agency know-how, a small senior team, and independent talent when the job needs it.</h1>
-    <p>RYCM is founder-led, but not built around one pair of hands. The model is practical: senior judgement, direct access, and the right specialist support around the work.</p>
+<BaseLayout
+  title="About | Bradford Marketing Agency Founded by Martin Fisher"
+  description="Results You Can Measure is a founder-led marketing agency based in Bradford. Senior creative, strategic and digital marketing expertise without the agency layers."
+>
+  <section class="page-hero about-hero">
+    <div class="about-hero-bg" aria-hidden="true"></div>
+    <div class="about-hero-content">
+      <p class="eyebrow">About</p>
+      <h1>Big agency thinking.<br />Senior-level delivery.<br />No layers. No passengers.</h1>
+      <p>Founder-led, but not built around one pair of hands. We help businesses grow through clearer positioning, smarter strategy, strong creative and measurable marketing performance.</p>
+    </div>
+    <aside class="message-rail" data-chat-loop>
+      <ConceptChat messages={aboutChat} />
+    </aside>
   </section>
 
   <section class="section split">
@@ -33,5 +55,26 @@ import TechMarquee from '../components/TechMarquee.astro';
 
   <TechMarquee />
 
+  <section class="section do-dont">
+    <article>
+      <p class="eyebrow">Here is what we do</p>
+      <ul>
+        <li>Craft highly original creative solutions with real commercial credibility.</li>
+        <li>Understand your business needs and find the most appropriate solution.</li>
+        <li>Challenge your thinking honestly, directly and constructively.</li>
+        <li>Fit around your schedule and stay easy to reach.</li>
+      </ul>
+    </article>
+    <article>
+      <p class="eyebrow">And what we do not</p>
+      <ul>
+        <li>Give you the hard sell on products or services you do not need.</li>
+        <li>Take on projects where we do not believe we can add value.</li>
+        <li>Blind you with science, quoting stats instead of offering insights.</li>
+      </ul>
+    </article>
+  </section>
+
   <CTASection />
+  <ConceptMotion />
 </BaseLayout>

@@ -20,15 +20,17 @@ chat:
   - from: "client"
     text: "Our website looks old and people keep getting lost. Is it costing us business?"
   - from: "agency"
-    text: "Yes. It was slow, unclear, and all about you."
-  - from: "agency"
-    text: "We rebuilt it so it loads fast and guides visitors to a clear next step."
+    text: "Yes. It was slow, unclear, and all about you. We rebuilt it so it loads fast, works on mobile, and guides visitors to a clear next step."
   - from: "client"
     text: "So it is more than a fresh design?"
   - from: "agency"
-    text: "New structure, clearer copy, simpler navigation."
+    text: "New structure, clearer copy, simpler navigation. Customers now know what you do, why it matters, and how to get started."
+  - from: "client"
+    text: "And in hard numbers?"
   - from: "agency"
-    text: "Example result: site enquiries up 33% in 60 days."
+    text: "Bounce rate down 24 percent. Enquiries from the site up 33 percent in 60 days."
+  - from: "client"
+    text: "Now that <u>IS</u> Results You Can Measure!"
 ---
 
 Your website is often the place where confidence is either built or lost. We make it clearer, faster and easier to act on.

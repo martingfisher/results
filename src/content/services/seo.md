@@ -20,15 +20,17 @@ chat:
   - from: "client"
     text: "Is this monthly SEO actually working?"
   - from: "agency"
-    text: "Traffic is up 41% in this example."
+    text: "Traffic up 41% in 3 months."
   - from: "client"
     text: "And enquiries?"
   - from: "agency"
-    text: "Up 28%, with 34 more this month."
+    text: "Enquiries up 28%. 34 more this month."
   - from: "client"
     text: "Worth the fee then?"
   - from: "agency"
-    text: "Extra quote value traced back to organic search. Now that is Results You Can Measure."
+    text: "Extra £52k in quotes. From SEO alone."
+  - from: "client"
+    text: "Now that <u>IS</u> Results You Can Measure!"
 ---
 
 Search should make your business easier to find, easier to understand, and easier to buy from. We connect technical SEO, useful content and commercial reporting so the work stays tied to the enquiries you actually want.

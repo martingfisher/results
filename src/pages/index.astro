@@ -4,7 +4,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ConceptChat from '../components/ConceptChat.astro';
 import ConceptMotion from '../components/ConceptMotion.astro';
 import ServiceCard from '../components/ServiceCard.astro';
-import CaseStudyCard from '../components/CaseStudyCard.astro';
 import CaseCarousel from '../components/CaseCarousel.astro';
 import CTASection from '../components/CTASection.astro';
 import TechMarquee from '../components/TechMarquee.astro';
@@ -43,17 +42,18 @@ const portfolioItems = [
     summary: 'From logistics and hospitality technology to adaptive cycling and FMCG packaging, the work changes shape but the point stays the same: make the offer easier to choose.',
     image: '/assets/projects/lolly-01.webp',
     href: '/case-studies/',
+    cta: 'View all projects',
   },
 ];
 
 const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
-  { from: 'client', text: 'We are doing SEO, ads, copy and website updates.' },
-  { from: 'client', text: 'But I am not sure what is actually working.' },
-  { from: 'agency', text: 'That is exactly where we help.' },
-  { from: 'agency', text: 'We join the work up, track the numbers, and make the next step clear.' },
-  { from: 'client', text: 'So less noise, more accountability?' },
-  { from: 'agency', text: 'Better leads, clearer feedback, stronger decisions.' },
-  { from: 'client', text: 'Yes I get it, results you can measure!' },
+  { from: 'client', text: 'You do our SEO, ads, copy and website?' },
+  { from: 'client', text: 'What are you really?' },
+  { from: 'agency', text: 'A small creative team that joins it all up…' },
+  { from: 'agency', text: 'Easy to reach, clear on price, strong on the technicals and focused on results.' },
+  { from: 'client', text: 'And it actually works?' },
+  { from: 'agency', text: 'Better leads, better clients, clearer numbers.' },
+  { from: 'client', text: 'Now that <u>IS</u> Results You Can Measure!' },
 ];
 ---
 
@@ -73,7 +73,7 @@ const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
         <span class="concept-word"><span data-gsap="word">your</span></span>
         <span class="concept-word"><span data-gsap="word">marketing.</span></span>
       </h1>
-      <p>Results You Can Measure joins the dots between SEO, PPC, copy, branding and websites so business owners get straight answers, useful work and clearer numbers.</p>
+      <p>Results You Can Measure is a small creative marketing agency that joins the dots between your SEO, PPC, copy, branding and website. You speak to the people doing the work, get clear pricing and straight answers, and we only recommend what we can track in leads, sales and better clients. Small, accessible and value driven, with one aim in mind – results you can measure.</p>
       <div class="concept-actions" data-gsap="hero-cta">
         <a class="btn primary" href="/contact/">Book a call</a>
         <a class="btn secondary" href="/case-studies/">See the work</a>
@@ -84,14 +84,14 @@ const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
     </aside>
   </section>
 
-  <section class="section split">
+  <section class="section split promise-section">
     <div>
       <p class="eyebrow">The promise</p>
       <h2>We think our name says it all.</h2>
     </div>
     <div class="rich-copy">
-      <p>We deliver tangible results that you can see, measure and celebrate. Always accountable, always transparent, and always looking for the next opportunity for your business.</p>
-      <p>We are a battle-tested and pragmatic team of creatives, working on your behalf. You speak to the people doing the work, get clear pricing and straight answers, and we only recommend what we can track in leads, sales or better clients.</p>
+      <p>We are a small, but battle-tested and pragmatic team. Expert in our disciplines and committed to achieving your most ambitious goals — as the name suggests.</p>
+      <p>You speak to the people doing the work, get clear pricing and straight answers, and we only recommend what we can track in leads, sales or better clients.</p>
     </div>
   </section>
 
@@ -121,6 +121,18 @@ const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
     <CaseCarousel studies={caseStudies} />
   </section>
 
+  <section class="section reviews-section" aria-labelledby="reviews-heading">
+    <div class="section-head">
+      <p class="eyebrow">Client feedback</p>
+      <h2 id="reviews-heading">What clients say after the work starts working.</h2>
+      <p>Genuine Google reviews from clients who have seen the work in action.</p>
+    </div>
+    <div class="reviews-embed">
+      <script is:inline src="https://elfsightcdn.com/platform.js" async></script>
+      <div class="elfsight-app-e0e579e9-5e90-4767-b6c6-aef9925c4d9d" data-elfsight-app-lazy></div>
+    </div>
+  </section>
+
   <section class="section portfolio-showcase" aria-label="Selected project proof">
     <div class="section-head">
       <p class="eyebrow">Portfolio</p>
@@ -135,7 +147,7 @@ const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
             <p class="eyebrow">{item.eyebrow}</p>
             <h3>{item.title}</h3>
             <p>{item.summary}</p>
-            <a class="btn secondary" href={item.href}>View project</a>
+            <a class="btn secondary" href={item.href}>{item.cta ?? 'View project'}</a>
           </div>
         </article>
       ))}
@@ -143,26 +155,6 @@ const introChat: Array<{ from: 'client' | 'agency'; text: string }> = [
   </section>
 
   <TechMarquee />
-
-  <section class="section do-dont">
-    <article>
-      <p class="eyebrow">Here is what we do</p>
-      <ul>
-        <li>Craft highly original creative solutions with real commercial credibility.</li>
-        <li>Understand your business needs and find the most appropriate solution.</li>
-        <li>Challenge your thinking honestly, directly and constructively.</li>
-        <li>Fit around your schedule and stay easy to reach.</li>
-      </ul>
-    </article>
-    <article>
-      <p class="eyebrow">And what we do not</p>
-      <ul>
-        <li>Give you the hard sell on products or services you do not need.</li>
-        <li>Take on projects where we do not believe we can add value.</li>
-        <li>Blind you with science, quoting stats instead of offering insights.</li>
-      </ul>
-    </article>
-  </section>
 
   <CTASection />
   <ConceptMotion />

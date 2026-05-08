@@ -5,6 +5,7 @@ eyebrow: "Service 02"
 summary: "A senior marketing brain beside the business, turning scattered activity into a practical plan."
 video: "/assets/video/consultancy-review.mp4"
 poster: "/assets/projects/presentation-spaces-website.webp"
+streamId: "86be625829267af8102b00082fd9a5e4"
 cta: "Plan the next 90 days"
 relatedCaseStudies: ["presentation-spaces"]
 benefits:
@@ -18,17 +19,19 @@ faqs:
     answer: "We usually audit the current activity, agree what needs to be protected, then build a short plan with measurable next steps."
 chat:
   - from: "client"
-    text: "Blogs, socials, emails, ads. It all feels random."
+    text: "We do bits of marketing all over the place. Is any of it actually working?"
   - from: "agency"
-    text: "First, we audit everything."
-  - from: "agency"
-    text: "Then we stop activity that never brings enquiries."
+    text: "We audited everything, kept what worked, stopped the waste, then built a simple plan."
   - from: "client"
-    text: "What changes day to day?"
+    text: "What did that actually change?"
   - from: "agency"
-    text: "Simple 90-day plan, three core campaigns, one owner for each."
+    text: "Clear priorities, one joined up message, campaigns that match your capacity."
+  - from: "client"
+    text: "And the numbers?"
   - from: "agency"
-    text: "Example result: same budget, 31% more qualified enquiries."
+    text: "Same budget, 31 percent more qualified enquiries in 90 days."
+  - from: "client"
+    text: "Now that <u>IS</u> Results You Can Measure!"
 ---
 
 Consultancy gives you structure, judgement and momentum. It is where scattered marketing becomes a joined-up commercial plan.

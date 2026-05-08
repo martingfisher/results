@@ -1,7 +1,7 @@
 ---
 title: "Why Public Relations Is Such a Powerful Tool for Communicating Your Work"
 pageSlug: "why-public-relations-is-powerful"
-summary: "An imported and refreshed guide to using PR for credibility, awareness, search visibility and stronger marketing proof."
+summary: "A practical guide to using PR for credibility, awareness, search visibility and stronger marketing proof."
 date: "2026-02-22"
 category: "PR"
 draft: false

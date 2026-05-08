@@ -5,20 +5,107 @@ import { navItems } from '../data/navigation';
 interface Props {
   title: string;
   description?: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  schema?: object | object[];
+  noindex?: boolean;
 }
 
-const { title, description = 'Results You Can Measure is a small creative marketing agency focused on accountable, joined-up marketing.' } = Astro.props;
+const {
+  title,
+  description = 'Results You Can Measure is a small, independent UK marketing agency delivering branding, SEO, PPC, web development and marketing consultancy from Bradford. Accountable, joined-up marketing with measurable results.',
+  canonicalPath = Astro.url.pathname,
+  ogImage = '/og-default.jpg',
+  schema,
+  noindex = false,
+} = Astro.props;
+
+const siteUrl = 'https://resultsyoucanmeasure.com';
+const canonicalUrl = `${siteUrl}${canonicalPath.endsWith('/') ? canonicalPath : canonicalPath + '/'}`;
+const ogImageUrl = `${siteUrl}${ogImage}`;
 const year = new Date().getFullYear();
+
+const baseSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      url: siteUrl,
+      name: 'Results You Can Measure',
+      description: 'Accountable, joined-up marketing for UK businesses.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: { '@type': 'EntryPoint', urlTemplate: `${siteUrl}/blog/?s={search_term_string}` },
+        'query-input': 'required name=search_term_string',
+      },
+    },
+    {
+      '@type': ['LocalBusiness', 'ProfessionalService'],
+      '@id': `${siteUrl}/#business`,
+      name: 'Results You Can Measure',
+      alternateName: 'RYCM',
+      url: siteUrl,
+      logo: `${siteUrl}/assets/logos/rycm-logotype-dark.svg`,
+      image: ogImageUrl,
+      description: 'Small, independent marketing agency in Bradford. Branding, SEO, PPC, web development and consultancy that delivers measurable results.',
+      telephone: '+441274442439',
+      email: 'hello@resultsyoucanmeasure.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bradford',
+        addressRegion: 'West Yorkshire',
+        addressCountry: 'GB',
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Bradford' },
+        { '@type': 'City', name: 'Leeds' },
+        { '@type': 'AdministrativeArea', name: 'West Yorkshire' },
+        { '@type': 'Country', name: 'United Kingdom' },
+      ],
+      sameAs: ['https://www.linkedin.com/in/martingfisher/'],
+      priceRange: '££',
+    },
+    ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+  ],
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Results You Can Measure" />
+    <meta property="og:title" content={`${title} | Results You Can Measure`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${title} | Results You Can Measure`} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <title>{title} | Results You Can Measure</title>
-    <link rel="icon" href="/assets/logos/rycm-isotype-red.svg" />
+
+    <!-- Favicon stack -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/assets/logos/rycm-isotype-red.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Structured data -->
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,7 +114,43 @@ const year = new Date().getFullYear();
         <img src="/assets/logos/rycm-logotype-light.svg" alt="Results You Can Measure" />
       </a>
       <nav class="main-nav" aria-label="Main navigation">
-        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        <div class="nav-services">
+          <a href="/services/">Services</a>
+          <div class="mega-menu" role="region" aria-label="Services menu">
+            <div class="mega-grid">
+              <a class="mega-item" href="/services/branding/">
+                <strong>Branding</strong>
+                <span>Clear identity and consistent story that builds confidence and recognition.</span>
+              </a>
+              <a class="mega-item" href="/services/marketing-consultancy/">
+                <strong>Marketing Consultancy</strong>
+                <span>Joined-up strategy with a clear plan and outcomes you can actually measure.</span>
+              </a>
+              <a class="mega-item" href="/services/web-development/">
+                <strong>Web Development</strong>
+                <span>Fast, focused sites built around a clear next step and real commercial goals.</span>
+              </a>
+              <a class="mega-item" href="/services/hosting-maintenance/">
+                <strong>Hosting &amp; Maintenance</strong>
+                <span>Secure, updated and fast — without you having to think about it.</span>
+              </a>
+              <a class="mega-item" href="/services/seo/">
+                <strong>SEO</strong>
+                <span>Visibility that brings the right enquiries, not just traffic numbers.</span>
+              </a>
+              <a class="mega-item" href="/services/ppc/">
+                <strong>PPC Management</strong>
+                <span>Paid search rebuilt around a clear offer, strong landing pages and real results.</span>
+              </a>
+              <a class="mega-item" href="/services/copywriting/">
+                <strong>Copywriting</strong>
+                <span>Words that guide your customer from curious to convinced.</span>
+              </a>
+            </div>
+            <a class="mega-footer" href="/services/">View all services →</a>
+          </div>
+        </div>
+        {navItems.filter(item => item.label !== 'Services').map((item) => <a href={item.href}>{item.label}</a>)}
       </nav>
       <a class="header-cta" href="/contact/">Book a call</a>
     </header>
@@ -35,18 +158,10 @@ const year = new Date().getFullYear();
       <slot />
     </main>
     <footer class="site-footer" aria-labelledby="footer-heading">
-      <div class="footer-results" aria-hidden="true">
-        <div class="footer-results-track">
-          <span>RESULTS</span>
-          <span>RESULTS</span>
-        </div>
-      </div>
       <div class="footer-content">
         <div class="footer-brand">
           <img src="/assets/logos/rycm-logotype-light.svg" alt="Results You Can Measure" />
           <h2 id="footer-heading">More performance, more feedback and more accountability.</h2>
-          <p>A small, independent, strong team delivering consultancy, branding, copywriting, PPC, SEO and the fastest, most secure web hosting you will find. Accountable, joined thinking and measurable progress.</p>
-          <a class="footer-cta" href="/contact/">Book a call</a>
         </div>
         <div class="footer-column">
           <p class="footer-heading">Explore</p>
@@ -54,7 +169,7 @@ const year = new Date().getFullYear();
           <a href="/case-studies/">Case Studies</a>
           <a href="/blog/">Blog</a>
           <a href="/about/">About</a>
-          <a href="/faq/">FAQ</a>
+          <a href="/reviews/">Reviews</a>
         </div>
         <div class="footer-column">
           <p class="footer-heading">Useful</p>
@@ -65,15 +180,46 @@ const year = new Date().getFullYear();
         </div>
         <address class="footer-contact">
           <p class="footer-heading">Contact</p>
-          <a href="mailto:hello@resultsyoucanmeasure.com">hello@resultsyoucanmeasure.com</a>
-          <a href="tel:+441274442439">0044 (0)1274 442 439</a>
-          <a href="tel:+447973321771">0044 (0)7973 321 771</a>
+          <a href="mailto:hello@resultsyoucanmeasure.com">Email us</a>
+          <a href="tel:+441274442439">01274 442 439</a>
         </address>
+      </div>
+      <div class="footer-wordmark" aria-hidden="true">
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:0">R</span></span>
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:1">E</span></span>
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:2">S</span></span>
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:3">U</span></span>
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:4">L</span></span>
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:5">T</span></span>
+        <span class="footer-char-wrap"><span class="footer-char" style="--i:6">S</span></span>
       </div>
       <div class="footer-bottom">
         <span>© {year} Results You Can Measure</span>
         <span>Small. Independent. Strong.</span>
       </div>
     </footer>
+    <script>
+      const navServices = document.querySelector('.nav-services');
+      if (navServices) {
+        let closeTimer: ReturnType<typeof setTimeout>;
+        navServices.addEventListener('mouseenter', () => {
+          clearTimeout(closeTimer);
+          navServices.classList.add('is-open');
+        });
+        navServices.addEventListener('mouseleave', () => {
+          closeTimer = setTimeout(() => navServices.classList.remove('is-open'), 200);
+        });
+      }
+    </script>
+    <script>
+      const wordmark = document.querySelector('.footer-wordmark');
+      if (wordmark) {
+        new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            wordmark.classList.add('is-visible');
+          }
+        }, { threshold: 0.15 }).observe(wordmark);
+      }
+    </script>
   </body>
 </html>

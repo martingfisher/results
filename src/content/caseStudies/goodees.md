@@ -21,6 +21,7 @@ proofMoments:
   - image: "/assets/projects/goodees-03.webp"
     alt: "Goodees product variants showing packaging system across the range"
     text: "The system was built to stretch across variants without losing recognition. Each size and product type fits the same visual logic, so the range reads as a family on shelf rather than a collection of one-offs. It shows how considered design can make a product easier to choose, even in a quick comparison."
+projectUrl: "https://goodeesworld.com/"
 quote: "Packaging has to work quickly: clear, trusted and distinctive at the moment of choice."
 quoteBy: "RYCM project note"
 outcomes:
@@ -28,8 +29,6 @@ outcomes:
   - "Balanced emotional appeal with practical product information and feature hierarchy."
   - "Built a visual range that could stretch across variants without losing recognition."
 ---
-
-Goodees is included as a visual proof piece showing RYCM's ability to work beyond websites and into product-led brand communication.
 
 The packaging direction needed to be immediately readable, emotionally warm and commercially clear. The work brought together brand cues, product benefits, size variation and shelf presence in a single flexible system.
 

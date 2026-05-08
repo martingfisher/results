@@ -6,7 +6,10 @@ import CTASection from '../../components/CTASection.astro';
 const posts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCompare(a.data.date));
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout
+  title="Marketing Blog | Practical Thinking for Business Owners"
+  description="Articles from Results You Can Measure on SEO, PPC, branding, social media and marketing strategy. Practical thinking for business owners who want clearer decisions and better results."
+>
   <section class="page-hero compact">
     <p class="eyebrow">Blog</p>
     <h1>Notes on making marketing easier to understand and measure.</h1>
@@ -27,5 +30,14 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCom
     </div>
   </section>
 
-  <CTASection title="Got an article idea worth turning into a lead magnet?" text="Bring the rough notes. We can shape them into something clearer, more useful and easier to act on." />
+  <CTASection
+    title="Your market may not be the problem"
+    text={[
+      'Sometimes the issue is the way everyone is looking at it.',
+      'We help businesses find opportunities others miss. New audiences. Untapped positioning. Better ways to communicate value. Often the fastest growth comes from changing the angle, not increasing the budget.',
+      "If your marketing feels stuck, predictable, or difficult to measure, let's look at it differently.",
+    ]}
+    primaryLabel="Book a strategy call"
+    secondaryLabel="Send an enquiry"
+  />
 </BaseLayout>

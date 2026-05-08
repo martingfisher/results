@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ServiceChat from '../../components/ServiceChat.astro';
+import StreamHero from '../../components/StreamHero.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import CTASection from '../../components/CTASection.astro';
 
@@ -17,15 +18,27 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
 ---
 
 <BaseLayout title={service.data.title} description={service.data.summary}>
-  <section class="page-hero service-hero">
-    <div>
-      <p class="eyebrow">{service.data.eyebrow}</p>
-      <h1>{service.data.title}</h1>
-      <p>{service.data.summary}</p>
-      <a class="btn primary" href="/contact/">{service.data.cta}</a>
-    </div>
-    <ServiceChat video={service.data.video} poster={service.data.poster} messages={service.data.chat} label={`${service.data.title} example conversation`} />
-  </section>
+  {service.data.streamId ? (
+    <StreamHero
+      streamId={service.data.streamId}
+      poster={service.data.poster}
+      eyebrow={service.data.eyebrow}
+      title={service.data.title}
+      summary={service.data.summary}
+      cta={service.data.cta}
+      messages={service.data.chat}
+    />
+  ) : (
+    <section class="page-hero service-hero">
+      <div>
+        <p class="eyebrow">{service.data.eyebrow}</p>
+        <h1>{service.data.title}</h1>
+        <p>{service.data.summary}</p>
+        <a class="btn primary" href="/contact/">{service.data.cta}</a>
+      </div>
+      <ServiceChat video={service.data.video} poster={service.data.poster} messages={service.data.chat} label={`${service.data.title} example conversation`} />
+    </section>
+  )}
 
   <section class="section split">
     <div>

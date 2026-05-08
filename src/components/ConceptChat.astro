@@ -22,7 +22,7 @@ const { messages, compact = false } = Astro.props;
       </div>
       <div class:list={['concept-msg', message.from]}>
         <span>{message.from === 'agency' ? 'RYCM team' : 'Client'}</span>
-        {message.text}
+        <Fragment set:html={message.text} />
       </div>
     </li>
   ))}

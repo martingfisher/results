@@ -24,7 +24,7 @@ const { video, poster, messages, label = 'Example client conversation' } = Astro
       {messages.map((message, index) => (
         <li class:list={['chat-bubble', message.from]} style={`--i:${index}`}>
           <span class="chat-name">{message.from === 'agency' ? 'RYCM team' : 'Client'}</span>
-          <span>{message.text}</span>
+          <span set:html={message.text} />
         </li>
       ))}
     </ol>

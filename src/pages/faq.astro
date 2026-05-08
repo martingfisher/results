@@ -4,9 +4,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CTASection from '../components/CTASection.astro';
 
 const faqs = await getCollection('faqs');
+
+const faqSchema = {
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.data.question,
+    acceptedAnswer: { '@type': 'Answer', text: faq.data.answer },
+  })),
+};
 ---
 
-<BaseLayout title="FAQ">
+<BaseLayout
+  title="FAQ | Common Questions About Working With RYCM"
+  description="Straight answers about working with Results You Can Measure — pricing, reporting, what the first call looks like and how we work."
+  schema={faqSchema}
+  noindex={true}
+>
   <section class="page-hero compact">
     <p class="eyebrow">FAQ</p>
     <h1>Straight answers before we start.</h1>

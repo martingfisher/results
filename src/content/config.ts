@@ -14,6 +14,7 @@ const services = defineCollection({
     eyebrow: z.string(),
     video: z.string(),
     poster: z.string(),
+    streamId: z.string().optional(),
     cta: z.string(),
     relatedCaseStudies: z.array(z.string()),
     benefits: z.array(z.string()),
