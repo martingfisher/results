@@ -16,6 +16,7 @@ const services = defineCollection({
     poster: z.string(),
     streamId: z.string().optional(),
     cta: z.string(),
+    secondaryCta: z.string().optional(),
     introSection: z.object({
       heading: z.string(),
       body: z.string(),
@@ -26,6 +27,8 @@ const services = defineCollection({
     bodyHeading: z.string().optional(),
     relatedCaseStudies: z.array(z.string()),
     benefits: z.array(z.string()),
+    serviceAreasEyebrow: z.string().optional(),
+    serviceAreasHeading: z.string().optional(),
     serviceAreas: z.array(z.object({ title: z.string(), description: z.string() })).optional(),
     approach: z.object({ heading: z.string(), intro: z.string() }).optional(),
     editorialSections: z.array(z.object({ heading: z.string(), body: z.string() })).optional(),
@@ -42,7 +45,7 @@ const services = defineCollection({
         question: z.string(),
         answer: z.string(),
       })
-    ),
+    ).optional(),
     chat: z.array(message),
   }),
 });

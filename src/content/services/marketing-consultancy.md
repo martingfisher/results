@@ -54,11 +54,6 @@ closingCta:
   body: "If you feel too close to the business to see the opportunities clearly, we should talk. A fresh perspective often changes more than businesses expect."
   primary: "Book a strategy call"
   secondary: "Start the conversation"
-faqs:
-  - question: "Is this strategy or hands-on delivery?"
-    answer: "It can be either. We can give direction, run delivery, or sit alongside your team as a senior sounding board."
-  - question: "What happens first?"
-    answer: "We usually audit the current activity, agree what needs to be protected, then build a short plan with measurable next steps."
 chat:
   - from: "client"
     text: "We do bits of marketing all over the place. Is any of it actually working?"

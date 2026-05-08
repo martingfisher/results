@@ -1,0 +1,22 @@
+{
+  "name": "Results You Can Measure",
+  "short_name": "RYCM",
+  "description": "Small, independent marketing agency in Bradford.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#070630",
+  "theme_color": "#070630",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logos/rycm-isotype-red.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

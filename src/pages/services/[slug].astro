@@ -18,7 +18,7 @@ const caseStudies = await getCollection('caseStudies');
 const related = caseStudies.filter((study) => service.data.relatedCaseStudies.includes(study.data.pageSlug));
 ---
 
-<BaseLayout title={service.data.title} description={service.data.summary}>
+<BaseLayout title={service.data.title} description={service.data.summary} ogImage={service.data.poster}>
   {service.data.streamId ? (
     <StreamHero
       streamId={service.data.streamId}
@@ -27,6 +27,7 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
       title={service.data.title}
       summary={service.data.summary}
       cta={service.data.cta}
+      secondaryCta={service.data.secondaryCta}
       messages={service.data.chat}
     />
   ) : (
@@ -67,8 +68,8 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
   {service.data.serviceAreas && (
     <section class="section service-areas">
       <div class="section-head">
-        <p class="eyebrow">What we help with</p>
-        <h2>Practical strategic support across the areas that influence growth.</h2>
+        <p class="eyebrow">{service.data.serviceAreasEyebrow ?? 'What we help with'}</p>
+        <h2>{service.data.serviceAreasHeading ?? 'Practical strategic support across the areas that influence growth.'}</h2>
       </div>
       <div class="service-area-grid">
         {service.data.serviceAreas.map((area) => (
@@ -133,16 +134,18 @@ const related = caseStudies.filter((study) => service.data.relatedCaseStudies.in
     </section>
   )}
 
-  <section class="section faq-list">
-    <p class="eyebrow">Questions</p>
-    <h2>What clients usually want to know.</h2>
-    {service.data.faqs.map((faq) => (
-      <details>
-        <summary>{faq.question}</summary>
-        <p>{faq.answer}</p>
-      </details>
-    ))}
-  </section>
+  {service.data.faqs && service.data.faqs.length > 0 && (
+    <section class="section faq-list">
+      <p class="eyebrow">Questions</p>
+      <h2>What clients usually want to know.</h2>
+      {service.data.faqs.map((faq) => (
+        <details>
+          <summary>{faq.question}</summary>
+          <p>{faq.answer}</p>
+        </details>
+      ))}
+    </section>
+  )}
 
   {related.length > 0 && (
     <section class="section">

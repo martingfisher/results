@@ -16,7 +16,7 @@ const previousStudy = caseStudies[(currentIndex - 1 + caseStudies.length) % case
 const nextStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
 ---
 
-<BaseLayout title={study.data.title} description={study.data.summary}>
+<BaseLayout title={study.data.title} description={study.data.summary} ogImage={study.data.heroImage}>
   <section class="case-hero case-hero-image" style={`--case-image: url('${study.data.heroImage}')`}>
     <div class="case-hero-content">
       <p class="eyebrow">{study.data.sector}</p>

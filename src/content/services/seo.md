@@ -3,19 +3,51 @@ title: "SEO For AI and Humans"
 pageSlug: "seo"
 eyebrow: "Service 05"
 summary: "SEO that turns search visibility into clearer demand, better enquiries, and numbers you can actually discuss."
-video: "/assets/video/seo-review.mov"
+cta: "Discuss your SEO strategy"
+secondaryCta: "Start the conversation"
+video: ""
 poster: "/assets/projects/alpha-01.webp"
-cta: "Book an SEO review"
+streamId: "d68613a8e59fe6306df79e0245008183"
 relatedCaseStudies: ["insurance-for-group", "presentation-spaces"]
+introSection:
+  heading: "SEO built around visibility, clarity and measurable growth."
+  body: "Search has changed.\n\nGood SEO is no longer just about rankings and keywords. Businesses now need content that works for human visitors, traditional search engines and increasingly AI-powered search and answer systems.\n\nResults You Can Measure helps businesses improve visibility through clearer structure, stronger content, better technical foundations and commercially focused search strategy.\n\nThe goal is not traffic for the sake of it. The goal is attracting the right visitors and turning visibility into meaningful business outcomes."
+  primary: "Discuss your SEO strategy"
+  secondary: "Start the conversation"
+serviceAreasEyebrow: "What we cover"
+serviceAreasHeading: "Search performance built around how customers actually think and search."
+serviceAreas:
+  - title: "Search strategy"
+    description: "Built around commercial intent, audience understanding and real business outcomes rather than vanity traffic."
+  - title: "AI and content SEO"
+    description: "Structured and written for both human readers and AI-driven search and answer systems."
+  - title: "Technical SEO"
+    description: "Improving performance, Core Web Vitals, crawlability, indexing and overall site health."
+  - title: "Content planning"
+    description: "Creating useful, clearly structured content that builds topical authority and genuine search visibility."
+  - title: "Reporting and analytics"
+    description: "Focused on visibility improvements, lead generation and meaningful business impact — not dashboards full of noise."
+  - title: "Conversion alignment"
+    description: "Connecting SEO with website structure, messaging and conversion pathways for better enquiry quality."
+approach:
+  heading: "Search visibility starts with understanding what customers are actually looking for."
+  intro: "Many SEO campaigns fail because they focus too heavily on technical checklists while ignoring customer intent.\n\nPeople search with problems, questions and goals in mind. That means effective SEO starts with understanding audience intent, identifying commercial opportunities, structuring information clearly and creating content that genuinely answers useful questions.\n\nWe help businesses create search strategies built around how customers actually think and search, rather than outdated SEO shortcuts.\n\nBecause visibility only matters if the right people arrive."
 benefits:
   - "Prioritised search terms that match commercial intent."
-  - "Content, code and authority work joined into one practical plan."
+  - "Content, technical and authority work joined into one practical plan."
   - "Plain-English reporting focused on enquiries, not vanity traffic."
-faqs:
-  - question: "Will we get a long technical report?"
-    answer: "You will get enough detail to understand what matters, but the focus is always the action list, the commercial reason, and what changed."
-  - question: "How soon should SEO show progress?"
-    answer: "Some technical and content gains can appear quickly, but the real value usually comes from consistent improvement over a few months."
+editorialSections:
+  - heading: "Content now needs to work for both humans and AI systems."
+    body: "AI-driven search is changing how information is discovered and summarised. Search engines and AI systems increasingly favour content that is well structured, contextually clear, authoritative, easy to interpret and genuinely useful.\n\nWe write and structure content with both audiences in mind. That includes semantic relevance, topic depth, entity clarity, internal linking, FAQ structures, long-tail search intent and AI-readable formatting.\n\nThe goal is to help businesses remain visible as search behaviour continues evolving."
+  - heading: "Technical SEO still matters. But it is only part of the picture."
+    body: "Strong technical foundations help search engines properly access, understand and prioritise websites. We help businesses improve site performance, Core Web Vitals, crawlability, indexing, schema markup, mobile usability and overall technical health.\n\nBut technical SEO alone rarely solves the commercial problem. The strongest results usually come from combining technical performance, strong positioning, useful content and clear conversion pathways.\n\nThat joined-up approach is where long-term growth normally happens."
+  - heading: "SEO should support the wider business strategy."
+    body: "Search performance improves when SEO is connected properly to website structure, branding, PPC, copywriting, analytics, content planning and conversion optimisation.\n\nWe focus heavily on enquiry quality, lead generation, search intent alignment, commercial relevance and measurable business impact. Because high traffic numbers mean very little if the wrong audience is arriving.\n\nThe businesses performing best in search are usually the businesses communicating most clearly. Strong content, clearer positioning and topical authority often outperform shallow optimisation tactics. Search engines and AI systems are becoming better at recognising genuinely useful content. That is where we focus our attention."
+closingCta:
+  heading: "Better search visibility starts with clearer communication."
+  body: "If your SEO feels disconnected from real business outcomes, we should talk. Fresh thinking, stronger structure and clearer content often create better long-term results than chasing rankings alone."
+  primary: "Discuss your SEO strategy"
+  secondary: "Start the conversation"
 chat:
   - from: "client"
     text: "Is this monthly SEO actually working?"
@@ -32,5 +64,3 @@ chat:
   - from: "client"
     text: "Now that <u>IS</u> Results You Can Measure!"
 ---
-
-Search should make your business easier to find, easier to understand, and easier to buy from. We connect technical SEO, useful content and commercial reporting so the work stays tied to the enquiries you actually want.
