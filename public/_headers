@@ -3,7 +3,7 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.cloudflarestream.com https://customer-*.cloudflarestream.com https://elfsight.com https://static.elfsight.com https://apps.elfsight.com; style-src 'self' 'unsafe-inline' https://static.elfsight.com; img-src 'self' data: https: blob:; media-src 'self' https://customer-*.cloudflarestream.com; frame-src https://customer-*.cloudflarestream.com https://elfsight.com https://www.google.com; connect-src 'self' https:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https:;
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.cloudflarestream.com https://customer-*.cloudflarestream.com https://elfsight.com https://static.elfsight.com https://apps.elfsight.com https://elfsightcdn.com; style-src 'self' 'unsafe-inline' https://static.elfsight.com https://elfsightcdn.com; img-src 'self' data: https: blob:; media-src 'self' https://customer-*.cloudflarestream.com; frame-src https://customer-*.cloudflarestream.com https://elfsight.com https://www.google.com; connect-src 'self' https:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https:;
   X-XSS-Protection: 1; mode=block
 
 /*.js
