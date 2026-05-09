@@ -16,9 +16,24 @@ const { service } = Astro.props;
 const { Content } = await render(service);
 const caseStudies = await getCollection('caseStudies');
 const related = caseStudies.filter((study) => service.data.relatedCaseStudies.includes(study.data.pageSlug));
+
+const siteUrl = 'https://resultsyoucanmeasure.com';
+const serviceSchema = {
+  '@type': 'Service',
+  name: service.data.title,
+  description: service.data.summary,
+  url: `${siteUrl}/services/${service.data.pageSlug}/`,
+  provider: {
+    '@type': 'LocalBusiness',
+    '@id': `${siteUrl}/#business`,
+    name: 'Results You Can Measure',
+  },
+  areaServed: { '@type': 'Country', name: 'United Kingdom' },
+  serviceType: service.data.title,
+};
 ---
 
-<BaseLayout title={service.data.title} description={service.data.summary} ogImage={service.data.poster}>
+<BaseLayout title={service.data.title} description={service.data.summary} ogImage={service.data.poster} schema={serviceSchema}>
   {service.data.streamId ? (
     <StreamHero
       streamId={service.data.streamId}

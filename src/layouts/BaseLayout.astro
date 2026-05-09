@@ -63,7 +63,11 @@ const baseSchema = {
         { '@type': 'AdministrativeArea', name: 'West Yorkshire' },
         { '@type': 'Country', name: 'United Kingdom' },
       ],
-      sameAs: ['https://www.linkedin.com/in/martingfisher/'],
+      sameAs: [
+        'https://www.linkedin.com/in/martingfisher/',
+        'https://www.linkedin.com/company/results-you-can-measure/',
+        'https://resultsyoucanmeasure.com',
+      ],
       priceRange: '££',
     },
     ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
