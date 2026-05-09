@@ -2,7 +2,9 @@ node_modules/
 dist/
 .astro/
 .DS_Store
+**/.DS_Store
 npm-debug.log*
+.claude/
 
 # Large local video source files. Commit compressed web-ready replacements instead.
 public/assets/video/client-good-news.mp4
