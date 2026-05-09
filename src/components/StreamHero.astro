@@ -17,7 +17,7 @@ interface Props {
 
 const { streamId, poster, eyebrow, title, summary, cta, secondaryCta, messages } = Astro.props;
 
-const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? '';
+const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? 'eo7jhn0ipdxweq9b';
 const iframeSrc = CUSTOMER_CODE
   ? `https://customer-${CUSTOMER_CODE}.cloudflarestream.com/${streamId}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=auto`
   : null;
