@@ -360,6 +360,13 @@ video {
   min-height: auto;
 }
 
+.page-hero.contact-hero h1 {
+  font-size: clamp(1.9rem, 7vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  overflow-wrap: break-word;
+}
+
 /* ── Stream full-width hero ── */
 .stream-hero {
   position: relative;
@@ -1904,9 +1911,8 @@ blockquote {
   color: var(--ink);
 }
 
-.contact-panel li {
-  margin: 18px 0;
-  line-height: 1.5;
+.contact-panel--form {
+  padding: clamp(14px, 2.5vw, 24px);
 }
 
 .cta-band {
@@ -2482,6 +2488,15 @@ blockquote {
     font-size: clamp(1.8rem, 9vw, 3rem);
     overflow-wrap: break-word;
     word-break: break-word;
+  }
+
+  .contact-hero {
+    padding: 28px 18px 24px;
+    gap: 24px;
+  }
+
+  .contact-hero .actions {
+    margin-top: 20px;
   }
 }
 
