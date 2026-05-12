@@ -75,7 +75,8 @@ Changing a `pageSlug` breaks all existing links — there are no automatic redir
 **`wrangler.jsonc`** at the repo root configures Workers deployment:
 - `name: "results"` matches the Workers project name in the dashboard
 - `assets.directory: "./dist"` points to Astro's static build output
-- `assets.binding: "ASSETS"` matches the dashboard's existing ASSETS binding
+
+This is an assets-only Worker (no JavaScript Worker script). Do NOT add `assets.binding` — Wrangler rejects asset bindings on assets-only Workers ("Cannot use assets with a binding in an assets-only Worker"). The dashboard's ASSETS binding listing is informational, not a config requirement.
 
 Without this file, the deploy step fails with "Missing entry-point to Worker script or to assets directory" — the build succeeds but nothing reaches production.
 
