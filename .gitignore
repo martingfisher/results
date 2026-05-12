@@ -15,3 +15,9 @@ public/assets/video/service-review.mov
 public/assets/video/web-review.mov
 .env
 .env.local
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+!.env.example
