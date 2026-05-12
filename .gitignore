@@ -13,5 +13,14 @@ public/assets/video/ppc-review.mov
 public/assets/video/seo-review.mov
 public/assets/video/service-review.mov
 public/assets/video/web-review.mov
+# Secrets — never commit
 .env
-.env.local
+.env.*
+!.env.example
+.mcp.json
+*.pem
+*.key
+*.p12
+secrets.json
+credentials.json
+service-account*.json
