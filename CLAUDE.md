@@ -74,11 +74,13 @@ Changing a `pageSlug` breaks all existing links — there are no automatic redir
 
 **`wrangler.jsonc`** at the repo root configures Workers deployment:
 - `name: "results"` matches the Workers project name in the dashboard
+- `main: "./worker/index.js"` points to a tiny pass-through Worker script
 - `assets.directory: "./dist"` points to Astro's static build output
+- `assets.binding: "ASSETS"` matches the dashboard's existing ASSETS binding
 
-This is an assets-only Worker (no JavaScript Worker script). Do NOT add `assets.binding` — Wrangler rejects asset bindings on assets-only Workers ("Cannot use assets with a binding in an assets-only Worker"). The dashboard's ASSETS binding listing is informational, not a config requirement.
+**`worker/index.js`** is a five-line pass-through Worker — it accepts every request and hands it to the ASSETS binding, which serves the static file from `dist/`. This pattern is required because the Cloudflare dashboard for this project has an ASSETS binding configured: without a corresponding Worker script (`main`), Wrangler refuses to deploy with the error "Cannot use assets with a binding in an assets-only Worker." Adding the script keeps the dashboard binding valid and works fine for a fully static site.
 
-Without this file, the deploy step fails with "Missing entry-point to Worker script or to assets directory" — the build succeeds but nothing reaches production.
+Without `wrangler.jsonc` + `worker/index.js`, the deploy step fails and nothing reaches production despite the build succeeding.
 
 **Domains served** (all serve the same content with HTTP 200, no canonical redirect):
 - `resultsyoucanmeasure.com` — canonical, hardcoded as site URL in `BaseLayout.astro`
