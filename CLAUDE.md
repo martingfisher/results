@@ -70,7 +70,14 @@ Changing a `pageSlug` breaks all existing links — there are no automatic redir
 
 ## Deployment
 
-**Cloudflare Workers** — auto-deploys from `main` branch on GitHub (`martingfisher/results`). The Workers project is named `results` in the Cloudflare dashboard (Workers & Pages section). Build settings (command, output directory) are configured in the dashboard, not via `wrangler.jsonc` — there is no wrangler config in this repo.
+**Cloudflare Workers** — auto-deploys from `main` branch on GitHub (`martingfisher/results`). The Workers project is named `results` in the Cloudflare dashboard (Workers & Pages section). The build command (`npm run build`) runs Astro and outputs static files to `dist/`. The dashboard's deploy command is `npx wrangler versions upload`, which reads `wrangler.jsonc` at the repo root to know what to upload.
+
+**`wrangler.jsonc`** at the repo root configures Workers deployment:
+- `name: "results"` matches the Workers project name in the dashboard
+- `assets.directory: "./dist"` points to Astro's static build output
+- `assets.binding: "ASSETS"` matches the dashboard's existing ASSETS binding
+
+Without this file, the deploy step fails with "Missing entry-point to Worker script or to assets directory" — the build succeeds but nothing reaches production.
 
 **Domains served** (all serve the same content with HTTP 200, no canonical redirect):
 - `resultsyoucanmeasure.com` — canonical, hardcoded as site URL in `BaseLayout.astro`
