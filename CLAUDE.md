@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Marketing agency website for **Results You Can Measure** (RYCM). Built with Astro 5, deployed to Cloudflare Pages at `https://resultsyoucanmeasure.com`.
+Marketing agency website for **Results You Can Measure** (RYCM). Built with Astro 5, deployed to Cloudflare Workers at `https://resultsyoucanmeasure.com`.
 
 ## Commands
 
@@ -70,9 +70,14 @@ Changing a `pageSlug` breaks all existing links — there are no automatic redir
 
 ## Deployment
 
-Cloudflare Pages — auto-deploys from `main` branch on GitHub (`martingfisher/results`).
+**Cloudflare Workers** — auto-deploys from `main` branch on GitHub (`martingfisher/results`). The Workers project is named `results` in the Cloudflare dashboard (Workers & Pages section). Build settings (command, output directory) are configured in the dashboard, not via `wrangler.jsonc` — there is no wrangler config in this repo.
 
-**Environment variables** (set in Cloudflare Pages → Settings → Environment variables):
+**Domains served** (all serve the same content with HTTP 200, no canonical redirect):
+- `resultsyoucanmeasure.com` — canonical, hardcoded as site URL in `BaseLayout.astro`
+- `www.resultsyoucanmeasure.com`
+- `www.resultsyoucanmeasure.co.uk`
+
+**Environment variables** (Workers & Pages → `results` → Settings → Variables and Secrets):
 - `CF_STREAM_CUSTOMER_CODE` — Cloudflare Stream customer subdomain code. Currently hardcoded as fallback in `StreamHero.astro`.
 
 **`public/_headers`** — sets CSP, cache headers, and security headers for all routes. CSP explicitly lists `elfsight.com`, `*.elfsight.com`, `elfsightcdn.com`, `*.elfsightcdn.com` (bare domain and wildcard must both be listed — CSP wildcards do not match the apex domain). Stream iframe allowed via `customer-eo7jhn0ipdxweq9b.cloudflarestream.com`.
