@@ -2,9 +2,11 @@
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.cloudflarestream.com https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com; img-src 'self' data: https: blob:; media-src 'self' https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com; frame-src https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com https://www.google.com https://www.gstatic.com; connect-src 'self' https:; font-src 'self' https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com; object-src 'none'; base-uri 'self'; form-action 'self' https:;
-  X-XSS-Protection: 1; mode=block
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000
+  Cross-Origin-Opener-Policy: same-origin-allow-popups
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://embed.cloudflarestream.com https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com; img-src 'self' data: https: blob:; media-src 'self' https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com; frame-src https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com https://www.google.com https://www.gstatic.com; connect-src 'self' https:; font-src 'self' https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https:;
+  X-XSS-Protection: 0
 
 /*.js
   Cache-Control: public, max-age=31536000, immutable
