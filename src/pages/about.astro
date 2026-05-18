@@ -39,8 +39,23 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
       <h2>Marketing, technology, psychology and hands-on design.</h2>
     </div>
     <div class="rich-copy">
-      <p>Martin started in agency media before moving through creative, direct marketing, web development, ecommerce and analytics. The tools have changed, but a lot of the early best-practice principles still hold true: do not talk at people, start a conversation.</p>
-      <p>Over the years he has grown agencies, devised strategies and managed teams and projects for UK and international brands. These days RYCM works independently with a trusted network of strong specialists.</p>
+      <p>Martin started on the media side of agency life and kept moving until he had done most of the jobs himself. Creative. Direct marketing. Building the websites. Running the ecommerce. Reading the analytics afterwards to see what actually happened. That range is the whole point: he has seen how the parts connect, and how often they get sold separately.</p>
+      <p>He has grown agencies, set strategy and run teams and projects for UK and international brands. RYCM is the deliberate opposite of that scale. Independent, senior, and backed by a small network of specialists he genuinely rates. One principle has survived every tool change since the start. Do not talk at people. Start a conversation.</p>
+    </div>
+  </section>
+
+  <section class="section about-stats" aria-label="Why work with RYCM">
+    <div class="about-stat">
+      <span class="about-stat-num">100 / 100</span>
+      <p>Best Practices and SEO on a recent client build, delivered on a small-business budget.</p>
+    </div>
+    <div class="about-stat">
+      <span class="about-stat-num">7</span>
+      <p>Disciplines joined up: brand, web, SEO, PPC, copy, consultancy and hosting.</p>
+    </div>
+    <div class="about-stat">
+      <span class="about-stat-num">1</span>
+      <p>Senior contact. You speak to the person doing the work, never an account layer.</p>
     </div>
   </section>
 
@@ -54,7 +69,7 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
   </section>
 
   <section class="section do-dont">
-    <article>
+    <article class="do-dont-yes">
       <p class="eyebrow">Here is what we do</p>
       <ul>
         <li>Craft highly original creative solutions with real commercial credibility.</li>
@@ -63,7 +78,7 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
         <li>Fit around your schedule and stay easy to reach.</li>
       </ul>
     </article>
-    <article>
+    <article class="do-dont-no">
       <p class="eyebrow">And what we do not</p>
       <ul>
         <li>Give you the hard sell on products or services you do not need.</li>
@@ -120,15 +135,30 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
     </ol>
   </section>
 
-  <section class="section split">
-    <div>
+  <section class="section about-proof">
+    <div class="section-head">
       <p class="eyebrow">Proof</p>
       <h2>The thinking, applied to real work.</h2>
+      <p>None of this means much without evidence. Here is the same approach on real briefs, with the measured outcomes attached rather than implied.</p>
     </div>
-    <div class="rich-copy">
-      <p>None of this means much without evidence. The case studies show the same approach on real briefs, with the measured outcomes attached rather than implied.</p>
-      <p><a class="btn secondary" href="/case-studies/">See the work</a></p>
+    <div class="proof-cards">
+      <a class="proof-card" href="/case-studies/handco-hairdressing/">
+        <span class="proof-stat">92 / 93 / 100 / 100</span>
+        <strong>H&amp;Co Hairdressing</strong>
+        <span>Big-brand PageSpeed on a two-stylist salon budget.</span>
+      </a>
+      <a class="proof-card" href="/case-studies/lolly/">
+        <span class="proof-stat">225,000+</span>
+        <strong>Lolly</strong>
+        <span>A Webflow site for a hospitality platform operating at real scale.</span>
+      </a>
+      <a class="proof-card" href="/case-studies/f8-group/">
+        <span class="proof-stat">5 audiences</span>
+        <strong>F8 Group</strong>
+        <span>A complex engineering offer made clear, with a route in for each buyer.</span>
+      </a>
     </div>
+    <p class="proof-more"><a class="btn secondary" href="/case-studies/">See all the work</a></p>
   </section>
 
   <CTASection />
