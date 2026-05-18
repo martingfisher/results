@@ -21,6 +21,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
   title="About | Bradford Marketing Agency Founded by Martin Fisher"
   description="Results You Can Measure is a founder-led marketing agency based in Bradford. Senior creative, strategic and digital marketing expertise without the agency layers."
 >
+  {/* ========================= SECTION 1 — HERO ========================= */}
+  {/* To reorder the page, move whole SECTION blocks (from this comment   */}
+  {/* down to the matching END comment) up or down as single units.       */}
   <section class="page-hero about-hero">
     <div class="about-hero-bg" aria-hidden="true"></div>
     <div class="about-hero-content">
@@ -32,7 +35,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
       <ConceptChat messages={aboutChat} />
     </aside>
   </section>
+  {/* ===================== END SECTION 1 — HERO ===================== */}
 
+  {/* ============= SECTION 2 — HOW WE GOT HERE (bio) ============= */}
   <section class="section split">
     <div>
       <p class="eyebrow">How we got here</p>
@@ -43,7 +48,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
       <p>He has grown agencies, set strategy and run teams and projects for UK and international brands. RYCM is the deliberate opposite of that scale. Independent, senior, and backed by a small network of specialists he genuinely rates. One principle has survived every tool change since the start. Do not talk at people. Start a conversation.</p>
     </div>
   </section>
+  {/* ========= END SECTION 2 — HOW WE GOT HERE (bio) ========= */}
 
+  {/* ====== SECTION 3 — CREDIBILITY STRIP (100/100 · 7 · 1) ====== */}
   <section class="section about-stats" aria-label="Why work with RYCM">
     <div class="about-stat">
       <span class="about-stat-num">100 / 100</span>
@@ -58,7 +65,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
       <p>Senior contact. You speak to the person doing the work, never an account layer.</p>
     </div>
   </section>
+  {/* === END SECTION 3 — CREDIBILITY STRIP === */}
 
+  {/* ========= SECTION 4 — WHAT WE DO / DON'T ========= */}
   <section class="section do-dont">
     <article class="do-dont-yes">
       <p class="eyebrow">Here is what we do</p>
@@ -78,7 +87,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
       </ul>
     </article>
   </section>
+  {/* === END SECTION 4 — WHAT WE DO / DON'T === */}
 
+  {/* ========= SECTION 5 — HOW WE WORK (5-step process) ========= */}
   <section class="section process-section">
     <div class="section-head">
       <p class="eyebrow">How we work</p>
@@ -123,7 +134,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
       </li>
     </ol>
   </section>
+  {/* === END SECTION 5 — HOW WE WORK === */}
 
+  {/* ========= SECTION 6 — PROOF (case-study cards) ========= */}
   <section class="section about-proof">
     <div class="section-head">
       <p class="eyebrow">Proof</p>
@@ -149,7 +162,9 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
     </div>
     <p class="proof-more"><a class="btn secondary" href="/case-studies/">See all the work</a></p>
   </section>
+  {/* === END SECTION 6 — PROOF === */}
 
+  {/* === SECTION 7 — FOUNDER + STACK + LOGOS BAND (white) === */}
   <section class="section stack-feature">
     <div class="stack-feature-row">
       <img src="/assets/projects/packaged-martin.png" alt="Martin Marketing Bloke concept packaging" loading="lazy" />
@@ -161,7 +176,11 @@ const aboutChat: Array<{ from: 'client' | 'agency'; text: string }> = [
     </div>
     <TechMarquee copy={false} />
   </section>
+  {/* === END SECTION 7 — FOUNDER + STACK + LOGOS BAND === */}
 
+  {/* === SECTION 8 — CTA ("Start something useful") === */}
   <CTASection />
+  {/* === END SECTION 8 — CTA === */}
+
   <ConceptMotion />
 </BaseLayout>
