@@ -4,6 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
 
 const posts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+const STREAM_ID = '7807a3a955f46044e7abf0a4e5c63f07';
+const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? 'eo7jhn0ipdxweq9b';
+const streamSrc = `https://customer-${CUSTOMER_CODE}.cloudflarestream.com/${STREAM_ID}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=auto`;
 ---
 
 <BaseLayout
@@ -11,6 +15,16 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCom
   description="Articles from Results You Can Measure on SEO, PPC, branding, social media and marketing strategy. Practical thinking for business owners who want clearer decisions and better results."
 >
   <section class="page-hero compact">
+    <div class="stream-bg" aria-hidden="true">
+      <iframe
+        src={streamSrc}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title=""
+        loading="lazy"
+      ></iframe>
+    </div>
+    <div class="stream-overlay" aria-hidden="true"></div>
     <p class="eyebrow">Blog</p>
     <h1>Notes on making marketing easier to understand and measure.</h1>
     <p>Practical articles for business owners who want clearer decisions, better leads and more accountability from their marketing.</p>

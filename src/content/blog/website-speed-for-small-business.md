@@ -35,6 +35,11 @@ We say speed is a budget-independent advantage, so here is the evidence rather t
 
 [H&Co Hairdressing](/case-studies/handco-hairdressing/) is a two-stylist salon in Guiseley. Not a chain, not a national brand, exactly the kind of local business that usually gets a slow templated site. We built it on a fast static stack and served it from a global edge network. The result, measured on a throttled mobile connection by Google PageSpeed Insights, is **92 Performance, 93 Accessibility, 100 Best Practices and 100 SEO**, with desktop scores higher again.
 
+<figure class="article-figure">
+  <img src="/assets/blog/handco-pagespeed-mobile.jpg" alt="Google PageSpeed Insights mobile scores for H&Co Hairdressing: 92 Performance, 93 Accessibility, 100 Best Practices, 100 SEO" width="1240" height="460" loading="lazy" />
+  <figcaption>The actual PageSpeed Insights mobile result for H&amp;Co Hairdressing.</figcaption>
+</figure>
+
 That is a photo-led, content-rich site for a local business outperforming the websites of companies many times its size. The deciding factor was not money. It was how the site was built and where it is hosted. Our [F8 Group](/case-studies/f8-group/) project tells the same story for a far more technical proposition.
 
 ## The recipe: how to make your site faster
