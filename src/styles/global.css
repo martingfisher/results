@@ -309,6 +309,10 @@ video {
   max-width: none;
   padding-top: clamp(74px, 10vw, 132px);
   padding-bottom: clamp(58px, 8vw, 100px);
+  /* Establish a stacking context so the Stream video/overlay
+     (negative z-index children) paint above the navy background
+     instead of behind it. Mirrors .stream-hero. */
+  isolation: isolate;
 }
 
 .page-hero.compact > * {
