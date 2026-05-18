@@ -2733,7 +2733,12 @@ blockquote {
   display: grid;
   grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
   gap: clamp(28px, 6vw, 90px);
-  align-items: center;
+  align-items: start;
+}
+
+/* Logos sit in the right column, directly under the intro copy */
+.stack-feature-row .tech-marquee--bare {
+  margin-top: clamp(20px, 3vw, 36px);
 }
 
 .stack-feature-row > img {
