@@ -2775,10 +2775,15 @@ blockquote {
   min-height: clamp(64px, 6vw, 90px);
 }
 
+.tech-marquee--bare .tech-marquee-stage::before,
+.tech-marquee--bare .tech-marquee-stage::after {
+  width: clamp(20px, 4vw, 56px);
+}
+
 .tech-marquee--bare .tech-marquee-stage::before {
-  background: linear-gradient(90deg, var(--white) 28%, rgba(255, 255, 255, 0));
+  background: linear-gradient(90deg, var(--white), rgba(255, 255, 255, 0));
 }
 
 .tech-marquee--bare .tech-marquee-stage::after {
-  background: linear-gradient(270deg, var(--white) 18%, rgba(255, 255, 255, 0));
+  background: linear-gradient(270deg, var(--white), rgba(255, 255, 255, 0));
 }
