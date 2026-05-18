@@ -859,7 +859,7 @@ video {
 }
 
 .section {
-  padding: clamp(58px, 8vw, 120px) clamp(18px, 5vw, 72px);
+  padding: clamp(40px, 5vw, 72px) clamp(18px, 5vw, 72px);
 }
 
 .promise-section {
