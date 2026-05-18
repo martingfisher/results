@@ -4,6 +4,7 @@ pageSlug: "website-speed-for-small-business"
 summary: "Speed is one of the few advantages a small business can buy cheaply and keep. Here is why it matters, proof from our own client work, and a practical recipe for making your site faster."
 date: "2026-05-18"
 category: "Web"
+image: "/assets/blog/website-speed-feature.jpg"
 draft: false
 ---
 

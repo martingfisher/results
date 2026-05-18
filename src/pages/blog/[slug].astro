@@ -44,6 +44,7 @@ const articleSchema = {
   title={post.data.title}
   description={post.data.summary}
   canonicalPath={`/blog/${post.data.pageSlug}/`}
+  ogImage={post.data.image}
   schema={articleSchema}
 >
   <section class="page-hero compact">
@@ -53,9 +54,30 @@ const articleSchema = {
     <p class="blog-date">{new Date(post.data.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
   </section>
 
+  {post.data.image && (
+    <figure class="blog-feature">
+      <img src={post.data.image} alt={post.data.title} width="1200" height="630" loading="eager" />
+    </figure>
+  )}
+
   <article class="section article-body">
     <Content />
   </article>
+
+  <style>
+    .blog-feature {
+      margin: 0 auto;
+      max-width: 1080px;
+      padding: 0 var(--page-pad);
+    }
+    .blog-feature img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+  </style>
 
   {relatedPosts.length > 0 && (
     <section class="section related-articles" aria-labelledby="related-articles-title">
