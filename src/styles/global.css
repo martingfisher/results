@@ -809,7 +809,7 @@ video {
   isolation: isolate;
 }
 
-.case-index-hero > :not(.pixel-trail) {
+.case-index-hero > :not(.pixel-trail):not(.stream-bg):not(.stream-overlay) {
   position: relative;
   z-index: 1;
 }

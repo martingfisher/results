@@ -23,6 +23,10 @@ const caseStudies = (await getCollection('caseStudies')).sort((a, b) => {
 
   return (aIndex === -1 ? 999 : aIndex) - (bIndex === -1 ? 999 : bIndex);
 });
+
+const STREAM_ID = '1be64aadf989e269c5ce877f20d8848f';
+const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? 'eo7jhn0ipdxweq9b';
+const streamSrc = `https://customer-${CUSTOMER_CODE}.cloudflarestream.com/${STREAM_ID}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=auto`;
 ---
 
 <BaseLayout
@@ -30,6 +34,16 @@ const caseStudies = (await getCollection('caseStudies')).sort((a, b) => {
   description="Real client projects from Results You Can Measure. Branding, web development, SEO and campaign work for UK businesses — with the outcomes to show for it."
 >
   <section class="page-hero compact case-index-hero">
+    <div class="stream-bg" aria-hidden="true">
+      <iframe
+        src={streamSrc}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title=""
+        loading="lazy"
+      ></iframe>
+    </div>
+    <div class="stream-overlay" aria-hidden="true"></div>
     <p class="eyebrow">Selected projects</p>
     <h1>Work that made the offer easier to choose.</h1>
     <p class="case-index-kicker">Every project here started with a real business challenge — unclear positioning, weak web presence, campaigns that were not converting.</p>
