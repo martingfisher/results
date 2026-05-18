@@ -10,6 +10,10 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const STREAM_ID = '7807a3a955f46044e7abf0a4e5c63f07';
+const CUSTOMER_CODE = import.meta.env.CF_STREAM_CUSTOMER_CODE ?? 'eo7jhn0ipdxweq9b';
+const streamSrc = `https://customer-${CUSTOMER_CODE}.cloudflarestream.com/${STREAM_ID}/iframe?autoplay=true&muted=true&loop=true&controls=false&preload=auto`;
 const allPosts = (await getCollection('blog')).sort((a, b) => b.data.date.localeCompare(a.data.date));
 const candidatePosts = allPosts.filter((candidate) => candidate.id !== post.id);
 const relatedPosts = [
@@ -48,6 +52,16 @@ const articleSchema = {
   schema={articleSchema}
 >
   <section class="page-hero compact">
+    <div class="stream-bg" aria-hidden="true">
+      <iframe
+        src={streamSrc}
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        title=""
+        loading="lazy"
+      ></iframe>
+    </div>
+    <div class="stream-overlay" aria-hidden="true"></div>
     <p class="eyebrow">{post.data.category}</p>
     <h1>{post.data.title}</h1>
     <p>{post.data.summary}</p>

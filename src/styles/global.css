@@ -315,6 +315,18 @@ video {
   max-width: 960px;
 }
 
+/* Stream background / overlay must stay full-bleed inside the compact hero */
+.page-hero.compact > .stream-bg,
+.page-hero.compact > .stream-overlay {
+  max-width: none;
+}
+
+/* Lift the compact hero content above the video layers */
+.page-hero.compact > :not(.stream-bg):not(.stream-overlay) {
+  position: relative;
+  z-index: 1;
+}
+
 /* About page hero — full-viewport with Ken Burns pan */
 .about-hero {
   display: grid;
