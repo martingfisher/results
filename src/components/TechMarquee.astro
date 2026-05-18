@@ -17,19 +17,30 @@ const tools: Array<{ name: string; logo: string; shape?: 'square' | 'wide'; slug
 ];
 
 const loop = [...tools, ...tools];
+
+interface Props {
+  copy?: boolean;
+}
+const { copy = true } = Astro.props;
 ---
 
-<section class="tech-marquee" aria-labelledby="tech-marquee-title">
-  <div class="tech-marquee-copy">
-    <p class="eyebrow">The working stack</p>
-    <div>
-      <h2 id="tech-marquee-title">Comfortable where modern marketing actually happens.</h2>
-      <p>
-        From websites and ecommerce to paid media, analytics, hosting and AI-assisted content workflows,
-        we work in the tools your marketing already depends on.
-      </p>
+<section
+  class:list={['tech-marquee', !copy && 'tech-marquee--bare']}
+  aria-labelledby={copy ? 'tech-marquee-title' : undefined}
+  aria-label={copy ? undefined : 'Common platforms and tools we work with'}
+>
+  {copy && (
+    <div class="tech-marquee-copy">
+      <p class="eyebrow">The working stack</p>
+      <div>
+        <h2 id="tech-marquee-title">Comfortable where modern marketing actually happens.</h2>
+        <p>
+          From websites and ecommerce to paid media, analytics, hosting and AI-assisted content workflows,
+          we work in the tools your marketing already depends on.
+        </p>
+      </div>
     </div>
-  </div>
+  )}
   <div class="tech-marquee-stage" aria-label="Common platforms and tools we work with">
     <svg class="tech-chomper" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
       <mask id="tech-chomper-mask">

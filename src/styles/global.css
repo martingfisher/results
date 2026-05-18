@@ -2718,3 +2718,53 @@ blockquote {
 .proof-more {
   margin-top: clamp(24px, 4vw, 40px);
 }
+
+/* ── About: merged founder + stack feature band ── */
+.stack-feature {
+  background: var(--white);
+  border-block: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(36px, 6vw, 76px);
+  overflow: hidden;
+}
+
+.stack-feature-row {
+  display: grid;
+  grid-template-columns: minmax(240px, 380px) minmax(0, 1fr);
+  gap: clamp(28px, 6vw, 90px);
+  align-items: center;
+}
+
+.stack-feature-row > img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.stack-feature-row h2 {
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .stack-feature-row {
+    grid-template-columns: 1fr;
+    gap: clamp(24px, 6vw, 40px);
+  }
+}
+
+/* Logos-only marquee embedded inside the white feature band */
+.tech-marquee--bare {
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.tech-marquee--bare .tech-marquee-stage::before {
+  background: linear-gradient(90deg, var(--white) 28%, rgba(255, 255, 255, 0));
+}
+
+.tech-marquee--bare .tech-marquee-stage::after {
+  background: linear-gradient(270deg, var(--white) 18%, rgba(255, 255, 255, 0));
+}
