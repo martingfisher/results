@@ -2725,7 +2725,7 @@ blockquote {
   border-block: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  gap: clamp(36px, 6vw, 76px);
+  gap: clamp(22px, 3vw, 40px);
   overflow: hidden;
 }
 
@@ -2759,6 +2759,15 @@ blockquote {
   padding: 0;
   background: transparent;
   border: 0;
+}
+
+/* No Pac-Man on the About band, and a tighter strip without it */
+.tech-marquee--bare .tech-chomper {
+  display: none;
+}
+
+.tech-marquee--bare .tech-marquee-stage {
+  min-height: clamp(64px, 6vw, 90px);
 }
 
 .tech-marquee--bare .tech-marquee-stage::before {
