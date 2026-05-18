@@ -8,11 +8,11 @@ summaryHeading: "Not every client is a national brand. A local salon can still h
 performanceNote: "handcohairdressing.co.uk — built on Astro, served from Cloudflare"
 lighthouseScores:
   - label: "Performance"
-    score: 91
+    score: 92
   - label: "Accessibility"
     score: 93
   - label: "Best Practices"
-    score: 92
+    score: 100
   - label: "SEO"
     score: 100
 services: ["Website design", "Astro development", "Local SEO", "Copywriting"]
@@ -30,14 +30,14 @@ proofMoments:
     text: "Most people find a salon on their phone, so the site was built mobile-first. The booking CTA and the salon number sit above the fold, the before-and-after gallery holds its side-by-side comparison on a narrow screen, and on a 4G phone the homepage paints in well under a second. Real client photos, optimised at build time, never the bottleneck."
   - image: "/assets/projects/handco-duo.webp"
     alt: "H&Co Hairdressing shown on desktop and mobile together, identical brand and typography across both"
-    text: "The brand stays exact across every device — same typography, same restraint, same calm. Built on Astro and served from Cloudflare's edge, the whole site is static HTML with build-time images and self-hosted fonts: a real 91 / 93 / 92 / 100 Lighthouse profile on mobile, and a presence that makes a small Guiseley salon look as good online as it does in the chair — at a price that makes sense for a two-person business."
+    text: "The brand stays exact across every device — same typography, same restraint, same calm. Built on Astro and served from Cloudflare's edge, the whole site is static HTML with build-time images and self-hosted fonts: a real 92 / 93 / 100 / 100 Lighthouse profile on mobile, higher still on desktop, and a presence that makes a small Guiseley salon look as good online as it does in the chair — at a price that makes sense for a two-person business."
 projectUrl: "https://handcohairdressing.co.uk/"
 quote: "A local business doesn't need a big budget to look considered. It needs restraint, real photography and a site that's genuinely fast."
 quoteBy: "RYCM project note"
 outcomes:
   - "Gave a two-stylist local salon a premium, on-brand web presence on a small-business budget."
   - "Design led by the salon's own client photography — no stock imagery anywhere."
-  - "Static Astro build on Cloudflare: 91 Performance, 93 Accessibility, 92 Best Practices, 100 SEO on mobile."
+  - "Static Astro build on Cloudflare: 92 Performance, 93 Accessibility, 100 Best Practices, 100 SEO on mobile (higher again on desktop)."
   - "Mobile-first, with booking and phone above the fold for how people actually find a salon."
 ---
 
@@ -47,6 +47,6 @@ The brief was simple to say and harder to do well: make it look properly conside
 
 We led the design from the salon itself — the cream walls, the oak, the calm. The type does the heavy lifting: a characterful serif for headings, a clean sans for everything else, set with room to breathe. Every image on the site is the salon's own client work. For a local salon, authentic photography isn't a nice-to-have; it's the entire proof.
 
-Underneath, it's built on Astro and served from Cloudflare's edge — static HTML, images optimised at build time, fonts self-hosted, no third-party weight. That's why a content-rich, photo-led site still returns a 91 Performance score on a throttled mobile connection, with 93 Accessibility, 92 Best Practices and a perfect 100 for SEO at [handcohairdressing.co.uk](https://handcohairdressing.co.uk/).
+Underneath, it's built on Astro and served from Cloudflare's edge — static HTML, images optimised at build time, fonts self-hosted, no third-party weight. That's why a content-rich, photo-led site still returns a 92 Performance score on a throttled mobile connection, with 93 Accessibility and a perfect 100 for both Best Practices and SEO at [handcohairdressing.co.uk](https://handcohairdressing.co.uk/) — higher again on desktop.
 
 The result is the point we want to make with this one: a local business, on a local-business budget, with a site that looks and performs like it belongs to something much bigger.

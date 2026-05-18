@@ -41,31 +41,31 @@ const nextStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
       {
         study.data.performanceNote && (
           <div class="performance-proof">
-            <h5>{study.data.performanceNote}</h5>
+            <p class="tech-label">Technology deployed</p>
+            <p class="tech-note">{study.data.performanceNote}</p>
             {study.data.lighthouseScores && (
-              <div class="score-row" aria-label="Lighthouse scores">
+              <div class="score-row" aria-label="Google PageSpeed / Lighthouse scores">
                 {study.data.lighthouseScores.map((item) => {
-                  const r = 42;
-                  const circ = 2 * Math.PI * r;          // 263.9
+                  const r = 52;
+                  const circ = 2 * Math.PI * r;
                   const track = circ * 0.75;              // 270° arc
                   const filled = (item.score / 100) * track;
                   const colour = item.score >= 90 ? '#0cce6b' : item.score >= 50 ? '#ffa400' : '#ff4e42';
                   return (
                     <div class="score-item">
-                      <svg class="score-gauge" viewBox="0 0 100 100" aria-hidden="true">
-                        {/* Track */}
-                        <circle cx="50" cy="50" r={r} fill="none"
-                          stroke="#e0e0e0" stroke-width="6"
+                      <svg class="score-gauge" viewBox="0 0 120 120" role="img"
+                        aria-label={`${item.label} ${item.score} out of 100`}>
+                        <circle cx="60" cy="60" r={r} fill="none"
+                          stroke="rgba(7,6,48,0.10)" stroke-width="8"
                           stroke-dasharray={`${track} ${circ - track}`}
                           stroke-linecap="round"
-                          transform="rotate(135 50 50)" />
-                        {/* Score arc */}
-                        <circle cx="50" cy="50" r={r} fill="none"
-                          stroke={colour} stroke-width="6"
+                          transform="rotate(135 60 60)" />
+                        <circle cx="60" cy="60" r={r} fill="none"
+                          stroke={colour} stroke-width="8"
                           stroke-dasharray={`${filled} ${circ - filled}`}
                           stroke-linecap="round"
-                          transform="rotate(135 50 50)" />
-                        <text x="50" y="54" text-anchor="middle"
+                          transform="rotate(135 60 60)" />
+                        <text x="60" y="60" text-anchor="middle" dominant-baseline="central"
                           class="score-gauge-num" fill={colour}>{item.score}</text>
                       </svg>
                       <p>{item.label}</p>
