@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <BaseLayout
@@ -13,8 +14,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>We help businesses find clearer positioning, stronger communication and more measurable ways to grow. On a call we will talk through where you are, what is already in motion, and what would make the biggest practical difference.</p>
     </div>
     <div class="contact-panel contact-panel--form">
-      <script is:inline src="https://elfsightcdn.com/platform.js" async></script>
-      <div class="elfsight-app-25af00f9-81ef-430e-82db-f67c0a4ff8b6" data-elfsight-app-lazy></div>
+      <ContactForm />
     </div>
   </section>
 </BaseLayout>

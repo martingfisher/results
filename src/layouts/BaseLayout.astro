@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { navItems } from '../data/navigation';
+import CookieConsent from '../components/CookieConsent.astro';
 
 interface Props {
   title: string;
@@ -181,6 +182,7 @@ const baseSchema = {
           <a href="/contact/">Book a call</a>
           <a href="/privacy/">Privacy</a>
           <a href="/cookies/">Cookies</a>
+          <a href="#" data-open-cookie-prefs>Manage cookies</a>
           <a href="https://www.linkedin.com/in/martingfisher/" rel="me noopener" target="_blank">LinkedIn</a>
         </div>
         <address class="footer-contact">
@@ -226,5 +228,9 @@ const baseSchema = {
         }, { threshold: 0.15 }).observe(wordmark);
       }
     </script>
+    {/* UK GDPR / PECR cookie consent banner. Canonical doc:
+        ../../forms-service/COOKIE_PRACTICE.md. Mounts once globally; the
+        runtime is idempotent and touches storage only after a choice. */}
+    <CookieConsent />
   </body>
 </html>

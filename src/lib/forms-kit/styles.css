@@ -1,0 +1,96 @@
+/* forms-kit — themable via CSS variables. Override any of these on .fk or a
+   parent element to match the client's brand. Zero Tailwind required. */
+
+.fk {
+  --fk-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --fk-color-text: #111827;
+  --fk-color-muted: #6b7280;
+  --fk-color-border: #d1d5db;
+  --fk-color-border-focus: #2563eb;
+  --fk-color-bg: #ffffff;
+  --fk-color-error: #b91c1c;
+  --fk-color-primary: #111827;
+  --fk-color-primary-fg: #ffffff;
+  --fk-color-primary-hover: #1f2937;
+  --fk-radius: 8px;
+  --fk-gap: 16px;
+  --fk-font-size: 16px;
+  --fk-control-padding: 10px 12px;
+  --fk-control-bg: #ffffff;
+  --fk-focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.2);
+
+  font-family: var(--fk-font);
+  color: var(--fk-color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--fk-gap);
+  font-size: var(--fk-font-size);
+}
+
+.fk-field { display: flex; flex-direction: column; gap: 6px; }
+
+.fk-label { font-weight: 500; font-size: 0.95em; }
+.fk-required { color: var(--fk-color-error); }
+
+.fk-control {
+  font: inherit;
+  color: inherit;
+  background: var(--fk-control-bg);
+  border: 1px solid var(--fk-color-border);
+  border-radius: var(--fk-radius);
+  padding: var(--fk-control-padding);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+.fk-control:focus {
+  outline: none;
+  border-color: var(--fk-color-border-focus);
+  box-shadow: var(--fk-focus-ring);
+}
+.fk-textarea { resize: vertical; min-height: 96px; }
+
+.fk-help { font-size: 0.85em; color: var(--fk-color-muted); }
+.fk-error { font-size: 0.85em; color: var(--fk-color-error); }
+.fk-error--global {
+  padding: 10px 12px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--fk-radius);
+}
+
+.fk-field--error .fk-control { border-color: var(--fk-color-error); }
+.fk-field--error .fk-control:focus { box-shadow: 0 0 0 3px rgba(185, 28, 28, 0.15); }
+
+.fk-submit {
+  appearance: none;
+  font: inherit;
+  font-weight: 500;
+  background: var(--fk-color-primary);
+  color: var(--fk-color-primary-fg);
+  border: 0;
+  border-radius: var(--fk-radius);
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: background 120ms ease;
+  align-self: flex-start;
+}
+.fk-submit:hover { background: var(--fk-color-primary-hover); }
+.fk-submit:disabled { opacity: 0.6; cursor: progress; }
+.fk-submit:focus-visible { outline: none; box-shadow: var(--fk-focus-ring); }
+
+.fk-thanks {
+  padding: 16px 18px;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  border-radius: var(--fk-radius);
+}
+
+.fk-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}

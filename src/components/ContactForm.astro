@@ -1,0 +1,30 @@
+---
+/**
+ * ContactForm — thin Astro wrapper around the React island in
+ * ContactFormApp.tsx. Mounts client:visible so the JS bundle is deferred
+ * until the form is in the viewport.
+ *
+ * Replaced the Elfsight third-party widget (2026-05-27). Field schema lives
+ * in BOTH forms.config.mjs (server validation) and ContactFormApp.tsx
+ * (client render) — edit them together.
+ */
+import ContactFormApp from './ContactFormApp';
+---
+
+<ContactFormApp client:visible />
+
+<style>
+  /* Theme the vendored forms-kit to match the RYCM brand. The kit reads these
+     on `.fk` and falls back to its defaults if any are unset. */
+  :global(.fk) {
+    --fk-font: inherit;
+    --fk-color-primary: #e0322f;
+    --fk-color-primary-hover: #c52522;
+    --fk-color-primary-fg: #fff;
+    --fk-color-text: #fff;
+    --fk-color-muted: rgba(255, 255, 255, 0.7);
+    --fk-color-border: rgba(255, 255, 255, 0.2);
+    --fk-color-border-focus: #e0322f;
+    --fk-radius: 12px;
+  }
+</style>
