@@ -97,7 +97,7 @@ The Elfsight plan I was on costs $15 per month (about £12), and that covers thr
 | Performance impact | -30 Lighthouse Performance on desktop | None |
 | Cookie consent posture | Requires gating Elfsight behind opt-in (or accepting that the cookie policy is inaccurate) | Nothing to gate |
 
-The per-site number is where this stops being a small saving and starts being structural. We manage somewhere in the region of twenty client websites. At three domains per plan we would need seven Elfsight subscriptions to cover them all, which is **$105 per month, or roughly £3,000 over three years, for the same form on the same number of pages**. For one feature.
+The per-site number is where this stops being a small saving and starts being structural. We manage just over a hundred client websites. Roughly twenty of them currently use Elfsight or a comparable third-party form / popup / embed widget that could be replaced with the same in-house pattern we just used on our own site. At three domains per plan that is **seven Elfsight subscriptions, $105 per month, or about £3,000 over three years, for one feature on twenty sites**. The other eighty are mostly older builds that don't yet have a contact form to migrate, or sit on a different stack we won't touch this quarter.
 
 Our in-house form is doing the same job on three of those sites today, with submissions landing in the relevant inbox, on UK servers, under retention rules we set ourselves. The rest are scheduled across the next quarter as part of natural refresh cycles or new builds.
 
@@ -143,7 +143,7 @@ The line is roughly: pay for what you cannot replicate; build what only requires
 
 ## What this means for agencies
 
-If you build websites for a living, this is the change you cannot keep ignoring. Every client site you ship that depends on a paid plugin has an ongoing cost (paid by the client, or absorbed by you on a managed-care plan) and a performance penalty (paid by every visitor). Both costs scale with traffic and with portfolio size. At three-domains-per-plan pricing, a fifty-site portfolio is paying for seventeen subscriptions to deliver one feature.
+If you build websites for a living, this is the change you cannot keep ignoring. Every client site you ship that depends on a paid plugin has an ongoing cost (paid by the client, or absorbed by you on a managed-care plan) and a performance penalty (paid by every visitor). Both costs scale with traffic and with portfolio size. Across an agency portfolio of any meaningful size, the widget-licence line on the books is doing very little work for the money.
 
 Owning the equivalent infrastructure ourselves means our clients' enquiries land directly in our clients' inboxes, on UK servers, with full audit trails, with no third-party scripts running in their visitor's browsers, and with no monthly subscription bills attached.
 

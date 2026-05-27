@@ -1,216 +1,176 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 880" role="img" aria-labelledby="title desc" font-family="'DM Sans', system-ui, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="880" viewBox="0 0 1240 880" role="img" aria-labelledby="title desc" font-family="'DM Sans', system-ui, sans-serif">
   <title id="title">Lighthouse before and after: replacing Elfsight with our own form</title>
-  <desc id="desc">Four PageSpeed Insights summaries in a two-by-two grid. Top row, Before: mobile shows Performance 90 / Accessibility 96 / Best Practices 100 / SEO 100, desktop shows 70 / 96 / 100 / 100. Bottom row, After: mobile shows 100 / 100 / 100 / 100, desktop shows 100 / 100 / 100 / 100. Total Blocking Time goes from 400ms / 610ms to zero on both axes.</desc>
+  <desc id="desc">Four PageSpeed Insights summaries in a two-by-two grid. Top row Before: mobile shows Performance 90 / Accessibility 96 / Best Practices 100 / SEO 100; desktop shows 70 / 96 / 100 / 100. Bottom row After: both mobile and desktop show 100 / 100 / 100 / 100. Total Blocking Time goes from 400ms / 610ms to zero on both axes.</desc>
 
-  <!-- Background -->
   <rect width="1240" height="880" fill="#070630"/>
 
-  <!-- Row labels -->
-  <defs>
-    <style>
-      .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 2px; }
-      .row-label { font-size: 22px; font-weight: 700; fill: #ffffff; }
-      .device-label { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; fill: rgba(255,255,255,0.55); }
-      .metric-label { font-size: 11px; font-weight: 500; fill: rgba(255,255,255,0.78); }
-      .metric-score { font-size: 22px; font-weight: 700; }
-      .key-name { font-size: 11px; font-weight: 500; fill: rgba(255,255,255,0.55); }
-      .key-value { font-size: 15px; font-weight: 700; fill: #ffffff; }
-      .delta-good { font-size: 11px; font-weight: 700; fill: #19c37d; }
-      .delta-bad  { font-size: 11px; font-weight: 700; fill: #ffa400; }
-    </style>
+  <!-- Header -->
+  <text x="48" y="60" font-size="12" font-weight="700" letter-spacing="2" fill="#d6262a">PAGESPEED INSIGHTS — /CONTACT/</text>
+  <text x="48" y="98" font-size="28" font-weight="700" fill="#ffffff">Same URL. Same week. One widget removed.</text>
 
-    <!-- Reusable Lighthouse-style score circle component (32px radius) -->
-    <symbol id="score-green" viewBox="-40 -40 80 80">
-      <circle cx="0" cy="0" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
-    </symbol>
-    <symbol id="score-orange" viewBox="-40 -40 80 80">
-      <circle cx="0" cy="0" r="32" fill="rgba(255,164,0,0.12)" stroke="#ffa400" stroke-width="3"/>
-    </symbol>
-  </defs>
+  <!-- ====================== BEFORE ROW ====================== -->
+  <text x="48" y="160" font-size="12" font-weight="700" letter-spacing="2" fill="#ffa400">BEFORE — ELFSIGHT WIDGET LOADED</text>
 
-  <!-- Title -->
-  <text x="48" y="60" class="eyebrow" fill="#d6262a">PAGESPEED INSIGHTS — /CONTACT/</text>
-  <text x="48" y="92" class="row-label" style="font-size: 28px;">Same URL. Same week. One widget removed.</text>
+  <!-- BEFORE MOBILE panel -->
+  <g transform="translate(48, 180)">
+    <rect width="560" height="280" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="28" y="36" font-size="13" font-weight="600" letter-spacing="1.5" fill="rgba(255,255,255,0.55)">MOBILE</text>
 
-  <!-- ========== BEFORE ROW ========== -->
-  <g transform="translate(0, 140)">
-    <text x="48" y="0" class="eyebrow" fill="#ffa400">BEFORE — ELFSIGHT WIDGET LOADED</text>
+    <!-- Score row: 4 circles -->
+    <g>
+      <circle cx="110" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="110" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">90</text>
+      <text x="110" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Performance</text>
 
-    <!-- BEFORE — MOBILE panel -->
-    <g transform="translate(48, 24)">
-      <rect width="560" height="280" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="28" y="36" class="device-label">MOBILE</text>
+      <circle cx="220" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="220" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">96</text>
+      <text x="220" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Accessibility</text>
 
-      <!-- Score row -->
-      <g transform="translate(110, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">90</text>
-        <text class="metric-label" text-anchor="middle" y="58">Performance</text>
-      </g>
-      <g transform="translate(220, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">96</text>
-        <text class="metric-label" text-anchor="middle" y="58">Accessibility</text>
-      </g>
-      <g transform="translate(370, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Best Practices</text>
-      </g>
-      <g transform="translate(490, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">SEO</text>
-      </g>
+      <circle cx="370" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="370" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="370" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Best Practices</text>
 
-      <!-- Key metrics row -->
-      <g transform="translate(28, 222)">
-        <text class="key-name">Total Blocking Time</text>
-        <text class="key-value" y="22" fill="#ffa400">400ms</text>
-      </g>
-      <g transform="translate(190, 222)">
-        <text class="key-name">Cumulative Layout Shift</text>
-        <text class="key-value" y="22">0.012</text>
-      </g>
-      <g transform="translate(380, 222)">
-        <text class="key-name">Unused JavaScript</text>
-        <text class="key-value" y="22" fill="#ffa400">498 KiB</text>
-      </g>
+      <circle cx="490" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="490" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="490" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">SEO</text>
     </g>
 
-    <!-- BEFORE — DESKTOP panel -->
-    <g transform="translate(632, 24)">
-      <rect width="560" height="280" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="28" y="36" class="device-label">DESKTOP</text>
-
-      <g transform="translate(110, 110)">
-        <use href="#score-orange" />
-        <text class="metric-score" fill="#ffa400" text-anchor="middle" y="8">70</text>
-        <text class="metric-label" text-anchor="middle" y="58">Performance</text>
-      </g>
-      <g transform="translate(220, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">96</text>
-        <text class="metric-label" text-anchor="middle" y="58">Accessibility</text>
-      </g>
-      <g transform="translate(370, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Best Practices</text>
-      </g>
-      <g transform="translate(490, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">SEO</text>
-      </g>
-
-      <g transform="translate(28, 222)">
-        <text class="key-name">Total Blocking Time</text>
-        <text class="key-value" y="22" fill="#ff4e42">610ms</text>
-      </g>
-      <g transform="translate(190, 222)">
-        <text class="key-name">Cumulative Layout Shift</text>
-        <text class="key-value" y="22" fill="#ffa400">0.149</text>
-      </g>
-      <g transform="translate(380, 222)">
-        <text class="key-name">JS Execution Time</text>
-        <text class="key-value" y="22" fill="#ff4e42">1.4s</text>
-      </g>
+    <!-- Key metrics row -->
+    <g transform="translate(28, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Total Blocking Time</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ffa400">400ms</text>
+    </g>
+    <g transform="translate(200, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Cumulative Layout Shift</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ffffff">0.012</text>
+    </g>
+    <g transform="translate(390, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Unused JavaScript</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ffa400">498 KiB</text>
     </g>
   </g>
 
-  <!-- ========== AFTER ROW ========== -->
-  <g transform="translate(0, 500)">
-    <text x="48" y="0" class="eyebrow" fill="#19c37d">AFTER — IN-HOUSE FORMS-KIT</text>
+  <!-- BEFORE DESKTOP panel -->
+  <g transform="translate(632, 180)">
+    <rect width="560" height="280" rx="14" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+    <text x="28" y="36" font-size="13" font-weight="600" letter-spacing="1.5" fill="rgba(255,255,255,0.55)">DESKTOP</text>
 
-    <!-- AFTER — MOBILE panel -->
-    <g transform="translate(48, 24)">
-      <rect width="560" height="280" rx="14" fill="rgba(25,195,125,0.06)" stroke="rgba(25,195,125,0.18)"/>
-      <text x="28" y="36" class="device-label">MOBILE</text>
+    <g>
+      <circle cx="110" cy="110" r="32" fill="rgba(255,164,0,0.12)" stroke="#ffa400" stroke-width="3"/>
+      <text x="110" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#ffa400">70</text>
+      <text x="110" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Performance</text>
 
-      <g transform="translate(110, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Performance</text>
-        <text class="delta-good" text-anchor="middle" y="-44">+10</text>
-      </g>
-      <g transform="translate(220, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Accessibility</text>
-        <text class="delta-good" text-anchor="middle" y="-44">+4</text>
-      </g>
-      <g transform="translate(370, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Best Practices</text>
-      </g>
-      <g transform="translate(490, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">SEO</text>
-      </g>
+      <circle cx="220" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="220" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">96</text>
+      <text x="220" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Accessibility</text>
 
-      <g transform="translate(28, 222)">
-        <text class="key-name">Total Blocking Time</text>
-        <text class="key-value" y="22" fill="#19c37d">0ms</text>
-      </g>
-      <g transform="translate(190, 222)">
-        <text class="key-name">Cumulative Layout Shift</text>
-        <text class="key-value" y="22">0.014</text>
-      </g>
-      <g transform="translate(380, 222)">
-        <text class="key-name">Unused JavaScript</text>
-        <text class="key-value" y="22" fill="#19c37d">34 KiB</text>
-      </g>
+      <circle cx="370" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="370" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="370" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Best Practices</text>
+
+      <circle cx="490" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="490" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="490" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">SEO</text>
     </g>
 
-    <!-- AFTER — DESKTOP panel -->
-    <g transform="translate(632, 24)">
-      <rect width="560" height="280" rx="14" fill="rgba(25,195,125,0.06)" stroke="rgba(25,195,125,0.18)"/>
-      <text x="28" y="36" class="device-label">DESKTOP</text>
+    <g transform="translate(28, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Total Blocking Time</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ff4e42">610ms</text>
+    </g>
+    <g transform="translate(200, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Cumulative Layout Shift</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ffa400">0.149</text>
+    </g>
+    <g transform="translate(390, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">JS Execution Time</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ff4e42">1.4s</text>
+    </g>
+  </g>
 
-      <g transform="translate(110, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Performance</text>
-        <text class="delta-good" text-anchor="middle" y="-44">+30</text>
-      </g>
-      <g transform="translate(220, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Accessibility</text>
-        <text class="delta-good" text-anchor="middle" y="-44">+4</text>
-      </g>
-      <g transform="translate(370, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">Best Practices</text>
-      </g>
-      <g transform="translate(490, 110)">
-        <use href="#score-green" />
-        <text class="metric-score" fill="#19c37d" text-anchor="middle" y="8">100</text>
-        <text class="metric-label" text-anchor="middle" y="58">SEO</text>
-      </g>
+  <!-- ====================== AFTER ROW ====================== -->
+  <text x="48" y="520" font-size="12" font-weight="700" letter-spacing="2" fill="#19c37d">AFTER — IN-HOUSE FORMS-KIT</text>
 
-      <g transform="translate(28, 222)">
-        <text class="key-name">Total Blocking Time</text>
-        <text class="key-value" y="22" fill="#19c37d">0ms</text>
-      </g>
-      <g transform="translate(190, 222)">
-        <text class="key-name">Cumulative Layout Shift</text>
-        <text class="key-value" y="22" fill="#19c37d">0.009</text>
-      </g>
-      <g transform="translate(380, 222)">
-        <text class="key-name">JS Execution Time</text>
-        <text class="key-value" y="22" fill="#19c37d">0.2s</text>
-      </g>
+  <!-- AFTER MOBILE panel -->
+  <g transform="translate(48, 540)">
+    <rect width="560" height="280" rx="14" fill="rgba(25,195,125,0.06)" stroke="rgba(25,195,125,0.18)"/>
+    <text x="28" y="36" font-size="13" font-weight="600" letter-spacing="1.5" fill="rgba(255,255,255,0.55)">MOBILE</text>
+
+    <g>
+      <text x="110" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#19c37d">+10</text>
+      <circle cx="110" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="110" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="110" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Performance</text>
+
+      <text x="220" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#19c37d">+4</text>
+      <circle cx="220" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="220" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="220" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Accessibility</text>
+
+      <circle cx="370" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="370" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="370" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Best Practices</text>
+
+      <circle cx="490" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="490" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="490" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">SEO</text>
+    </g>
+
+    <g transform="translate(28, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Total Blocking Time</text>
+      <text y="22" font-size="15" font-weight="700" fill="#19c37d">0ms</text>
+    </g>
+    <g transform="translate(200, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Cumulative Layout Shift</text>
+      <text y="22" font-size="15" font-weight="700" fill="#ffffff">0.014</text>
+    </g>
+    <g transform="translate(390, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Unused JavaScript</text>
+      <text y="22" font-size="15" font-weight="700" fill="#19c37d">34 KiB</text>
+    </g>
+  </g>
+
+  <!-- AFTER DESKTOP panel -->
+  <g transform="translate(632, 540)">
+    <rect width="560" height="280" rx="14" fill="rgba(25,195,125,0.06)" stroke="rgba(25,195,125,0.18)"/>
+    <text x="28" y="36" font-size="13" font-weight="600" letter-spacing="1.5" fill="rgba(255,255,255,0.55)">DESKTOP</text>
+
+    <g>
+      <text x="110" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#19c37d">+30</text>
+      <circle cx="110" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="110" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="110" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Performance</text>
+
+      <text x="220" y="66" text-anchor="middle" font-size="11" font-weight="700" fill="#19c37d">+4</text>
+      <circle cx="220" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="220" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="220" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Accessibility</text>
+
+      <circle cx="370" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="370" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="370" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">Best Practices</text>
+
+      <circle cx="490" cy="110" r="32" fill="rgba(25,195,125,0.12)" stroke="#19c37d" stroke-width="3"/>
+      <text x="490" y="118" text-anchor="middle" font-size="22" font-weight="700" fill="#19c37d">100</text>
+      <text x="490" y="170" text-anchor="middle" font-size="11" font-weight="500" fill="rgba(255,255,255,0.78)">SEO</text>
+    </g>
+
+    <g transform="translate(28, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Total Blocking Time</text>
+      <text y="22" font-size="15" font-weight="700" fill="#19c37d">0ms</text>
+    </g>
+    <g transform="translate(200, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">Cumulative Layout Shift</text>
+      <text y="22" font-size="15" font-weight="700" fill="#19c37d">0.009</text>
+    </g>
+    <g transform="translate(390, 222)">
+      <text font-size="11" fill="rgba(255,255,255,0.55)">JS Execution Time</text>
+      <text y="22" font-size="15" font-weight="700" fill="#19c37d">0.2s</text>
     </g>
   </g>
 
   <!-- Footer caption -->
-  <text x="620" y="840" text-anchor="middle" class="metric-label" fill="rgba(255,255,255,0.45)" font-size="12">
+  <text x="620" y="855" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.45)">
     PageSpeed Insights, https://resultsyoucanmeasure.co.uk/contact/, 27 May 2026. Same URL, same week, no other changes.
   </text>
 </svg>
