@@ -2139,7 +2139,7 @@ blockquote {
 }
 
 .blog-card h2 {
-  margin: 0;
+  margin: 0 0 20px;
   font-size: clamp(1.55rem, 2.5vw, 2.35rem);
   line-height: 1;
 }
@@ -2155,9 +2155,10 @@ blockquote {
 
 .blog-date {
   margin: 0;
-  color: var(--red);
+  color: var(--muted);
   font-size: 0.9rem;
-  font-weight: 800;
+  font-weight: 400;
+  letter-spacing: 0.01em;
 }
 
 .article-body {
