@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 460" role="img" aria-labelledby="title desc">
+  <title id="title">Brand red contrast comparison: old hex vs new hex</title>
+  <desc id="desc">Two button mockups side by side. Left: white "Book a call" text on #f83739 background, contrast ratio 3.74 to 1, fails WCAG AA. Right: white "Book a call" text on #d6262a background, contrast ratio 5.02 to 1, passes WCAG AA.</desc>
+
+  <rect width="1200" height="460" fill="#070630"/>
+
+  <!-- LEFT: old red (fails AA) -->
+  <g transform="translate(80, 90)">
+    <text x="0" y="0" font-family="'DM Sans', system-ui, sans-serif" font-size="22" font-weight="700" fill="#ffffff">Before</text>
+    <text x="0" y="30" font-family="'DM Sans', system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.65)">Brand red: #f83739</text>
+
+    <rect x="0" y="60" width="460" height="100" rx="50" fill="#f83739"/>
+    <text x="230" y="120" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Book a call</text>
+
+    <g transform="translate(0, 210)">
+      <rect width="32" height="32" rx="16" fill="#ffcc00"/>
+      <text x="16" y="22" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="18" font-weight="700" fill="#070630">!</text>
+      <text x="48" y="14" font-family="'DM Sans', system-ui, sans-serif" font-size="16" font-weight="700" fill="#ffcc00">Contrast 3.74 : 1</text>
+      <text x="48" y="32" font-family="'DM Sans', system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)">Below WCAG AA threshold (4.5 : 1)</text>
+    </g>
+  </g>
+
+  <!-- RIGHT: new red (passes AA) -->
+  <g transform="translate(660, 90)">
+    <text x="0" y="0" font-family="'DM Sans', system-ui, sans-serif" font-size="22" font-weight="700" fill="#ffffff">After</text>
+    <text x="0" y="30" font-family="'DM Sans', system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.65)">Brand red: #d6262a</text>
+
+    <rect x="0" y="60" width="460" height="100" rx="50" fill="#d6262a"/>
+    <text x="230" y="120" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Book a call</text>
+
+    <g transform="translate(0, 210)">
+      <rect width="32" height="32" rx="16" fill="#19c37d"/>
+      <text x="16" y="22" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="18" font-weight="700" fill="#070630">✓</text>
+      <text x="48" y="14" font-family="'DM Sans', system-ui, sans-serif" font-size="16" font-weight="700" fill="#19c37d">Contrast 5.02 : 1</text>
+      <text x="48" y="32" font-family="'DM Sans', system-ui, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)">Passes WCAG AA — barely perceptible visual change</text>
+    </g>
+  </g>
+
+  <!-- Caption -->
+  <text x="600" y="430" text-anchor="middle" font-family="'DM Sans', system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.55)">
+    Three hex values darker. Invisible to humans, legible to compilers. +5 Lighthouse Accessibility points site-wide.
+  </text>
+</svg>
