@@ -4,7 +4,7 @@ pageSlug: "replacing-elfsight-with-an-in-house-form"
 summary: "How I replaced a third-party form widget with our own in-house infrastructure, cut £3,000 off three years of subscriptions, and pushed every page on resultsyoucanmeasure.co.uk to a perfect Lighthouse score on the same afternoon."
 date: "2026-05-27"
 category: "Web"
-image: "/assets/blog/elfsight-lighthouse-before-after.svg"
+image: "/assets/blog/elfsight-lighthouse-before-after.jpg"
 draft: false
 ---
 
@@ -12,7 +12,7 @@ Yesterday I cancelled our Elfsight subscription. The contact form on this site i
 
 This is the case study, the cost breakdown, and the bigger question it surfaced about where paid plugins are heading.
 
-<img src="/assets/blog/elfsight-lighthouse-before-after.svg" alt="PageSpeed Insights summaries before and after replacing Elfsight: mobile went from 90/96/100/100 to 100/100/100/100 with TBT 400ms to 0ms; desktop went from 70/96/100/100 to 100/100/100/100 with TBT 610ms to 0ms and CLS 0.149 to 0.009" width="1240" height="880" loading="eager" />
+<img src="/assets/blog/elfsight-lighthouse-before-after.jpg" alt="PageSpeed Insights summaries before and after replacing Elfsight: mobile went from 90/96/100/100 to 100/100/100/100 with TBT 400ms to 0ms; desktop went from 70/96/100/100 to 100/100/100/100 with TBT 610ms to 0ms and CLS 0.149 to 0.009" width="1240" height="880" loading="eager" />
 
 <div class="article-callout">
   <strong>TL;DR:</strong> Third-party form widgets cost a small monthly fee, hurt your Lighthouse scores by 20-30 points, and quietly make your cookie policy inaccurate. Replacing one with a properly-built first-party form takes an afternoon now that AI-assisted development is normal. The agency that built the widget is still useful, just for a smaller set of problems than they used to be.
@@ -78,7 +78,7 @@ My brand red was `#f83739`. White text on `#f83739` gives a contrast ratio of 3.
 
 I swapped `#f83739` for `#d6262a`. The new red is three hex values darker, gives 5.02:1 contrast, and is visually indistinguishable from the original on any device I put it on. Lighthouse mobile Accessibility went 95 to 100. Site-wide, not just on /contact/.
 
-<img src="/assets/blog/elfsight-red-button-contrast.svg" alt="Side-by-side comparison of the two brand reds: #f83739 with white text at 3.74:1 contrast (fails WCAG AA) and #d6262a with white text at 5.02:1 contrast (passes WCAG AA)" width="1240" height="460" loading="lazy" />
+<img src="/assets/blog/elfsight-red-button-contrast.jpg" alt="Side-by-side comparison of the two brand reds: #f83739 with white text at 3.74:1 contrast (fails WCAG AA) and #d6262a with white text at 5.02:1 contrast (passes WCAG AA)" width="1240" height="475" loading="lazy" />
 
 The lesson there is worth more than the contact-form one. The accessibility tax is often microscopic when you actually measure it. People do not make their brand more accessible because no one has made them sit down with a contrast checker and a hex picker, not because the change costs anything visible.
 
@@ -152,5 +152,3 @@ Three of our client sites are running on this stack already. Several more are sc
 If your contact form is loading a third-party script right now, your /cookies/ page is almost certainly slightly inaccurate, your Lighthouse score is leaving twenty or thirty points on the floor, and your client is paying someone else a monthly fee for the privilege.
 
 It is worth two hours to fix that.
-
-<img src="/assets/blog/elfsight-100s-closing.svg" alt="Lighthouse summary: Performance 100, Accessibility 100, Best Practices 100, SEO 100 across every page of resultsyoucanmeasure.co.uk on both mobile and desktop" width="1200" height="580" loading="lazy" />

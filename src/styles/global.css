@@ -2232,6 +2232,56 @@ blockquote {
   text-align: center;
 }
 
+/* Markdown-rendered images in article body (loose <img> not wrapped in
+   .article-figure). Constrain to body width so SVG-as-img with only a
+   viewBox doesn't blow out of the column. */
+.article-body img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 32px auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* Markdown-rendered tables in article body. Without these, GitHub-flavoured-
+   markdown tables collapse to default browser styling which is unreadable
+   against the body type. */
+.article-body table {
+  width: 100%;
+  margin: 32px 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  background: #ffffff;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(7, 6, 48, 0.06);
+}
+.article-body thead {
+  background: var(--navy);
+  color: var(--white);
+}
+.article-body thead th {
+  text-align: left;
+  padding: 14px 18px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+.article-body tbody td {
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  vertical-align: top;
+}
+.article-body tbody tr:nth-child(even) td {
+  background: rgba(7, 6, 48, 0.025);
+}
+.article-body tbody strong {
+  color: var(--navy);
+  font-weight: 700;
+}
+
 .related-articles {
   padding-top: 44px;
 }

@@ -70,7 +70,16 @@ Changing a `pageSlug` breaks all existing links — there are no automatic redir
 
 ## Deployment
 
-**Cloudflare Workers** — auto-deploys from `main` branch on GitHub (`martingfisher/results`). The Workers project is named `results` in the Cloudflare dashboard (Workers & Pages section). The build command (`npm run build`) runs Astro and outputs static files to `dist/`. The dashboard's deploy command is `npx wrangler versions upload`, which reads `wrangler.jsonc` at the repo root to know what to upload.
+**Cloudflare account quirk — read this before deploying.** The Worker named `results` does not live on the RYCM Cloudflare account (`a34b10229c4e780babe70dc9df70a311`) where the forms-service and client sites live. It lives on a separate account (`d0c1746bc2f1599472e3559ea7d42127`, labelled `Andyaston80@yahoo.co.uk's Account` in wrangler — the label is legacy; the account is effectively Martin's, evidenced by the `rycm.workers.dev` subdomain). To deploy from a local terminal you MUST set the account ID explicitly:
+
+```bash
+cd ~/Documents/07\ Claude-Projects/RYCM-site
+CLOUDFLARE_ACCOUNT_ID=d0c1746bc2f1599472e3559ea7d42127 npx wrangler deploy
+```
+
+Without that env var wrangler picks the wrong account from the multi-account OAuth list and fails with `Authentication error [code: 10000]`.
+
+**Auto-deploys from `main`** on GitHub (`martingfisher/results`) via the Workers dashboard's git integration. The Workers project is named `results`. The build command (`npm run build`) runs Astro and outputs static files to `dist/`. The dashboard's deploy command is `npx wrangler versions upload`, which reads `wrangler.jsonc` at the repo root to know what to upload.
 
 **`wrangler.jsonc`** at the repo root configures Workers deployment:
 - `name: "results"` matches the Workers project name in the dashboard
@@ -93,6 +102,39 @@ Without `wrangler.jsonc` + `worker/index.js`, the deploy step fails and nothing 
 **`public/_headers`** — sets CSP, cache headers, and security headers for all routes. CSP explicitly lists `elfsight.com`, `*.elfsight.com`, `elfsightcdn.com`, `*.elfsightcdn.com` (bare domain and wildcard must both be listed — CSP wildcards do not match the apex domain). Stream iframe allowed via `customer-eo7jhn0ipdxweq9b.cloudflarestream.com`.
 
 If the Stream customer code ever changes, update it in both `StreamHero.astro` and `public/_headers`.
+
+## Publishing a blog post end-to-end
+
+When asked to "publish" / "draft" / "write up" a blog post, the expected path is the full loop, not just the markdown:
+
+1. **Write the markdown** at `src/content/blog/<slug>.md`. Frontmatter shape (validated by zod in `src/content/config.ts`):
+   ```yaml
+   ---
+   title: "..."
+   pageSlug: "<slug-without-blog-prefix>"
+   summary: "..."           # used in blog index card + meta description
+   date: "YYYY-MM-DD"
+   category: "Web|Strategy|Briefing|Leads|PR|Social Media|Accountability" # pick existing where possible
+   image: "/assets/blog/<asset>.jpg"   # used as both feature image AND og:image
+   draft: false             # MUST be false to appear publicly
+   ---
+   ```
+2. **Inline images must be raster JPG/PNG**, not SVG. SVGs as inline `<img>` render unpredictably across browsers because the `viewBox` doesn't always give the right intrinsic size. If you have an SVG, rasterise it via Sharp before referencing it:
+   ```js
+   await sharp(svg, { density: 144 }).resize(1240).jpeg({ quality: 88, mozjpeg: true }).toFile('...');
+   ```
+3. **Tables render via `.article-body table` CSS in global.css** (added 2026-05-27). Markdown pipe-tables get the right styling automatically. No additional class needed.
+4. **Callout boxes**: wrap in `<div class="article-callout"><strong>TL;DR:</strong> ...</div>`.
+5. **Inline images**: plain `<img src="..." alt="..." width="..." height="..." loading="lazy" />`. `.article-body img` CSS in global.css constrains them to body width.
+6. **Build, deploy, verify, commit, push** — in that order:
+   ```bash
+   npm run build
+   CLOUDFLARE_ACCOUNT_ID=d0c1746bc2f1599472e3559ea7d42127 npx wrangler deploy
+   curl -sI https://resultsyoucanmeasure.co.uk/blog/<slug>/ | head -2   # expect HTTP/2 200
+   git add -A && git commit -m "Publish: <title>" && git push origin main
+   ```
+
+Do not stop at "here's a draft" and ask the user to do the rest. The whole loop is the deliverable.
 
 ## Content Schema Notes
 
