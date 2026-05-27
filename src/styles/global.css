@@ -7,7 +7,13 @@
 
 :root {
   --navy: #070630;
-  --red: #f83739;
+  /* Brand red. Bumped from #f83739 to #d6262a on 2026-05-27 so white text on red
+     passes WCAG AA contrast (4.5:1 for normal text, was 3.74:1). Both render as
+     "vivid red"; the deeper shade is barely perceptible side by side but pulls
+     mobile Lighthouse Accessibility from 95 → 100 site-wide. Keep #d6262a as
+     the canonical button + interactive surface red; if you need a brighter
+     decorative red, introduce a new token rather than reverting this. */
+  --red: #d6262a;
   --off: #f1f1f1;
   --white: #ffffff;
   --black: #000000;
