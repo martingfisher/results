@@ -261,7 +261,7 @@ const hostname = (() => {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
-    background: var(--cc-surface, #111418);
+    background: var(--cc-surface, #070630);
     color: var(--cc-text, #fff);
     border-radius: 14px;
     padding: 24px clamp(20px, 3vw, 32px);
@@ -305,8 +305,8 @@ const hostname = (() => {
     min-height: 44px;
     transition: transform 0.14s, background 0.14s, color 0.14s, border-color 0.14s;
   }
-  .cc-btn-primary { background: var(--cc-primary, #e0322f); color: #fff; }
-  .cc-btn-primary:hover { background: var(--cc-primary-hover, #c52522); transform: translateY(-1px); }
+  .cc-btn-primary { background: var(--cc-primary, #f83739); color: #fff; }
+  .cc-btn-primary:hover { background: var(--cc-primary-hover, #d6262a); transform: translateY(-1px); }
   .cc-btn-ghost {
     background: transparent;
     color: var(--cc-text, #fff);
@@ -376,13 +376,13 @@ const hostname = (() => {
     border-radius: 999px;
     transition: transform 0.14s;
   }
-  .cc-toggle input:checked + .cc-toggle-track { background: var(--cc-primary, #e0322f); }
+  .cc-toggle input:checked + .cc-toggle-track { background: var(--cc-primary, #f83739); }
   .cc-toggle input:checked + .cc-toggle-track::after { transform: translateX(16px); }
   .cc-toggle input:focus-visible + .cc-toggle-track {
-    box-shadow: 0 0 0 3px var(--cc-focus-ring, rgba(224, 50, 47, 0.55));
+    box-shadow: 0 0 0 3px var(--cc-focus-ring, rgba(248, 55, 57, 0.55));
   }
   .cc-toggle.is-locked { cursor: not-allowed; opacity: 0.85; }
-  .cc-toggle.is-locked .cc-toggle-track { background: var(--cc-primary, #e0322f); opacity: 0.5; }
+  .cc-toggle.is-locked .cc-toggle-track { background: var(--cc-primary, #f83739); opacity: 0.5; }
   .cc-toggle.is-locked .cc-toggle-track::after { transform: translateX(16px); }
   @media (max-width: 560px) {
     .cc-banner { padding: 10px; padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
