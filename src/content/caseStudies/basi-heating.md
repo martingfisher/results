@@ -5,19 +5,20 @@ pageSlug: "basi-heating"
 sector: "Domestic heating, boilers & plumbing"
 summary: "A long-standing heating, boilers and plumbing client, given a site that scales with the business — over 200 pages, a simple online booking flow, and calculators that turn 'get a quote' into an actual conversation."
 summaryHeading: "Years of marketing work, brought together in a site that finally explains the whole proposition — and lets people self-serve the simple stuff."
-performanceNote: "basiheating.co.uk — [PLACEHOLDER: platform, e.g. Webflow / Astro]"
+performanceNote: "basiheating.co.uk — built on Astro with custom development, served from Cloudflare"
 lighthouseScores:
   - label: "Performance"
-    score: 0
+    score: 100
   - label: "Accessibility"
-    score: 0
+    score: 96
   - label: "Best Practices"
-    score: 0
+    score: 100
   - label: "SEO"
-    score: 0
+    score: 100
 services:
   - "Website design"
-  - "[PLACEHOLDER] development"
+  - "Custom Astro development"
+  - "Cloudflare hosting & delivery"
   - "Local SEO at scale"
   - "Online booking system"
   - "Custom finance & quoting calculators"
@@ -59,6 +60,8 @@ So we built it out properly: over two hundred pages, each one with a job to do. 
 Layered on top of that, we built two pieces of self-service that change how the site actually works for people. The first is a simple online booking system: pick a service, pick a slot, done. Most people booking a boiler service don't need a conversation; they need it in the diary. The booking flow handles the predictable, repeatable bookings and lets the office spend its time on the calls that genuinely need a human.
 
 The second is a pair of online calculators — one for finance, one for quoting. A new boiler is a four-figure decision, and most websites in this space leave the customer to guess what that looks like. The finance calculator turns a price into a monthly figure they can sense-check against their household budget. The quoting calculator asks a few sensible questions about the property and the system and returns an indicative price on the page. Neither replaces the engineer's survey — they're there so the first proper conversation starts with someone who already knows roughly where they are.
+
+Underneath, the site is built on Astro with custom development and served from Cloudflare's edge — static HTML where it can be, dynamic where it needs to be for booking and the calculators. The result on a content-heavy, 200+ page site is a 100 Performance, 96 Accessibility, 100 Best Practices, 100 SEO Lighthouse profile on mobile at [basiheating.co.uk](https://basiheating.co.uk/). That score matters more here than on a small brochure site: at this scale, the SEO baseline and the page-speed baseline compound, so every service page and every location page benefits from the same fast, accessible, well-structured shell.
 
 The bit that surprised the client was the visual cohesion. Jas Singh, BASI's MD, made the point that until he saw all of the pages together — the service pages, the location pages, the booking flow, the calculators — he hadn't appreciated how much of the work the site was doing to explain the brand. Years of retainer work, decisions taken one at a time, suddenly sitting side-by-side in one consistent system. That's the moment a site stops being "the website" and starts being how the business shows up.
 
