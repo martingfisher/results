@@ -16,6 +16,7 @@ lighthouseScores:
   - label: "SEO"
     score: 100
 services:
+  - "Brand development"
   - "Website design"
   - "Custom Astro development"
   - "Cloudflare hosting & delivery"
