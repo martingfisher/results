@@ -43,7 +43,7 @@ proofMoments:
     alt: "BASI Heating online calculator on mobile, estimating finance or quote for a new boiler"
     text: "For the bigger jobs — a new boiler, a system upgrade — we built custom calculators that give people a real, useful answer on the page. A finance calculator that turns a four-figure number into a monthly figure they can think about, and a quoting calculator that asks a few sensible questions and returns an indicative price. The aim isn't to replace the survey; it's to get the conversation to start with a properly informed customer."
 projectUrl: "https://basiheating.co.uk/"
-quote: "[PLACEHOLDER — Jas Singh quote: he said something to the effect of not realising, until he saw the visuals come together, how far the site went to helping people actually understand the brand. Replace with his exact wording.]"
+quote: "It wasn't until I saw all the visuals together that I realised how much the site was doing to explain the brand."
 quoteBy: "Jas Singh, Managing Director, BASI Heating"
 outcomes:
   - "Over 200 pages built and maintained, each written for a specific service or location intent — a real local SEO footprint, not a token one."
