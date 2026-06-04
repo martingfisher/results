@@ -1,4 +1,7 @@
 User-agent: *
+# Content-Signals (content-signals.org). search=appear in search + AI answers,
+# ai-input=use as RAG/inference input, ai-train=use as model training data.
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Allow: /
 
 Disallow: /concepts/

@@ -8,6 +8,11 @@
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://embed.cloudflarestream.com https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com https://www.google.com https://www.gstatic.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com; img-src 'self' data: https: blob:; media-src 'self' https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com; frame-src https://customer-eo7jhn0ipdxweq9b.cloudflarestream.com https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com https://www.google.com https://www.gstatic.com; connect-src 'self' https:; font-src 'self' data: https://elfsight.com https://*.elfsight.com https://elfsightcdn.com https://*.elfsightcdn.com; worker-src 'self' blob:; frame-ancestors 'self'; object-src 'none'; base-uri 'self'; form-action 'self' https:;
   X-XSS-Protection: 0
 
+# Agent-discoverability Link headers (RFC 8288), homepage only.
+/
+  Link: <https://resultsyoucanmeasure.com/llms.txt>; rel="llms-txt"; type="text/markdown"
+  Link: <https://resultsyoucanmeasure.com/sitemap-index.xml>; rel="sitemap"; type="application/xml"
+
 /*.js
   Cache-Control: public, max-age=31536000, immutable
 
