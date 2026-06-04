@@ -70,14 +70,13 @@ Changing a `pageSlug` breaks all existing links — there are no automatic redir
 
 ## Deployment
 
-**Cloudflare account quirk — read this before deploying.** The Worker named `results` does not live on the RYCM Cloudflare account (`a34b10229c4e780babe70dc9df70a311`) where the forms-service and client sites live. It lives on a separate account (`d0c1746bc2f1599472e3559ea7d42127`, labelled `Andyaston80@yahoo.co.uk's Account` in wrangler — the label is legacy; the account is effectively Martin's, evidenced by the `rycm.workers.dev` subdomain). To deploy from a local terminal you MUST set the account ID explicitly:
+**Cloudflare account (verified 2026-06-04 via `wrangler whoami`).** There is ONE account on Martin's login: `Results You Can Measure - Martin Fisher` (`a34b10229c4e780babe70dc9df70a311`). The `results` Worker, the `resultsyoucanmeasure.com` zone, the forms-service and all client sites live here. There is **no** separate `d0c1746…` / "Andyaston80" account — that was a stale note that caused confusion and a failed/blocked deploy; ignore any reference to it. Deploy locally with:
 
 ```bash
 cd ~/Documents/07\ Claude-Projects/RYCM-site
-CLOUDFLARE_ACCOUNT_ID=d0c1746bc2f1599472e3559ea7d42127 npx wrangler deploy
+npm run build
+npx wrangler deploy   # single account, no CLOUDFLARE_ACCOUNT_ID needed; set =a34b10229c4e780babe70dc9df70a311 if ever ambiguous
 ```
-
-Without that env var wrangler picks the wrong account from the multi-account OAuth list and fails with `Authentication error [code: 10000]`.
 
 **Auto-deploys from `main`** on GitHub (`martingfisher/results`) via the Workers dashboard's git integration. The Workers project is named `results`. The build command (`npm run build`) runs Astro and outputs static files to `dist/`. The dashboard's deploy command is `npx wrangler versions upload`, which reads `wrangler.jsonc` at the repo root to know what to upload.
 
@@ -129,8 +128,8 @@ When asked to "publish" / "draft" / "write up" a blog post, the expected path is
 6. **Build, deploy, verify, commit, push** — in that order:
    ```bash
    npm run build
-   CLOUDFLARE_ACCOUNT_ID=d0c1746bc2f1599472e3559ea7d42127 npx wrangler deploy
-   curl -sI https://resultsyoucanmeasure.co.uk/blog/<slug>/ | head -2   # expect HTTP/2 200
+   npx wrangler deploy   # single account a34b10229c4e780babe70dc9df70a311
+   curl -sI https://resultsyoucanmeasure.com/blog/<slug>/ | head -2   # expect HTTP/2 200
    git add -A && git commit -m "Publish: <title>" && git push origin main
    ```
 
