@@ -1,0 +1,66 @@
+name: Deploy to Cloudflare (Workers)
+
+# Standard RYCM deploy workflow (mirrors basi-heating, adapted for a Worker +
+# npm). On every push to main it builds, verifies, and deploys via wrangler.
+# SELF-GATING: the deploy step only runs once the CLOUDFLARE_API_TOKEN repo
+# secret exists, so until then it builds + verifies and stays green, then
+# activates automatically.
+#
+# `results` is a Cloudflare WORKER (Static Assets), so the deploy command is
+# `wrangler deploy` (NOT `pages deploy`). Reads wrangler.jsonc at repo root.
+#
+# Required in repo settings (Settings -> Secrets and variables -> Actions):
+#   Secrets:   CLOUDFLARE_API_TOKEN     (Account > Workers Scripts > Edit, + Pages Edit)
+#              CLOUDFLARE_ACCOUNT_ID    (= a34b10229c4e780babe70dc9df70a311)
+#              PUBLIC_FORMS_SITE_SECRET (rycm forms-service submit secret)
+#   Variables: SITE_URL                 (= https://resultsyoucanmeasure.com)
+#
+# When activating: also DISCONNECT the Cloudflare-native Workers Builds git
+# integration for `results` so there is only one deploy path (this workflow).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      HAS_CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+          PUBLIC_FORMS_SITE_SECRET: ${{ secrets.PUBLIC_FORMS_SITE_SECRET }}
+
+      - name: Verify build (forms live + no noindex)
+        run: |
+          if [ -f dist/_headers ] && grep -qiE '^[[:space:]]*[^#].*x-robots-tag' dist/_headers; then
+            echo "::error::dist/_headers has an active X-Robots-Tag — would de-index production."; exit 1
+          fi
+          if grep -rl "Form being configured" dist --include='*.html' >/dev/null 2>&1; then
+            echo "::error::Forms fell back to the phone/email panel — PUBLIC_FORMS_SITE_SECRET was empty at build."; exit 1
+          fi
+          echo "Build verified: forms live, no noindex."
+
+      - name: Deploy to Cloudflare (Worker)
+        if: env.HAS_CF_TOKEN == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
