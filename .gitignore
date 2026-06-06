@@ -24,3 +24,6 @@ public/assets/video/web-review.mov
 secrets.json
 credentials.json
 service-account*.json
+
+# Generated per-build from PUBLIC_FORMS_SITE_SECRET — do not commit.
+public/.well-known/forms-health.json
