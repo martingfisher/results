@@ -61,6 +61,11 @@ jobs:
         if: env.HAS_CF_TOKEN == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
+          # Pinned to wrangler 4 — the project uses wrangler.jsonc (JSON
+          # config), which wrangler 3.90 (the action's default) does not
+          # fully parse and fails with "Missing entry-point". Local dev
+          # uses 4.x; keep CI aligned.
+          wranglerVersion: '4'
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
