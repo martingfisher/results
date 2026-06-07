@@ -2074,8 +2074,11 @@ blockquote {
   max-width: 760px;
   margin: 0;
   color: var(--white);
-  font-size: clamp(1.8rem, 3.2vw, 4.375rem);
-  line-height: 1;
+  /* Broken to three lines in the markup; sized so the longest line
+     ("more accountability.") fills the narrow footer brand column
+     without wrapping further. Mobile gets its own size below. */
+  font-size: clamp(1.5rem, 2.7vw, 3.4rem);
+  line-height: 1.04;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -2535,6 +2538,11 @@ blockquote {
 
   .footer-brand {
     grid-column: 1 / -1;
+  }
+
+  .footer-brand h2 {
+    /* Full-width on mobile/tablet; keep the longest line on one line. */
+    font-size: clamp(1.6rem, 6.5vw, 2.6rem);
   }
 
   .case-index-hero {
