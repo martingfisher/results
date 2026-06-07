@@ -858,8 +858,9 @@ video {
 .eyebrow {
   margin: 0 0 14px;
   color: var(--red);
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
   text-transform: uppercase;
   letter-spacing: 0.07em;
 }
@@ -1463,8 +1464,6 @@ video {
 .case-story-copy .eyebrow {
   margin: 0;
   color: var(--red);
-  font-weight: 600;
-  font-size: 0.78rem;
 }
 
 .case-story-copy p:last-child {
