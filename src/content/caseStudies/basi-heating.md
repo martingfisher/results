@@ -24,23 +24,24 @@ services:
   - "Online booking system"
   - "Custom finance & quoting calculators"
   - "Copywriting"
-heroImage: "/assets/projects/basi-hero.webp"
+heroImage: "/assets/projects/basi-finance.webp"
 images:
-  - "/assets/projects/basi-hero.webp"
-  - "/assets/projects/basi-pages.webp"
+  - "/assets/projects/basi-montage.webp"
+  - "/assets/projects/basi-areas.webp"
   - "/assets/projects/basi-mobile.webp"
+  - "/assets/projects/basi-finance.webp"
 proofMoments:
-  - image: "/assets/projects/basi-pages.webp"
-    alt: "BASI Heating site shown as a montage of multiple pages — service pages, location pages and supporting content"
+  - image: "/assets/projects/basi-montage.webp"
+    alt: "Montage of BASI Heating desktop pages — service pages, Yorkshire location pages and supporting content sharing one visual system"
     text: "BASI's offer isn't one service; it's a layered business — boilers, repairs, servicing, plumbing, heating system upgrades, and a growing set of areas they cover. Trying to cram that into a six-page brochure site would have undersold every part of it. So we built it out properly: over 200 pages, each one written and structured for a specific job-to-be-done, all sharing one consistent visual system. The scale is the point — it tells search engines and customers exactly what BASI does and where they do it."
-  - image: "/assets/projects/basi-pages.webp"
-    alt: "BASI Heating service area and location pages, each with locally relevant copy"
+  - image: "/assets/projects/basi-areas.webp"
+    alt: "BASI Heating location page on mobile listing thirteen Yorkshire towns, each with its own locally written page"
     text: "Local heating is local. Someone searching 'boiler repair' in one town shouldn't land on the same generic page as someone three towns over. Every service and every location has its own page, with copy written for that specific intent — boiler installs here, landlord gas safety there, emergency callouts somewhere else. That's how a local trade business actually wins the search: not with one home page trying to do everything, but with the right page for the right question."
-  - image: "/assets/projects/basi-hero.webp"
-    alt: "BASI Heating online booking flow — book a boiler service in a few clicks"
-    text: "Booking a boiler service shouldn't need a phone call. We built a simple online booking system into the site so customers can pick a service, choose a slot, and have it land in BASI's system without anyone picking up the phone. It handles the repeatable, low-friction stuff — quick services, annual checks — and frees the office up to deal with the calls that actually need a human. Same job, fewer interruptions."
   - image: "/assets/projects/basi-mobile.webp"
-    alt: "BASI Heating online calculator on mobile, estimating finance or quote for a new boiler"
+    alt: "BASI Heating booking and self-service screens on mobile — pick a service, choose a slot, book online without a phone call"
+    text: "Booking a boiler service shouldn't need a phone call. We built a simple online booking system into the site so customers can pick a service, choose a slot, and have it land in BASI's system without anyone picking up the phone. It handles the repeatable, low-friction stuff — quick services, annual checks — and frees the office up to deal with the calls that actually need a human. Same job, fewer interruptions."
+  - image: "/assets/projects/basi-finance.webp"
+    alt: "BASI Heating finance page on a tablet showing a new boiler as a fixed monthly figure from the custom finance calculator"
     text: "For the bigger jobs — a new boiler, a system upgrade — we built custom calculators that give people a real, useful answer on the page. A finance calculator that turns a four-figure number into a monthly figure they can think about, and a quoting calculator that asks a few sensible questions and returns an indicative price. The aim isn't to replace the survey; it's to get the conversation to start with a properly informed customer."
 projectUrl: "https://basiheating.co.uk/"
 quote: "It wasn't until I saw all the visuals together that I realised how much the site was doing to explain the brand."
@@ -52,7 +53,7 @@ outcomes:
   - "Years of consistent retainer work, layered into a site that finally explains the whole BASI proposition in one place."
 ---
 
-BASI Heating is a long-standing client of ours — we've looked after their marketing for years. The site at [basiheating.co.uk](https://basiheating.co.uk/) is the latest, biggest iteration of that work: not a one-off rebuild, but the cumulative result of a business that has grown into more services, more locations and more reasons for people to find them online.
+BASI Heating has been a client of ours for years. The site at [basiheating.co.uk](https://basiheating.co.uk/) is the biggest iteration of that work yet: not a one-off rebuild, but what you end up with after a business keeps growing into more services, more locations and more reasons to be found online.
 
 The brief, this time round, was scale done properly. BASI cover a real spread of work — boiler installations, repairs, annual servicing, plumbing, heating upgrades — across a real spread of locations. That kind of business has two failure modes online. Either it hides most of what it does behind a single all-purpose homepage and loses to whoever bothered to be specific, or it builds a thin "page per keyword" sprawl that reads like SEO spam and helps no one. We weren't doing either.
 

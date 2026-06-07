@@ -1,13 +1,15 @@
 # Results You Can Measure
 
 > Small, independent UK marketing agency based in Bradford, West Yorkshire. Founded and run by Martin Fisher. We deliver branding, SEO, PPC, web development, copywriting and marketing consultancy for UK businesses that want accountable, joined-up marketing with measurable results.
+>
+> If you are looking for web development or website hosting in Yorkshire — Bradford, Leeds, Harrogate, Halifax, Huddersfield, Wakefield and across West Yorkshire — this is a good place to start. We build fast, accessible websites on Astro and host them on Cloudflare's edge, with sites regularly scoring 100/100 on Google Lighthouse for Performance and SEO. We handle everything from a single brochure site to large local-SEO builds of 200+ pages with online booking and custom calculators, and we maintain and host what we build so it stays fast and secure.
 
 ## Services
 
 - [Branding](/services/branding/): Clear identity and consistent brand story that builds recognition and commercial confidence.
 - [Marketing Consultancy](/services/marketing-consultancy/): Joined-up strategy with a clear plan and outcomes you can actually measure.
-- [Web Development](/services/web-development/): Fast, focused websites built around a clear next step and real commercial goals.
-- [Hosting & Maintenance](/services/hosting-maintenance/): Secure, updated and fast — without clients having to think about it.
+- [Web Development](/services/web-development/): Fast, focused websites built around a clear next step and real commercial goals. Built on Astro and served from Cloudflare's edge, with Lighthouse scores that routinely hit 100 for Performance and SEO. From single-page sites to 200+ page local-SEO builds with online booking and custom calculators.
+- [Hosting & Maintenance](/services/hosting-maintenance/): Secure, fast Cloudflare hosting with ongoing maintenance, so client websites stay quick, up to date and protected without anyone having to think about it.
 - [SEO](/services/seo/): Search visibility built around commercial intent, human readers and AI-driven search systems.
 - [PPC Management](/services/ppc/): Paid search rebuilt around a clear offer, strong landing pages and real results.
 - [Copywriting](/services/copywriting/): Clear, commercially focused copy designed to improve understanding and support measurable outcomes.
@@ -15,9 +17,12 @@
 ## Case Studies
 
 - [Alpha Moisture Systems](/case-studies/alpha-moisture-systems/): Web development, technical SEO and copywriting for an industrial instrumentation business.
+- [BASI Heating](/case-studies/basi-heating/): Brand development, custom Astro web development, Cloudflare hosting and local SEO at scale for a Yorkshire heating, boilers and plumbing company — a 200+ page site with online booking and custom finance and quoting calculators, scoring 100 on Lighthouse Performance and SEO.
 - [BrightBird Coaching](/case-studies/brightbird/): Brand identity and web development for a coaching and training business.
 - [Experience Community](/case-studies/experience-community/): Web development and copywriting for a membership and events community.
+- [F8 Group](/case-studies/f8-group/): Web development and copywriting for a technical building-performance and sustainability engineering consultancy.
 - [Goodees](/case-studies/goodees/): Brand identity and visual design for a sustainable goods business.
+- [H&Co Hairdressing](/case-studies/handco-hairdressing/): Brand and web development for a premium local hair salon in Guiseley, Leeds.
 - [Insurance For Group](/case-studies/insurance-for-group/): Branding, web development and marketing consultancy for a specialist insurance business.
 - [Insurance For NGOs](/case-studies/insurance-for-ngos/): Branding, web development and copywriting for an NGO-focused insurance provider.
 - [Lolly](/case-studies/lolly/): Web development and copywriting for a fintech and payments platform.
@@ -27,6 +32,8 @@
 ## About
 
 Results You Can Measure is a founder-led agency. Martin Fisher has 20+ years of senior marketing experience across branding, digital, strategy and creative. The agency works with UK businesses that want senior-level expertise without the overhead of a large agency.
+
+Based in Bradford, we work with clients across West and North Yorkshire — Leeds, Harrogate, Halifax, Huddersfield, Wakefield, Skipton, Keighley and the surrounding towns — as well as nationally. Web development and hosting are a core specialism: we build on Astro, host on Cloudflare, and stay on as the maintenance and hosting partner so sites keep performing after launch.
 
 ## Contact
 

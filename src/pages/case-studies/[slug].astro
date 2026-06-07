@@ -101,6 +101,18 @@ const nextStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
   }
 
   {
+    study.data.proofMoments && study.data.quote && (
+      <section class="section case-pullquote" aria-label="Client testimonial">
+        <div class="case-pullquote-inner">
+          <span class="case-pullquote-mark" aria-hidden="true">&ldquo;</span>
+          <blockquote class="case-pullquote-text">{study.data.quote}</blockquote>
+          {study.data.quoteBy && <p class="case-pullquote-cite">{study.data.quoteBy}</p>}
+        </div>
+      </section>
+    )
+  }
+
+  {
     !study.data.proofMoments && (
       <>
         <section class="section quote-section">
