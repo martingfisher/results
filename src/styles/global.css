@@ -1649,12 +1649,6 @@ details p {
   font-weight: 800;
 }
 
-.hero-tags span {
-  border-color: rgba(255, 255, 255, 0.28);
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-}
 
 .quote-section {
   background: var(--red);
@@ -2464,6 +2458,12 @@ blockquote {
 }
 
 @media (max-width: 720px) {
+  /* Case-study scope tags are a desktop-only panel; on mobile they wrap
+     into a tall, low-value stack that just repeats the heading and body. */
+  .tag-row {
+    display: none;
+  }
+
   .site-header {
     grid-template-columns: 1fr;
     gap: 16px;

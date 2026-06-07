@@ -22,9 +22,6 @@ const nextStudy = caseStudies[(currentIndex + 1) % caseStudies.length];
       <p class="eyebrow">{study.data.sector}</p>
       <h1>{study.data.title}</h1>
       <p>{study.data.summary}</p>
-      <div class="tag-row hero-tags">
-        {study.data.services.map((service) => <span>{service}</span>)}
-      </div>
     </div>
   </section>
 
