@@ -1,4 +1,8 @@
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const md = (dir: string) => glob({ pattern: '**/[^_]*.{md,mdx}', base: `./src/content/${dir}` });
+const data = (dir: string) => glob({ pattern: '**/[^_]*.{json,yaml,yml,toml}', base: `./src/content/${dir}` });
 
 const message = z.object({
   from: z.enum(['client', 'agency']),
@@ -6,7 +10,7 @@ const message = z.object({
 });
 
 const services = defineCollection({
-  type: 'content',
+  loader: md('services'),
   schema: z.object({
     title: z.string(),
     pageSlug: z.string(),
@@ -51,7 +55,7 @@ const services = defineCollection({
 });
 
 const caseStudies = defineCollection({
-  type: 'content',
+  loader: md('caseStudies'),
   schema: z.object({
     title: z.string(),
     client: z.string(),
@@ -87,7 +91,7 @@ const caseStudies = defineCollection({
 });
 
 const faqs = defineCollection({
-  type: 'content',
+  loader: md('faqs'),
   schema: z.object({
     question: z.string(),
     answer: z.string(),
@@ -96,7 +100,7 @@ const faqs = defineCollection({
 });
 
 const blog = defineCollection({
-  type: 'content',
+  loader: md('blog'),
   schema: z.object({
     title: z.string(),
     pageSlug: z.string(),

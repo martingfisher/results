@@ -6,16 +6,17 @@
   "formsServiceSiteId": "rycm",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "node scripts/emit-forms-health.mjs",
+    "prebuild": "node scripts/version-guard.mjs && node scripts/emit-forms-health.mjs",
     "build": "astro check && astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "check:versions": "node scripts/version-guard.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/react": "^5.0.5",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/react": "^5.0.0",
+    "@astrojs/sitemap": "^3.6.0",
     "@fontsource/dm-sans": "^5.2.8",
-    "astro": "^5.15.6",
+    "astro": "^6.0.0",
     "gsap": "^3.15.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
@@ -25,5 +26,8 @@
   "devDependencies": {
     "@types/react": "^19.2.15",
     "@types/react-dom": "^19.2.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
   }
 }
